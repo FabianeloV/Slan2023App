@@ -24,7 +24,8 @@ fun Main(){
     NavHost(navController = navController, startDestination = "SplashScreen"){
         composable(route = "SplashScreen"){ Splash(navController)}
         composable(route = "LoginScreen"){ LoginScreen(navController)}
-        composable(route = "RegisterScreen"){ RegisterScreen()}
+        composable(route = "RegisterScreen"){ RegisterScreen(navController)}
+        composable(route = "HomeScreen"){ HomeScreen()}
     }
 
 }

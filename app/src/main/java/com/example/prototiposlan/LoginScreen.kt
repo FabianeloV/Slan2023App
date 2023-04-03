@@ -39,7 +39,7 @@ fun LoginScreen(navController: NavController) {
             Spacer(modifier = Modifier.padding(15.dp))
         password("Contraseña"){ Icon(imageVector = Icons.Outlined.Lock, contentDescription = null)}
             Spacer(modifier = Modifier.padding(15.dp))
-        loginButton("INGRESAR", darkblue)
+        loginButton("INGRESAR", darkblue,navController)
             Spacer(modifier = Modifier.padding(15.dp))
         LoginTitle(text = "O regístrate con", font = 15)
             Spacer(modifier = Modifier.padding(15.dp))
@@ -90,9 +90,9 @@ fun password(label:String, Icon: @Composable (() -> Unit)) {
 }
 
 @Composable
-fun loginButton(text: String, color: Color) {
+fun loginButton(text: String, color: Color, navController: NavController) {
     Row() {
-        OutlinedButton(onClick = { /*TODO*/ },
+        OutlinedButton(onClick = { navController.navigate(route = "HomeScreen") },
             colors = ButtonDefaults.buttonColors(backgroundColor = color),
             shape = shapes.small) {
             Text(text = text,

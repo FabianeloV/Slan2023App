@@ -17,10 +17,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.prototiposlan.ui.theme.darkred
 
 @Composable
-fun RegisterScreen(){
+fun RegisterScreen(navController: NavController){
     Column(modifier = Modifier
         .fillMaxSize()
         .background(color = Color.White)
@@ -37,9 +38,8 @@ fun RegisterScreen(){
         Spacer(modifier = Modifier.padding(25.dp))
             googleRegisterLogo()
         Spacer(modifier = Modifier.padding(25.dp))
-            loginButton(text = "CREAR CUENTA", color = darkred)
+            loginButton(text = "CREAR CUENTA", color = darkred, navController)
     }
-
 }
 
 @Composable
