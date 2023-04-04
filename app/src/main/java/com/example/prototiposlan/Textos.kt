@@ -13,4 +13,8 @@ public class Textos {
             "lugar, en sus accidentes\n" +
             "geográficos, se parece mucho a\n" +
             "la ciudad española."
+
+    val textoUCuenca = "Creada por decreto legislativo del 15 de octubre de 1867 bajo la presidencia de Jerónimo Carrión y Palacio, la Universidad de Cuenca se denominó inicialmente Corporación Universitaria del Azuay con las facultades de Jurisprudencia, de Medicina y Farmacia, de Filosofía y Literatura y de Teología. Su primer rector fue el abogado y político ecuatoriano Benigno Malo.\n" +
+            "\n" +
+            "En 1868, se crearon las cátedras de Química Industrial, Botánica, Zoología, Geología, Ingeniería, Litografía y Grabado, bajo la conducción de profesores alemanes. A raíz de esto, se creó en 1890 la Facultad de Ciencias. En 1897, después de la Revolución Liberal, se reconoció a la entonces Corporación Universitaria del Azuay como Universidad del Azuay."
 }
