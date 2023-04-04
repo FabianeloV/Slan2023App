@@ -3,14 +3,12 @@ package com.example.prototiposlan
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.outlined.AccountBox
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -18,19 +16,34 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.prototiposlan.ui.theme.darkblue
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 @Preview
 @Composable
 fun HomeScreen() {
-    Column() {
-        topBar("Home page")
+    val scaffoldState = rememberScaffoldState()
+    val scope = rememberCoroutineScope()
+    val LatMenuItem = listOf(
+        LatMenuScreens.Usuario,
+        LatMenuScreens.Muro,
+        LatMenuScreens.Presentaciones,
+        LatMenuScreens.Mapa
+    )
+
+    Scaffold(
+        scaffoldState = scaffoldState,
+        topBar = { topBar(title = "HOME PAGE", scaffoldState, scope) },
+        drawerContent = { DrawerMenu(menuItems = LatMenuItem)}
+    ) {
         HomeInfo()
+
     }
 
 }
 
 @Composable
-fun topBar(title: String) {
+fun topBar(title: String, scaffoldState: ScaffoldState, scope: CoroutineScope) {
     TopAppBar(
         title = {
             Text(title,
@@ -41,7 +54,7 @@ fun topBar(title: String) {
                     .padding(start = 55.dp))
         },
         navigationIcon = {
-            IconButton(onClick = { /* doSomething() */ }) {
+            IconButton(onClick = { scope.launch { scaffoldState.drawerState.open() } }) {
                 Icon(Icons.Filled.Menu, contentDescription = null)
             }
         },
@@ -55,6 +68,28 @@ fun topBar(title: String) {
             }
         }
     )
+}
+
+@Composable
+fun DrawerMenu(menuItems: List<LatMenuScreens>) {
+    Column() {
+        menuItems.forEach { item ->
+
+        }
+    }
+}
+
+@Composable
+fun DrawerItem(item: LatMenuScreens) {
+    Row(modifier = Modifier
+        .fillMaxWidth()
+        .padding(10.dp)
+        .height(56.dp)) {
+        
+            Image(painter = painterResource(id = item.icon), contentDescription = item.title)
+            Spacer(modifier = Modifier.padding(horizontal = 15.dp))
+            Text(text = item.title, fontFamily = FontFamily.Serif, color = Color.White)
+    }
 }
 
 @Composable
