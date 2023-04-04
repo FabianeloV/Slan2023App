@@ -11,10 +11,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.prototiposlan.ui.theme.darkblue
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -34,7 +36,7 @@ fun HomeScreen() {
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = { topBar(title = "HOME PAGE", scaffoldState, scope) },
-        drawerContent = { DrawerMenu(menuItems = LatMenuItem)}
+        drawerContent = { DrawerMenu(menuItems = LatMenuItem) }
     ) {
         HomeInfo()
 
@@ -46,12 +48,14 @@ fun HomeScreen() {
 fun topBar(title: String, scaffoldState: ScaffoldState, scope: CoroutineScope) {
     TopAppBar(
         title = {
-            Text(title,
+            Text(
+                title,
                 color = darkblue,
                 fontFamily = FontFamily.Serif,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start = 55.dp))
+                    .padding(start = 55.dp)
+            )
         },
         navigationIcon = {
             IconButton(onClick = { scope.launch { scaffoldState.drawerState.open() } }) {
@@ -62,9 +66,11 @@ fun topBar(title: String, scaffoldState: ScaffoldState, scope: CoroutineScope) {
         elevation = 0.dp,
         actions = {
             IconButton(onClick = { /* doSomething() */ }) {
-                Image(painter = painterResource(id = R.drawable.usericon),
+                Image(
+                    painter = painterResource(id = R.drawable.usericon),
                     contentDescription = null,
-                    modifier = Modifier.padding(all = 1.dp))
+                    modifier = Modifier.padding(all = 1.dp)
+                )
             }
         }
     )
@@ -72,23 +78,34 @@ fun topBar(title: String, scaffoldState: ScaffoldState, scope: CoroutineScope) {
 
 @Composable
 fun DrawerMenu(menuItems: List<LatMenuScreens>) {
-    Column() {
-        menuItems.forEach { item ->
+    Column(modifier = Modifier.padding(top = 20.dp)) {
+        Image(
+            painter = painterResource(id = R.drawable.fonotipo),
+            contentDescription = null,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(110.dp),
+            contentScale = ContentScale.FillWidth
+        )
 
+        menuItems.forEach { item ->
+            DrawerItem(item = item)
         }
     }
 }
 
 @Composable
 fun DrawerItem(item: LatMenuScreens) {
-    Row(modifier = Modifier
-        .fillMaxWidth()
-        .padding(10.dp)
-        .height(56.dp)) {
-        
-            Image(painter = painterResource(id = item.icon), contentDescription = item.title)
-            Spacer(modifier = Modifier.padding(horizontal = 15.dp))
-            Text(text = item.title, fontFamily = FontFamily.Serif, color = Color.White)
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(10.dp)
+            .height(56.dp)
+    ) {
+        Spacer(modifier = Modifier.padding(horizontal = 15.dp))
+        Image(painter = painterResource(id = item.icon), contentDescription = item.title, modifier = Modifier.size(28.dp))
+        Spacer(modifier = Modifier.padding(horizontal = 10.dp))
+        Text(text = item.title, fontFamily = FontFamily.Serif, color = darkblue, fontSize = 24.sp)
     }
 }
 
@@ -99,8 +116,10 @@ fun HomeInfo() {
 
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         item {
-            Row(modifier = Modifier
-                .fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(), horizontalArrangement = Arrangement.Center
+            ) {
                 Image(
                     painter = painterResource(id = R.drawable.cuencaciudad),
                     contentDescription = null,
@@ -114,16 +133,20 @@ fun HomeInfo() {
         }
 
         item {
-            Row(modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 10.dp),
-                horizontalArrangement = Arrangement.SpaceBetween) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 10.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
                 Text(
                     text = textos.textoCuenca, fontFamily = FontFamily.Serif
                 )
-                Image(painter = painterResource(id = R.drawable.escudocuenca),
+                Image(
+                    painter = painterResource(id = R.drawable.escudocuenca),
                     contentDescription = null,
-                    modifier = Modifier.size(width = 200.dp, height = 200.dp))
+                    modifier = Modifier.size(width = 200.dp, height = 200.dp)
+                )
             }
         }
 
@@ -132,17 +155,21 @@ fun HomeInfo() {
         }
 
         item {
-            Row(modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 10.dp),
-                horizontalArrangement = Arrangement.Center) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 10.dp),
+                horizontalArrangement = Arrangement.Center
+            ) {
 
-                Image(painter = painterResource(id = R.drawable.ucuenca),
+                Image(
+                    painter = painterResource(id = R.drawable.ucuenca),
                     contentDescription = null,
                     modifier = Modifier
                         .fillMaxWidth()
                         .size(width = 335.dp, height = 235.dp)
-                        .padding(end = 10.dp))
+                        .padding(end = 10.dp)
+                )
             }
         }
 
@@ -151,9 +178,11 @@ fun HomeInfo() {
         }
 
         item {
-            Text(text = textos.textoUCuenca,
+            Text(
+                text = textos.textoUCuenca,
                 fontFamily = FontFamily.Serif,
-                modifier = Modifier.padding(all = 10.dp))
+                modifier = Modifier.padding(all = 10.dp)
+            )
         }
     }
 }
