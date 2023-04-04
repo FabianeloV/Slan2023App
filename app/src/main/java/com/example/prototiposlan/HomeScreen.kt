@@ -49,7 +49,9 @@ fun topBar(title: String) {
         elevation = 0.dp,
         actions = {
             IconButton(onClick = { /* doSomething() */ }) {
-                Icon(Icons.Outlined.AccountBox, contentDescription = "Localized description")
+                Image(painter = painterResource(id = R.drawable.usericon),
+                    contentDescription = null,
+                    modifier = Modifier.padding(all = 1.dp))
             }
         }
     )
