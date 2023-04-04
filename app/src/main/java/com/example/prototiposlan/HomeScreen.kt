@@ -102,7 +102,10 @@ fun HomeInfo() {
 
                 Image(painter = painterResource(id = R.drawable.ucuenca),
                     contentDescription = null,
-                    modifier = Modifier.fillMaxWidth().size(width = 335.dp, height = 235.dp).padding(end = 10.dp))
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .size(width = 335.dp, height = 235.dp)
+                        .padding(end = 10.dp))
             }
         }
 
@@ -110,7 +113,11 @@ fun HomeInfo() {
             Spacer(modifier = Modifier.padding(top = 20.dp))
         }
 
-        item { Text(text = textos.textoUCuenca, fontFamily = FontFamily.Serif) }
+        item {
+            Text(text = textos.textoUCuenca,
+                fontFamily = FontFamily.Serif,
+                modifier = Modifier.padding(all = 10.dp))
+        }
     }
 }
 
