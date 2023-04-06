@@ -1,9 +1,11 @@
 package com.example.prototiposlan
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
+import androidx.compose.material.ContentAlpha.medium
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.outlined.AccountBox
@@ -17,13 +19,14 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.prototiposlan.ui.theme.darkblue
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Preview
+
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavController) {
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
     val LatMenuItem = listOf(
@@ -36,10 +39,9 @@ fun HomeScreen() {
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = { topBar(title = "HOME PAGE", scaffoldState, scope) },
-        drawerContent = { DrawerMenu(menuItems = LatMenuItem) }
+        drawerContent = { DrawerMenu(menuItems = LatMenuItem, navController) }
     ) {
         HomeInfo()
-
     }
 
 }
@@ -77,7 +79,7 @@ fun topBar(title: String, scaffoldState: ScaffoldState, scope: CoroutineScope) {
 }
 
 @Composable
-fun DrawerMenu(menuItems: List<LatMenuScreens>) {
+fun DrawerMenu(menuItems: List<LatMenuScreens>, navController: NavController) {
     Column(modifier = Modifier.padding(top = 20.dp)) {
         Image(
             painter = painterResource(id = R.drawable.fonotipo),
@@ -89,23 +91,33 @@ fun DrawerMenu(menuItems: List<LatMenuScreens>) {
         )
 
         menuItems.forEach { item ->
-            DrawerItem(item = item)
+            DrawerItem(item = item, navController)
         }
     }
 }
 
 @Composable
-fun DrawerItem(item: LatMenuScreens) {
+fun DrawerItem(item: LatMenuScreens,navController: NavController) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(10.dp)
             .height(56.dp)
     ) {
-        Spacer(modifier = Modifier.padding(horizontal = 15.dp))
-        Image(painter = painterResource(id = item.icon), contentDescription = item.title, modifier = Modifier.size(28.dp))
-        Spacer(modifier = Modifier.padding(horizontal = 10.dp))
-        Text(text = item.title, fontFamily = FontFamily.Serif, color = darkblue, fontSize = 24.sp)
+        OutlinedButton(onClick = { navController.navigate(route = item.route) },
+            modifier = Modifier.fillMaxSize(),
+            colors = ButtonDefaults.buttonColors(backgroundColor = Color.Transparent),
+            border = BorderStroke(2.dp, darkblue)
+        ) {
+            Spacer(modifier = Modifier.padding(horizontal = 12.dp))
+            Image(painter = painterResource(id = item.icon),
+                contentDescription = item.title,
+                modifier = Modifier.size(28.dp))
+            Spacer(modifier = Modifier.padding(horizontal = 8.dp))
+            Text(text = item.title, fontFamily = FontFamily.Serif, color = darkblue, fontSize = 22.sp)
+        }
+
+
     }
 }
 

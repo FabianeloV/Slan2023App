@@ -25,7 +25,7 @@ fun Main(){
         composable(route = "SplashScreen"){ Splash(navController)}
         composable(route = "LoginScreen"){ LoginScreen(navController)}
         composable(route = "RegisterScreen"){ RegisterScreen(navController)}
-        composable(route = "HomeScreen"){ HomeScreen()}
+        composable(route = "HomeScreen"){ HomeScreen(navController)}
     }
 
 }
