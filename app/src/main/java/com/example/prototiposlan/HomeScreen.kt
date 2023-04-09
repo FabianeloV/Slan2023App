@@ -5,10 +5,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
-import androidx.compose.material.ContentAlpha.medium
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.outlined.AccountBox
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
@@ -16,7 +14,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -29,7 +26,7 @@ import kotlinx.coroutines.launch
 fun HomeScreen(navController: NavController) {
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
-    val LatMenuItem = listOf(
+    val latMenuItem = listOf(
         LatMenuScreens.Usuario,
         LatMenuScreens.Muro,
         LatMenuScreens.Presentaciones,
@@ -38,8 +35,8 @@ fun HomeScreen(navController: NavController) {
 
     Scaffold(
         scaffoldState = scaffoldState,
-        topBar = { topBar(title = "HOME PAGE", scaffoldState, scope) },
-        drawerContent = { DrawerMenu(menuItems = LatMenuItem, navController) }
+        topBar = { TopBar(title = "HOME PAGE", scaffoldState, scope) },
+        drawerContent = { DrawerMenu(menuItems = latMenuItem, navController) }
     ) {
         HomeInfo()
     }
@@ -47,7 +44,7 @@ fun HomeScreen(navController: NavController) {
 }
 
 @Composable
-fun topBar(title: String, scaffoldState: ScaffoldState, scope: CoroutineScope) {
+fun TopBar(title: String, scaffoldState: ScaffoldState, scope: CoroutineScope) {
     TopAppBar(
         title = {
             Text(

@@ -2,27 +2,21 @@ package com.example.prototiposlan
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.outlined.ArrowBack
-import androidx.compose.material.icons.outlined.Lock
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.prototiposlan.ui.theme.Shapes
 import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.ui.theme.darkred
 
@@ -40,13 +34,13 @@ fun UserScreen(navController: NavController) {
             StepsPerDay.Sabado,
             StepsPerDay.Domingo
         )
-        var pasosLunes:Int = StepsPerDay.Lunes.steps
-        var pasosMartes:Int = StepsPerDay.Martes.steps
-        var pasosMiercoles:Int = StepsPerDay.Miercoles.steps
-        var pasosJueves:Int = StepsPerDay.Jueves.steps
-        var pasosViernes:Int = StepsPerDay.Viernes.steps
-        var pasosSabado:Int = StepsPerDay.Sabado.steps
-        var pasosDomingo:Int = StepsPerDay.Domingo.steps
+        val pasosLunes:Int = StepsPerDay.Lunes.steps
+        val pasosMartes:Int = StepsPerDay.Martes.steps
+        val pasosMiercoles:Int = StepsPerDay.Miercoles.steps
+        val pasosJueves:Int = StepsPerDay.Jueves.steps
+        val pasosViernes:Int = StepsPerDay.Viernes.steps
+        val pasosSabado:Int = StepsPerDay.Sabado.steps
+        val pasosDomingo:Int = StepsPerDay.Domingo.steps
 
         val pasos = pasosLunes + pasosMartes + pasosMiercoles + pasosJueves + pasosViernes + pasosSabado + pasosDomingo
 
@@ -106,7 +100,7 @@ fun UserDialog(pasos: String, days: List<StepsPerDay>) {
 
             Spacer(modifier = Modifier.padding(2.dp))
 
-            Row() {
+            Row {
                 Image(
                     painter = painterResource(id = R.drawable.baseline_directions_run_24),
                     contentDescription = "Runner", modifier = Modifier.size(width = 44.dp, height = 44.dp)
