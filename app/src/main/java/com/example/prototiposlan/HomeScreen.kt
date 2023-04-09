@@ -65,32 +65,20 @@ fun topBar(title: String, scaffoldState: ScaffoldState, scope: CoroutineScope) {
             }
         },
         backgroundColor = Color.Transparent,
-        elevation = 0.dp,
-        actions = {
-            IconButton(onClick = { /* doSomething() */ }) {
-                Image(
-                    painter = painterResource(id = R.drawable.usericon),
-                    contentDescription = null,
-                    modifier = Modifier.padding(all = 1.dp)
-                )
-            }
-        }
+        elevation = 1.dp
     )
 }
 
 @Composable
 fun DrawerMenu(menuItems: List<LatMenuScreens>, navController: NavController) {
-    Column(modifier = Modifier.padding(top = 20.dp)) {
+    Column(modifier = Modifier.padding(top = 40.dp, bottom = 40.dp)) {
         Image(
             painter = painterResource(id = R.drawable.fonotipo),
             contentDescription = null,
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(110.dp),
+            modifier = Modifier.fillMaxWidth().height(100.dp),
             contentScale = ContentScale.FillWidth
         )
-
-        menuItems.forEach { item ->
+        menuItems.forEach{ item ->
             DrawerItem(item = item, navController)
         }
     }
@@ -101,13 +89,13 @@ fun DrawerItem(item: LatMenuScreens,navController: NavController) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(10.dp)
+            .padding(top = 30.dp, start = 10.dp, end = 10.dp)
             .height(56.dp)
     ) {
         OutlinedButton(onClick = { navController.navigate(route = item.route) },
             modifier = Modifier.fillMaxSize(),
             colors = ButtonDefaults.buttonColors(backgroundColor = Color.Transparent),
-            border = BorderStroke(2.dp, darkblue)
+            border = BorderStroke(5.dp, darkblue)
         ) {
             Spacer(modifier = Modifier.padding(horizontal = 12.dp))
             Image(painter = painterResource(id = item.icon),
@@ -116,8 +104,6 @@ fun DrawerItem(item: LatMenuScreens,navController: NavController) {
             Spacer(modifier = Modifier.padding(horizontal = 8.dp))
             Text(text = item.title, fontFamily = FontFamily.Serif, color = darkblue, fontSize = 22.sp)
         }
-
-
     }
 }
 
