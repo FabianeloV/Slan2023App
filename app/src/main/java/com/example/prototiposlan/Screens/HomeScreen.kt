@@ -1,4 +1,4 @@
-package com.example.prototiposlan
+package com.example.prototiposlan.Screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -17,7 +17,9 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.prototiposlan.Textos
 import com.example.prototiposlan.ui.theme.darkblue
+import com.example.prototiposlan.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -36,11 +38,9 @@ fun HomeScreen(navController: NavController) {
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = { TopBar(title = "HOME PAGE", scaffoldState, scope) },
-        drawerContent = { DrawerMenu(menuItems = latMenuItem, navController) }
-    ) {
-        HomeInfo()
-    }
-
+        drawerContent = { DrawerMenu(menuItems = latMenuItem, navController) },
+        content = ({ HomeInfo()})
+        )
 }
 
 @Composable
@@ -72,7 +72,9 @@ fun DrawerMenu(menuItems: List<LatMenuScreens>, navController: NavController) {
         Image(
             painter = painterResource(id = R.drawable.fonotipo),
             contentDescription = null,
-            modifier = Modifier.fillMaxWidth().height(100.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(100.dp),
             contentScale = ContentScale.FillWidth
         )
         menuItems.forEach{ item ->
@@ -82,7 +84,7 @@ fun DrawerMenu(menuItems: List<LatMenuScreens>, navController: NavController) {
 }
 
 @Composable
-fun DrawerItem(item: LatMenuScreens,navController: NavController) {
+fun DrawerItem(item: LatMenuScreens, navController: NavController) {
     Row(
         modifier = Modifier
             .fillMaxWidth()

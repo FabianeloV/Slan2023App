@@ -1,4 +1,4 @@
-package com.example.prototiposlan
+package com.example.prototiposlan.Screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -17,35 +17,37 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.prototiposlan.StepsPerDay
 import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.ui.theme.darkred
+import com.example.prototiposlan.R
 
 @Composable
 fun UserScreen(navController: NavController) {
+
+    val stepsDays = listOf(
+        StepsPerDay.Lunes,
+        StepsPerDay.Martes,
+        StepsPerDay.Miercoles,
+        StepsPerDay.Jueves,
+        StepsPerDay.Viernes,
+        StepsPerDay.Sabado,
+        StepsPerDay.Domingo
+    )
+    val pasosLunes:Int = StepsPerDay.Lunes.steps
+    val pasosMartes:Int = StepsPerDay.Martes.steps
+    val pasosMiercoles:Int = StepsPerDay.Miercoles.steps
+    val pasosJueves:Int = StepsPerDay.Jueves.steps
+    val pasosViernes:Int = StepsPerDay.Viernes.steps
+    val pasosSabado:Int = StepsPerDay.Sabado.steps
+    val pasosDomingo:Int = StepsPerDay.Domingo.steps
+
+    val pasos = pasosLunes + pasosMartes + pasosMiercoles + pasosJueves + pasosViernes + pasosSabado + pasosDomingo
+
     Scaffold(
-        topBar = { GeneralTopBar(title = "USUARIO", navController = navController) }
-    ) {
-        val stepsDays = listOf(
-            StepsPerDay.Lunes,
-            StepsPerDay.Martes,
-            StepsPerDay.Miercoles,
-            StepsPerDay.Jueves,
-            StepsPerDay.Viernes,
-            StepsPerDay.Sabado,
-            StepsPerDay.Domingo
-        )
-        val pasosLunes:Int = StepsPerDay.Lunes.steps
-        val pasosMartes:Int = StepsPerDay.Martes.steps
-        val pasosMiercoles:Int = StepsPerDay.Miercoles.steps
-        val pasosJueves:Int = StepsPerDay.Jueves.steps
-        val pasosViernes:Int = StepsPerDay.Viernes.steps
-        val pasosSabado:Int = StepsPerDay.Sabado.steps
-        val pasosDomingo:Int = StepsPerDay.Domingo.steps
-
-        val pasos = pasosLunes + pasosMartes + pasosMiercoles + pasosJueves + pasosViernes + pasosSabado + pasosDomingo
-
-        UserDialog(pasos = pasos.toString(), stepsDays)
-    }
+        topBar = { GeneralTopBar(title = "USUARIO", navController = navController) },
+        content = ({UserDialog(pasos = pasos.toString(), stepsDays)})
+    )
 }
 
 @Composable

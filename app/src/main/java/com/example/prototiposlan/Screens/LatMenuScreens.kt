@@ -1,4 +1,7 @@
-package com.example.prototiposlan
+package com.example.prototiposlan.Screens
+
+import com.example.prototiposlan.R
+
 
 sealed class LatMenuScreens(val icon:Int,val title:String, val route:String) {
 

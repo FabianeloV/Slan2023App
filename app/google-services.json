@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "638724186254",
+    "project_id": "slan2023",
+    "storage_bucket": "slan2023.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:638724186254:android:6559d70d26257fa0f7e9df",
+        "android_client_info": {
+          "package_name": "com.example.prototiposlan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "638724186254-o4r096l2csekbsgdjf6u33pm63b2iqbi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7whSTSbBE-kzY_C9Wfh8Mw3sLZO_NLsQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "638724186254-o4r096l2csekbsgdjf6u33pm63b2iqbi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

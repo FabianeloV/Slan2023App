@@ -1,4 +1,4 @@
-package com.example.prototiposlan
+package com.example.prototiposlan.Screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -28,22 +28,22 @@ fun RegisterScreen(navController: NavController){
         .padding(top = 85.dp),
         horizontalAlignment = Alignment.CenterHorizontally) {
 
-            registerTitle()
+            RegisterTitle()
         Spacer(modifier = Modifier.padding(25.dp))
-            mail(){ Icon(imageVector = Icons.Outlined.AccountBox, contentDescription = null) }
+            Mail(){ Icon(imageVector = Icons.Outlined.AccountBox, contentDescription = null) }
         Spacer(modifier = Modifier.padding(25.dp))
-            password("Contraseña"){ Icon(imageVector = Icons.Outlined.Lock, contentDescription = null)}
+            Password("Contraseña"){ Icon(imageVector = Icons.Outlined.Lock, contentDescription = null)}
         Spacer(modifier = Modifier.padding(25.dp))
-            password("Repetir contraseña"){ Icon(imageVector = Icons.Outlined.Lock, contentDescription = null)}
+            Password("Repetir contraseña"){ Icon(imageVector = Icons.Outlined.Lock, contentDescription = null)}
         Spacer(modifier = Modifier.padding(25.dp))
-            googleRegisterLogo()
+            GoogleRegisterLogo()
         Spacer(modifier = Modifier.padding(25.dp))
-            loginButton(text = "CREAR CUENTA", color = darkred, navController)
+            LoginButton(text = "CREAR CUENTA", color = darkred, navController)
     }
 }
 
 @Composable
-fun registerTitle(){
+fun RegisterTitle(){
     Text(text = "Crear una cuenta", color = darkred, fontSize = 40.sp, fontFamily = FontFamily.Serif)
 }
 

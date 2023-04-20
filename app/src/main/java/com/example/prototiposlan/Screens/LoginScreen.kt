@@ -1,4 +1,4 @@
-package com.example.prototiposlan
+package com.example.prototiposlan.Screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.MaterialTheme.shapes
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.AccountBox
 import androidx.compose.material.icons.outlined.Email
 import androidx.compose.material.icons.outlined.Lock
 import androidx.compose.runtime.*
@@ -21,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.prototiposlan.ui.theme.darkblue
+import com.example.prototiposlan.R
 
 
 @Composable
@@ -31,26 +31,26 @@ fun LoginScreen(navController: NavController) {
         .padding(top = 40.dp),
         horizontalAlignment = Alignment.CenterHorizontally) {
 
-        loginLogo(id = R.drawable.usericon, width = 150, height = 150)
+        LoginLogo(id = R.drawable.usericon, width = 150, height = 150)
             Spacer(modifier = Modifier.padding(15.dp))
         LoginTitle("INGRESAR", font = 35)
             Spacer(modifier = Modifier.padding(20.dp))
-        mail(){ Icon(imageVector = Icons.Outlined.Email, contentDescription = null)}
+        Mail(){ Icon(imageVector = Icons.Outlined.Email, contentDescription = null)}
             Spacer(modifier = Modifier.padding(15.dp))
-        password("Contraseña"){ Icon(imageVector = Icons.Outlined.Lock, contentDescription = null)}
+        Password("Contraseña"){ Icon(imageVector = Icons.Outlined.Lock, contentDescription = null)}
             Spacer(modifier = Modifier.padding(15.dp))
-        loginButton("INGRESAR", darkblue,navController)
+        LoginButton("INGRESAR", darkblue,navController)
             Spacer(modifier = Modifier.padding(15.dp))
         LoginTitle(text = "O regístrate con", font = 15)
             Spacer(modifier = Modifier.padding(15.dp))
-        googleRegisterLogo()
+        GoogleRegisterLogo()
             Spacer(modifier = Modifier.padding(15.dp))
-        createAccButton(navController)
+        CreateAccButton(navController)
     }
 }
 
 @Composable
-fun loginLogo(id: Int, width: Int, height: Int) {
+fun LoginLogo(id: Int, width: Int, height: Int) {
     Image(painter = painterResource(id = id),
         contentDescription = "Logo usuario",
         modifier = Modifier.size(width = width.dp, height = height.dp))
@@ -63,7 +63,7 @@ fun LoginTitle(text: String, font: Int) {
 
 
 @Composable
-fun mail(Icon: @Composable (() -> Unit)) {
+fun Mail(Icon: @Composable (() -> Unit)) {
     var mail by remember { mutableStateOf("") }
 
     OutlinedTextField(
@@ -76,7 +76,7 @@ fun mail(Icon: @Composable (() -> Unit)) {
 }
 
 @Composable
-fun password(label:String, Icon: @Composable (() -> Unit)) {
+fun Password(label:String, Icon: @Composable (() -> Unit)) {
     var pasword by remember { mutableStateOf("") }
 
     OutlinedTextField(
@@ -90,7 +90,7 @@ fun password(label:String, Icon: @Composable (() -> Unit)) {
 }
 
 @Composable
-fun loginButton(text: String, color: Color, navController: NavController) {
+fun LoginButton(text: String, color: Color, navController: NavController) {
     Row() {
         OutlinedButton(onClick = { navController.navigate(route = "HomeScreen") },
             colors = ButtonDefaults.buttonColors(backgroundColor = color),
@@ -110,7 +110,7 @@ fun loginButton(text: String, color: Color, navController: NavController) {
 }
 
 @Composable
-fun createAccButton(navController: NavController) {
+fun CreateAccButton(navController: NavController) {
     OutlinedButton(onClick = { navController.navigate("RegisterScreen") },
         shape = shapes.small,
         border = BorderStroke(2.dp, darkblue)) {
@@ -122,7 +122,7 @@ fun createAccButton(navController: NavController) {
 }
 
 @Composable
-fun googleRegisterLogo() {
+fun GoogleRegisterLogo() {
     IconButton(onClick = { /*TODO*/ }) {
         Image(painter = painterResource(id = R.drawable.google),
             contentDescription = "logo google",
