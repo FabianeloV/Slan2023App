@@ -27,8 +27,8 @@ fun Main(){
         composable(route = "RegisterScreen"){ RegisterScreen(navController) }
         composable(route = "HomeScreen"){ HomeScreen(navController) }
         composable(route = "UserScreen"){ UserScreen(navController) }
+        composable(route = "PresentationsScreen"){ PresentationsScreen(navController)}
     }
-
 }
 
 
