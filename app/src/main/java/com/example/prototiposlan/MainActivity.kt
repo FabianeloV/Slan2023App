@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.prototiposlan.Screens.*
 
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +21,8 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Main(){
-   val navController = rememberNavController()
+    val navController = rememberNavController()
+    val singInParameters= SingInValues.SingInParameters
     NavHost(navController = navController, startDestination = "SplashScreen"){
         composable(route = "SplashScreen"){ Splash(navController) }
         composable(route = "LoginScreen"){ LoginScreen(navController) }

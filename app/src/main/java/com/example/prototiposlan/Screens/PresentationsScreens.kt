@@ -4,7 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
+import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -36,7 +36,7 @@ fun PresentationContent(){
 
 @Composable
 fun UploadButton(){
-    Button(onClick = { /*TODO*/ }, modifier = Modifier.background(darkblue)) {
+    OutlinedButton(onClick = { /*TODO*/ }, modifier = Modifier.background(darkblue)) {
         Text(text = "SUBIR PONENCIA", fontFamily = FontFamily.Serif, fontSize = 15.sp)
     }
 }

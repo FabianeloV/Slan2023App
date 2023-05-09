@@ -12,6 +12,7 @@ import androidx.compose.material.icons.outlined.Lock
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
@@ -21,13 +22,22 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.R
+import com.example.prototiposlan.ui.theme.darkred
 
 
 @Composable
 fun LoginScreen(navController: NavController) {
+
+    val gradient = Brush.verticalGradient(
+        0.77f to Color.White,
+        1.0f to darkred,
+        startY = 0.0f,
+        endY = 2500.0f
+    )
+
     Column(modifier = Modifier
         .fillMaxSize()
-        .background(color = Color.White)
+        .background(gradient)
         .padding(top = 40.dp),
         horizontalAlignment = Alignment.CenterHorizontally) {
 
@@ -37,7 +47,7 @@ fun LoginScreen(navController: NavController) {
             Spacer(modifier = Modifier.padding(20.dp))
         Mail(){ Icon(imageVector = Icons.Outlined.Email, contentDescription = null)}
             Spacer(modifier = Modifier.padding(15.dp))
-        Password("Contraseña"){ Icon(imageVector = Icons.Outlined.Lock, contentDescription = null)}
+        Password{ Icon(imageVector = Icons.Outlined.Lock, contentDescription = null)}
             Spacer(modifier = Modifier.padding(15.dp))
         LoginButton("INGRESAR", darkblue,navController)
             Spacer(modifier = Modifier.padding(15.dp))
@@ -76,14 +86,14 @@ fun Mail(Icon: @Composable (() -> Unit)) {
 }
 
 @Composable
-fun Password(label:String, Icon: @Composable (() -> Unit)) {
+fun Password(Icon: @Composable (() -> Unit)) {
     var pasword by remember { mutableStateOf("") }
 
     OutlinedTextField(
         leadingIcon = Icon,
         value = pasword,
         onValueChange = { pasword = it },
-        label = { Text(label) },
+        label = { Text("Contraseña") },
         shape = shapes.small,
         visualTransformation = PasswordVisualTransformation()
     )
@@ -103,8 +113,8 @@ fun LoginButton(text: String, color: Color, navController: NavController) {
             Spacer(modifier = Modifier.padding(5.dp))
 
             Image(painter = painterResource(id = R.drawable.ic_baseline_arrow_forward_ios_24),
-                contentDescription = null)
-
+                contentDescription = null
+            )
         }
     }
 }
