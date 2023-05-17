@@ -1,4 +1,4 @@
-package com.example.prototiposlan.Screens
+package com.example.prototiposlan.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -8,6 +8,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Email
 import androidx.compose.material.icons.outlined.Lock
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -27,9 +28,9 @@ import com.google.firebase.auth.FirebaseAuth
 @Composable
 fun RegisterScreen(navController: NavController) {
 
-    var mail by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-    var repeatedPassword by remember { mutableStateOf("") }
+    val mail = rememberSaveable { mutableStateOf("") }
+    val password = rememberSaveable { mutableStateOf("") }
+    val repeatedPassword = rememberSaveable { mutableStateOf("") }
     val passwordAlertValue = remember { mutableStateOf(false) }
     val mailAlertValue = remember { mutableStateOf(false) }
     val test = remember { mutableStateOf(false) }
@@ -57,8 +58,8 @@ fun RegisterScreen(navController: NavController) {
 
         OutlinedTextField(
             leadingIcon = { Icon(imageVector = Icons.Outlined.Email, contentDescription = null) },
-            value = mail,
-            onValueChange = { mail = it },
+            value = mail.value,
+            onValueChange = { mail.value = it },
             label = { Text("Correo electronico") },
             shape = MaterialTheme.shapes.small,
         )
@@ -67,8 +68,8 @@ fun RegisterScreen(navController: NavController) {
 
         OutlinedTextField(
             leadingIcon = { Icon(imageVector = Icons.Outlined.Lock, contentDescription = null) },
-            value = password,
-            onValueChange = { password = it },
+            value = password.value,
+            onValueChange = { password.value = it },
             label = { Text("Contraseña") },
             shape = MaterialTheme.shapes.small,
             visualTransformation = PasswordVisualTransformation()
@@ -78,8 +79,8 @@ fun RegisterScreen(navController: NavController) {
 
         OutlinedTextField(
             leadingIcon = { Icon(imageVector = Icons.Outlined.Lock, contentDescription = null) },
-            value = repeatedPassword,
-            onValueChange = { repeatedPassword = it },
+            value = repeatedPassword.value,
+            onValueChange = { repeatedPassword.value = it },
             label = { Text("Repetir contraseña") },
             shape = MaterialTheme.shapes.small,
             visualTransformation = PasswordVisualTransformation()
@@ -92,9 +93,9 @@ fun RegisterScreen(navController: NavController) {
         Spacer(modifier = Modifier.padding(25.dp))
 
         CreateButton(
-            mail,
-            password,
-            repeatedPassword,
+            mail.value,
+            password.value,
+            repeatedPassword.value,
             navController,
             { passwordAlertValue.value = true },
             { mailAlertValue.value = true },

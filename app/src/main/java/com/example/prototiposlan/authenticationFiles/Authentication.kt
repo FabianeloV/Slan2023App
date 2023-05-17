@@ -1,4 +1,4 @@
-package com.example.prototiposlan
+package com.example.prototiposlan.authenticationFiles
 
 data class Authentication(
     val email: String = "",

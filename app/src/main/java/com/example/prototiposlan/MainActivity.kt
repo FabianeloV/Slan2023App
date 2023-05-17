@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.prototiposlan.Screens.*
+import com.example.prototiposlan.screens.*
 
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +22,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Main(){
     val navController = rememberNavController()
-    val singInParameters= SingInValues.SingInParameters
     NavHost(navController = navController, startDestination = "SplashScreen"){
         composable(route = "SplashScreen"){ Splash(navController) }
         composable(route = "LoginScreen"){ LoginScreen(navController) }

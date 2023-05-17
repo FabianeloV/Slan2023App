@@ -1,4 +1,4 @@
-package com.example.prototiposlan.Screens
+package com.example.prototiposlan.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
