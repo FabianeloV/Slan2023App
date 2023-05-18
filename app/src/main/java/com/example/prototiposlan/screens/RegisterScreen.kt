@@ -1,5 +1,6 @@
 package com.example.prototiposlan.screens
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -20,22 +21,18 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.prototiposlan.R
+import com.example.prototiposlan.authenticationFiles.LoginViewModel
 import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.ui.theme.darkred
-import com.google.firebase.auth.FirebaseAuth
+import com.example.prototiposlan.ui.theme.monogram
 
 
 @Composable
-fun RegisterScreen(navController: NavController) {
+fun RegisterScreen(navController: NavController, viewModel: LoginViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
 
     val mail = rememberSaveable { mutableStateOf("") }
     val password = rememberSaveable { mutableStateOf("") }
     val repeatedPassword = rememberSaveable { mutableStateOf("") }
-    val passwordAlertValue = remember { mutableStateOf(false) }
-    val mailAlertValue = remember { mutableStateOf(false) }
-    val test = remember { mutableStateOf(false) }
-
-
 
     val gradient =
         Brush.verticalGradient(
@@ -60,7 +57,7 @@ fun RegisterScreen(navController: NavController) {
             leadingIcon = { Icon(imageVector = Icons.Outlined.Email, contentDescription = null) },
             value = mail.value,
             onValueChange = { mail.value = it },
-            label = { Text("Correo electronico") },
+            label = { Text("Correo electrónico") },
             shape = MaterialTheme.shapes.small,
         )
 
@@ -92,32 +89,15 @@ fun RegisterScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.padding(25.dp))
 
-        CreateButton(
-            mail.value,
-            password.value,
-            repeatedPassword.value,
-            navController,
-            { passwordAlertValue.value = true },
-            { mailAlertValue.value = true },
-            { test.value = true })
-
-        if (passwordAlertValue.value) {
-            AlertDialogM(text = "Las contraseñas no coinciden") {
-                passwordAlertValue.value = false
-            }
-        }
-
-        if (mailAlertValue.value) {
-            AlertDialogM(text = "Ingrese un correo válido") {
-                mailAlertValue.value = false
-            }
-        }
-
-        if (test.value) {
-            AlertDialogM(text = "Succes") {
-                test.value = false
-            }
-        }
+        CreateButton{viewModel.createUser(
+            email = mail.value,
+            password = password.value,
+            repeatedPassword = repeatedPassword.value,
+            {navController.navigate(route = "HomeScreen")},
+            {Toast.makeText(null, "Ingrese una contraseña válida", Toast.LENGTH_SHORT).show()},
+            {Toast.makeText(null, "Ingrese un correo válido", Toast.LENGTH_SHORT).show()},
+            {Toast.makeText(null, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()}
+        )}
     }
 }
 
@@ -127,88 +107,17 @@ fun RegisterTitle() {
         text = "Crear una cuenta",
         color = darkred,
         fontSize = 40.sp,
-        fontFamily = FontFamily.Serif
-    )
-}
-
-
-fun signIn(
-    email: String,
-    password: String,
-    repeatedPassword: String,
-    onSignInSuccess: () -> Unit,
-    PasswordAlert: () -> Unit,
-    MailAlert: () -> Unit,
-    test: () -> Unit
-) {
-    val auth = FirebaseAuth.getInstance()
-
-    if (email.isNotEmpty()) {
-        if (password == repeatedPassword) {
-            auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        onSignInSuccess()
-                        test()
-                    }
-                }
-        } else {
-            PasswordAlert()
-        }
-    } else {
-        MailAlert()
-    }
-}
-
-@Composable
-fun AlertDialogM(text: String, CloseDialog: () -> Unit) {
-    AlertDialog(
-        onDismissRequest = {
-            CloseDialog()
-        },
-        title = {
-            Text(text = "ERROR")
-        },
-        text = {
-            Text(text)
-        },
-        buttons = {
-            Row(
-                modifier = Modifier.padding(all = 8.dp),
-                horizontalArrangement = Arrangement.Center
-            ) {
-                Button(
-                    modifier = Modifier.fillMaxWidth(),
-                    onClick = { CloseDialog() }
-                ) {
-                    Text("Cerrar")
-                }
-            }
-        }
+        fontFamily = monogram
     )
 }
 
 @Composable
 fun CreateButton(
-    mail: String,
-    password: String,
-    repeatedPassword: String,
-    navController: NavController,
-    PasswordAlert: () -> Unit,
-    MailAlert: () -> Unit,
     function: () -> Unit
 ) {
     OutlinedButton(
         onClick = {
-            signIn(
-                email = mail,
-                password = password,
-                repeatedPassword = repeatedPassword,
-                onSignInSuccess = { navController.navigate(route = "HomeScreen") },
-                PasswordAlert,
-                MailAlert,
-                function
-            )
+            function()
         },
         colors = ButtonDefaults.buttonColors(backgroundColor = darkred),
         shape = MaterialTheme.shapes.small

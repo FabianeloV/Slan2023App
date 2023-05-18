@@ -1,5 +1,6 @@
 package com.example.prototiposlan.screens
 
+import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -36,7 +37,6 @@ fun LoginScreen(
     navController: NavController,
     viewModel: LoginViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
 ) {
-
     val gradient = Brush.verticalGradient(
         0.77f to Color.White,
         1.0f to darkred,
@@ -46,6 +46,7 @@ fun LoginScreen(
 
     val mail = rememberSaveable { mutableStateOf("") }
     val password = rememberSaveable { mutableStateOf("") }
+
 
     Column(
         modifier = Modifier
@@ -66,7 +67,7 @@ fun LoginScreen(
             leadingIcon = { Icon(imageVector = Icons.Outlined.Email, contentDescription = null) },
             value = mail.value,
             onValueChange = { mail.value = it },
-            label = { Text("Correo electronico") },
+            label = { Text("Correo electrónico") },
             shape = shapes.small,
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Email
@@ -87,10 +88,13 @@ fun LoginScreen(
         Spacer(modifier = Modifier.padding(15.dp))
 
         LoginButton {
-            viewModel.singIn(
+            viewModel.logIn(
                 email = mail.value,
-                password = password.value
-            ) { navController.navigate(route ="HomeScreen") }
+                password = password.value,
+                { navController.navigate(route = "HomeScreen") },
+                { Toast.makeText(null, "Ingrese una contraseña válida", Toast.LENGTH_SHORT).show()},
+                { Toast.makeText(null, "Ingrese un correo válido", Toast.LENGTH_SHORT).show()}
+            )
         }
 
         Spacer(modifier = Modifier.padding(15.dp))

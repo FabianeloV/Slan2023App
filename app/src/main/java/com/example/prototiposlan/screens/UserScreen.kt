@@ -21,6 +21,7 @@ import com.example.prototiposlan.StepsPerDay
 import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.ui.theme.darkred
 import com.example.prototiposlan.R
+import com.example.prototiposlan.ui.theme.monogram
 
 @Composable
 fun UserScreen(navController: NavController) {
@@ -34,19 +35,20 @@ fun UserScreen(navController: NavController) {
         StepsPerDay.Sabado,
         StepsPerDay.Domingo
     )
-    val pasosLunes:Int = StepsPerDay.Lunes.steps
-    val pasosMartes:Int = StepsPerDay.Martes.steps
-    val pasosMiercoles:Int = StepsPerDay.Miercoles.steps
-    val pasosJueves:Int = StepsPerDay.Jueves.steps
-    val pasosViernes:Int = StepsPerDay.Viernes.steps
-    val pasosSabado:Int = StepsPerDay.Sabado.steps
-    val pasosDomingo:Int = StepsPerDay.Domingo.steps
+    val pasosLunes: Int = StepsPerDay.Lunes.steps
+    val pasosMartes: Int = StepsPerDay.Martes.steps
+    val pasosMiercoles: Int = StepsPerDay.Miercoles.steps
+    val pasosJueves: Int = StepsPerDay.Jueves.steps
+    val pasosViernes: Int = StepsPerDay.Viernes.steps
+    val pasosSabado: Int = StepsPerDay.Sabado.steps
+    val pasosDomingo: Int = StepsPerDay.Domingo.steps
 
-    val pasos = pasosLunes + pasosMartes + pasosMiercoles + pasosJueves + pasosViernes + pasosSabado + pasosDomingo
+    val pasos =
+        pasosLunes + pasosMartes + pasosMiercoles + pasosJueves + pasosViernes + pasosSabado + pasosDomingo
 
     Scaffold(
         topBar = { GeneralTopBar(title = "USUARIO", navController = navController) },
-        content = ({UserDialog(pasos = pasos.toString(), stepsDays)})
+        content = ({ UserDialog(pasos = pasos.toString(), stepsDays) })
     )
 }
 
@@ -54,14 +56,13 @@ fun UserScreen(navController: NavController) {
 fun GeneralTopBar(title: String, navController: NavController) {
     TopAppBar(
         title = {
-            Text(
-                title,
-                color = darkblue,
-                fontFamily = FontFamily.Serif,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 75.dp)
-            )
+            Row(horizontalArrangement = Arrangement.Center) {
+                Text(
+                    title,
+                    color = darkblue,
+                    fontFamily = monogram,
+                )
+            }
         },
         navigationIcon = {
             IconButton(onClick = { navController.popBackStack() }) {
@@ -90,28 +91,47 @@ fun UserDialog(pasos: String, days: List<StepsPerDay>) {
                 .padding(top = 35.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Image(painter = painterResource(id = R.drawable.usericon), contentDescription = null, modifier = Modifier.size(120.dp))
+            Image(
+                painter = painterResource(id = R.drawable.usericon),
+                contentDescription = null,
+                modifier = Modifier.size(120.dp)
+            )
 
             Spacer(modifier = Modifier.padding(10.dp))
 
-            Text(text = "NOMBRE", fontSize = 38.sp, color = Color.Black, fontFamily = FontFamily.Monospace)
+            Text(
+                text = "NOMBRE",
+                fontSize = 38.sp,
+                color = Color.Black,
+                fontFamily = monogram
+            )
 
             Spacer(modifier = Modifier.padding(8.dp))
 
-            Text(text = pasos, fontSize = 42.sp, color = darkblue, fontFamily = FontFamily.Monospace)
+            Text(
+                text = pasos,
+                fontSize = 42.sp,
+                color = darkblue,
+                fontFamily = monogram
+            )
 
             Spacer(modifier = Modifier.padding(2.dp))
 
             Row {
                 Image(
                     painter = painterResource(id = R.drawable.baseline_directions_run_24),
-                    contentDescription = "Runner", modifier = Modifier.size(width = 44.dp, height = 44.dp)
+                    contentDescription = "Runner",
+                    modifier = Modifier.size(width = 44.dp, height = 44.dp)
                 )
                 Spacer(modifier = Modifier.padding(horizontal = 5.dp))
-                Text(text = "PASOS", fontSize = 28.sp, color = darkblue, fontFamily = FontFamily.Monospace)
+                Text(
+                    text = "PASOS",
+                    fontSize = 28.sp,
+                    color = darkblue,
+                    fontFamily = FontFamily.Monospace
+                )
             }
             Spacer(modifier = Modifier.padding(20.dp))
-
             Box(
                 modifier = Modifier
                     .border(
@@ -119,15 +139,22 @@ fun UserDialog(pasos: String, days: List<StepsPerDay>) {
                         shape = RoundedCornerShape(36.dp)
                     )
                     .size(250.dp)
-            ){
-                Column(modifier = Modifier
-                    .fillMaxSize()
-                    .padding(top = 10.dp),
-                    horizontalAlignment = Alignment.Start) {
+            ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(top = 10.dp),
+                    horizontalAlignment = Alignment.Start
+                ) {
+                    Text(
+                        text = "DÍAS",
+                        fontFamily = FontFamily.Monospace,
+                        fontSize = 28.sp,
+                        color = darkred,
+                        modifier = Modifier.padding(start = 35.dp)
+                    )
 
-                    Text(text = "DIAS", fontFamily = FontFamily.Monospace, fontSize = 28.sp, color = darkred, modifier = Modifier.padding(start = 35.dp))
-
-                    days.forEach{ item ->
+                    days.forEach { item ->
                         StepsDays(item = item)
                     }
                 }
@@ -137,10 +164,19 @@ fun UserDialog(pasos: String, days: List<StepsPerDay>) {
 }
 
 @Composable
-fun StepsDays(item: StepsPerDay){
+fun StepsDays(item: StepsPerDay) {
     Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
-        Text(text = item.day, fontSize = 24.sp, color = Color.Black, fontFamily = FontFamily.Monospace)
-
-        Text(text = item.steps.toString(), fontSize = 24.sp, color = darkblue, fontFamily = FontFamily.Monospace)
+        Text(
+            text = item.day,
+            fontSize = 24.sp,
+            color = Color.Black,
+            fontFamily = FontFamily.Monospace
+        )
+        Text(
+            text = item.steps.toString(),
+            fontSize = 24.sp,
+            color = darkblue,
+            fontFamily = FontFamily.Monospace
+        )
     }
 }

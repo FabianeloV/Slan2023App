@@ -1,9 +1,10 @@
 package com.example.prototiposlan.screens
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
@@ -17,29 +18,34 @@ import androidx.navigation.NavController
 import com.example.prototiposlan.ui.theme.darkblue
 
 @Composable
-fun PresentationsScreen(navController: NavController){
-    Scaffold (
-        topBar = { GeneralTopBar(title = "PRESENTACIONES", navController = navController)},
-        content = ({ PresentationContent()})
+fun PresentationsScreen(navController: NavController) {
+    Scaffold(
+        topBar = { GeneralTopBar(title = "PRESENTACIONES", navController = navController) },
+        content = ({ PresentationContent() })
     )
 }
 
 @Composable
-fun PresentationContent(){
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .padding(top = 15.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-
+fun PresentationContent() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(top = 15.dp), horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         UploadButton()
     }
 }
 
 @Composable
-fun UploadButton(){
-    OutlinedButton(onClick = { /*TODO*/ }, modifier = Modifier.background(darkblue)) {
+fun UploadButton() {
+    OutlinedButton(
+        onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(backgroundColor = darkblue),
+        shape = CircleShape
+    ) {
         Text(text = "SUBIR PONENCIA", fontFamily = FontFamily.Serif, fontSize = 15.sp)
     }
 }
+
 
 
 

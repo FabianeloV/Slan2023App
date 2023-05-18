@@ -20,6 +20,7 @@ import androidx.navigation.NavController
 import com.example.prototiposlan.Textos
 import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.R
+import com.example.prototiposlan.ui.theme.monogram
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -50,7 +51,7 @@ fun TopBar(title: String, scaffoldState: ScaffoldState, scope: CoroutineScope) {
             Text(
                 title,
                 color = darkblue,
-                fontFamily = FontFamily.Serif,
+                fontFamily = monogram,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 55.dp)
