@@ -13,13 +13,20 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import kotlinx.coroutines.delay
 import com.example.prototiposlan.R
+import com.google.firebase.auth.FirebaseAuth
 
 @Composable
 fun Splash(navController: NavController) {
     LaunchedEffect(key1 = true) {
         delay(1000)
         navController.popBackStack()
-        navController.navigate("LoginScreen")
+
+        if(FirebaseAuth.getInstance().currentUser?.email.isNullOrEmpty()){
+            navController.navigate("LoginScreen")
+        } else{
+            navController.navigate("HomeScreen")
+        }
+
     }
 
     SplashImage()

@@ -61,6 +61,7 @@ fun GeneralTopBar(title: String, navController: NavController) {
                     title,
                     color = darkblue,
                     fontFamily = monogram,
+                    fontSize = 25.sp
                 )
             }
         },

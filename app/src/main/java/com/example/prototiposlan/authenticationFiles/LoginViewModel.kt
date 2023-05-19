@@ -1,10 +1,10 @@
 package com.example.prototiposlan.authenticationFiles
 
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -14,12 +14,27 @@ class LoginViewModel : ViewModel() {
     private val auth: FirebaseAuth = Firebase.auth
     private val loading = MutableLiveData(false)
 
+    fun singInGoogle(credential:AuthCredential, navigate: () -> Unit, errorAlert: () -> Unit)=viewModelScope.launch{
+        try {
+            auth.signInWithCredential(credential)
+                .addOnCompleteListener{ task->
+                    if (task.isSuccessful){
+                        navigate()
+                    }
+                }
+                .addOnFailureListener { errorAlert() }
+        } catch (ex:Exception){
+            Log.d("Logueo google", "Error de logueo con google: ${ex.message}")
+        }
+    }
+
     fun logIn(
         email: String,
         password: String,
         navigate: () -> Unit,
         passwordAlert: () -> Unit,
-        emailAlert: () -> Unit
+        emailAlert: () -> Unit,
+        errorAlert: () -> Unit
     ) = viewModelScope.launch {
         if (email.isNotEmpty()) {
             if (password.isNotEmpty()) {
@@ -30,7 +45,7 @@ class LoginViewModel : ViewModel() {
                                 navigate()
                                 Log.d("Logueo", "Logueo satisfactorio")
                             } else {
-                                Toast.makeText(null, "Error de ingreso", Toast.LENGTH_SHORT).show()
+                                errorAlert()
                                 Log.d("Logueo", "Error de logueo: ${task.result}")
                             }
                         }
@@ -52,7 +67,8 @@ class LoginViewModel : ViewModel() {
         navigate: () -> Unit,
         passwordAlert: () -> Unit,
         emailAlert: () -> Unit,
-        repeatedPasswordAlert: () -> Unit
+        repeatedPasswordAlert: () -> Unit,
+        errorAlert: () -> Unit
     ) {
         if (email.isNotEmpty()) {
             if (password.isNotEmpty()) {
@@ -64,8 +80,7 @@ class LoginViewModel : ViewModel() {
                                 if (task.isSuccessful) {
                                     navigate()
                                 } else {
-                                    Toast.makeText(null, "Error de ingreso", Toast.LENGTH_SHORT)
-                                        .show()
+                                    errorAlert()
                                     Log.d("Logueo", "Error de creacion: ${task.result}")
                                 }
                                 loading.value = false

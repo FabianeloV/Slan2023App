@@ -52,6 +52,7 @@ fun TopBar(title: String, scaffoldState: ScaffoldState, scope: CoroutineScope) {
                 title,
                 color = darkblue,
                 fontFamily = monogram,
+                fontSize = 25.sp,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 55.dp)

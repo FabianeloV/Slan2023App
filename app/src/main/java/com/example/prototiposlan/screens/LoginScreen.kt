@@ -1,6 +1,9 @@
 package com.example.prototiposlan.screens
 
+import android.util.Log
 import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -18,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.KeyboardType
@@ -30,6 +34,10 @@ import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.R
 import com.example.prototiposlan.ui.theme.darkred
 import com.example.prototiposlan.ui.theme.monogram
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.GoogleAuthProvider
 
 
 @Composable
@@ -46,6 +54,23 @@ fun LoginScreen(
 
     val mail = rememberSaveable { mutableStateOf("") }
     val password = rememberSaveable { mutableStateOf("") }
+
+    //Google client
+    val context = LocalContext.current
+    val token = "638724186254-5ip7kj91ljfqlua9u663fk7djtlh0a9i.apps.googleusercontent.com"
+    val launcher =
+        rememberLauncherForActivityResult(contract = ActivityResultContracts.StartActivityForResult()) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(it.data)
+            try {
+                val account = task.getResult(ApiException::class.java)
+                val credential = GoogleAuthProvider.getCredential(account.idToken, null)
+                viewModel.singInGoogle(credential,
+                    { navController.navigate(route = "HomeScreen") },
+                    { Toast.makeText(context, "Error de ingreso", Toast.LENGTH_SHORT).show() })
+            } catch (ex:Exception) {
+                Log.d("Logueo google", "Error de logueo con google: ${ex.message}")
+            }
+        }
 
 
     Column(
@@ -92,8 +117,12 @@ fun LoginScreen(
                 email = mail.value,
                 password = password.value,
                 { navController.navigate(route = "HomeScreen") },
-                { Toast.makeText(null, "Ingrese una contraseña válida", Toast.LENGTH_SHORT).show()},
-                { Toast.makeText(null, "Ingrese un correo válido", Toast.LENGTH_SHORT).show()}
+                {
+                    Toast.makeText(context, "Ingrese una contraseña válida", Toast.LENGTH_SHORT)
+                        .show()
+                },
+                { Toast.makeText(context, "Ingrese un correo válido", Toast.LENGTH_SHORT).show() },
+                { Toast.makeText(context, "Error de ingreso", Toast.LENGTH_SHORT).show() }
             )
         }
 
@@ -103,7 +132,18 @@ fun LoginScreen(
 
         Spacer(modifier = Modifier.padding(15.dp))
 
-        GoogleRegisterLogo()
+        GoogleRegisterLogo{
+            Toast.makeText(context, "Cargando...", Toast.LENGTH_SHORT).show()
+
+            val opciones = GoogleSignInOptions.Builder(
+                GoogleSignInOptions.DEFAULT_SIGN_IN
+            )
+                .requestIdToken(token)
+                .requestEmail()
+                .build()
+            val googleClient = GoogleSignIn.getClient(context, opciones)
+            launcher.launch(googleClient.signInIntent)
+        }
 
         Spacer(modifier = Modifier.padding(15.dp))
 
@@ -167,8 +207,8 @@ fun CreateAccButton(navController: NavController) {
 }
 
 @Composable
-fun GoogleRegisterLogo() {
-    IconButton(onClick = { /*TODO*/ }) {
+fun GoogleRegisterLogo(click: () -> Unit) {
+    IconButton(onClick = { click() }) {
         Image(
             painter = painterResource(id = R.drawable.google),
             contentDescription = "logo google",
