@@ -14,19 +14,20 @@ class LoginViewModel : ViewModel() {
     private val auth: FirebaseAuth = Firebase.auth
     private val loading = MutableLiveData(false)
 
-    fun singInGoogle(credential:AuthCredential, navigate: () -> Unit, errorAlert: () -> Unit)=viewModelScope.launch{
-        try {
-            auth.signInWithCredential(credential)
-                .addOnCompleteListener{ task->
-                    if (task.isSuccessful){
-                        navigate()
+    fun singInGoogle(credential: AuthCredential, navigate: () -> Unit, errorAlert: () -> Unit) =
+        viewModelScope.launch {
+            try {
+                auth.signInWithCredential(credential)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            navigate()
+                        }
                     }
-                }
-                .addOnFailureListener { errorAlert() }
-        } catch (ex:Exception){
-            Log.d("Logueo google", "Error de logueo con google: ${ex.message}")
+                    .addOnFailureListener { errorAlert() }
+            } catch (ex: Exception) {
+                Log.d("Logueo google", "Error de logueo con google: ${ex.message}")
+            }
         }
-    }
 
     fun logIn(
         email: String,
@@ -75,25 +76,29 @@ class LoginViewModel : ViewModel() {
                 if (password == repeatedPassword) {
                     if (loading.value == false) {
                         loading.value = true
-                        auth.createUserWithEmailAndPassword(email, password)
-                            .addOnCompleteListener { task ->
-                                if (task.isSuccessful) {
-                                    navigate()
-                                } else {
-                                    errorAlert()
-                                    Log.d("Logueo", "Error de creacion: ${task.result}")
+                        try {
+                            auth.createUserWithEmailAndPassword(email, password)
+                                .addOnCompleteListener { task ->
+                                    if (task.isSuccessful) {
+                                        navigate()
+                                    } else {
+                                        errorAlert()
+                                        Log.d("Logueo", "Error de creacion: ${task.result}")
+                                    }
+                                    loading.value = false
                                 }
-                                loading.value = false
-                            }
+                        } catch (ex: Exception) {
+                            Log.d("Logueo", "Error de logueo: ${ex.message}")
+                        }
+                    } else {
+                        repeatedPasswordAlert()
                     }
                 } else {
-                    repeatedPasswordAlert()
+                    passwordAlert()
                 }
             } else {
-                passwordAlert()
+                emailAlert()
             }
-        } else {
-            emailAlert()
         }
     }
 }

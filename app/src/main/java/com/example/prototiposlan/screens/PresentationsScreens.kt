@@ -11,6 +11,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -42,7 +43,7 @@ fun UploadButton() {
         onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(backgroundColor = darkblue),
         shape = CircleShape
     ) {
-        Text(text = "SUBIR PONENCIA", fontFamily = FontFamily.Serif, fontSize = 15.sp)
+        Text(text = "SUBIR PONENCIA", fontFamily = FontFamily.Serif, fontSize = 20.sp, color = Color.White)
     }
 }
 

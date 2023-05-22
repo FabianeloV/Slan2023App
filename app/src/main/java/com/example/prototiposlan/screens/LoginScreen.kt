@@ -117,10 +117,7 @@ fun LoginScreen(
                 email = mail.value,
                 password = password.value,
                 { navController.navigate(route = "HomeScreen") },
-                {
-                    Toast.makeText(context, "Ingrese una contraseña válida", Toast.LENGTH_SHORT)
-                        .show()
-                },
+                { Toast.makeText(context, "Ingrese una contraseña válida", Toast.LENGTH_SHORT).show() },
                 { Toast.makeText(context, "Ingrese un correo válido", Toast.LENGTH_SHORT).show() },
                 { Toast.makeText(context, "Error de ingreso", Toast.LENGTH_SHORT).show() }
             )

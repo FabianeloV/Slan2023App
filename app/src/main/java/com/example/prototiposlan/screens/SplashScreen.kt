@@ -20,13 +20,14 @@ fun Splash(navController: NavController) {
     LaunchedEffect(key1 = true) {
         delay(1000)
         navController.popBackStack()
+        navController.navigate("LoginScreen")
 
+       /*
         if(FirebaseAuth.getInstance().currentUser?.email.isNullOrEmpty()){
             navController.navigate("LoginScreen")
         } else{
             navController.navigate("HomeScreen")
-        }
-
+        }*/
     }
 
     SplashImage()

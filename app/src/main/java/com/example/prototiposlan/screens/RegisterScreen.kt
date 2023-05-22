@@ -7,6 +7,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Email
@@ -20,6 +21,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -87,6 +89,9 @@ fun RegisterScreen(
             onValueChange = { mail.value = it },
             label = { Text("Correo electrónico") },
             shape = MaterialTheme.shapes.small,
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Email
+            )
         )
 
         Spacer(modifier = Modifier.padding(25.dp))
@@ -134,15 +139,9 @@ fun RegisterScreen(
                 password = password.value,
                 repeatedPassword = repeatedPassword.value,
                 { navController.navigate(route = "HomeScreen") },
-                {
-                    Toast.makeText(context, "Ingrese una contraseña válida", Toast.LENGTH_SHORT)
-                        .show()
-                },
+                { Toast.makeText(context, "Ingrese una contraseña válida", Toast.LENGTH_SHORT).show() },
                 { Toast.makeText(context, "Ingrese un correo válido", Toast.LENGTH_SHORT).show() },
-                {
-                    Toast.makeText(context, "Las contraseñas no coinciden", Toast.LENGTH_SHORT)
-                        .show()
-                },
+                { Toast.makeText(context, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show() },
                 { Toast.makeText(context, "Error de registro", Toast.LENGTH_SHORT).show() }
             )
         }

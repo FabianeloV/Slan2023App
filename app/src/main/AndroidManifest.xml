@@ -16,6 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PrototipoSlan"
         tools:targetApi="31">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCZLw7ujQPmu6PE3jcxVCVjPCLKBqf3UqQ"
+            />
         <activity
             android:name=".MainActivity"
             android:exported="true"
