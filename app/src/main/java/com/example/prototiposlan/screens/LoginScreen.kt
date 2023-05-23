@@ -141,7 +141,6 @@ fun LoginScreen(
             val googleClient = GoogleSignIn.getClient(context, opciones)
             launcher.launch(googleClient.signInIntent)
         }
-
         Spacer(modifier = Modifier.padding(15.dp))
 
         CreateAccButton(navController)

@@ -138,11 +138,14 @@ fun RegisterScreen(
                 email = mail.value,
                 password = password.value,
                 repeatedPassword = repeatedPassword.value,
-                { navController.navigate(route = "HomeScreen") },
-                { Toast.makeText(context, "Ingrese una contraseña válida", Toast.LENGTH_SHORT).show() },
+                { navController.navigate(route = "HomeScreen")
+                    Toast.makeText(context, "Cargando...", Toast.LENGTH_SHORT).show()},
+                { Toast.makeText(context, "Ingrese una contraseña de 6 o más caracteres", Toast.LENGTH_SHORT).show() },
                 { Toast.makeText(context, "Ingrese un correo válido", Toast.LENGTH_SHORT).show() },
                 { Toast.makeText(context, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show() },
-                { Toast.makeText(context, "Error de registro", Toast.LENGTH_SHORT).show() }
+                { Toast.makeText(context, "Error de registro", Toast.LENGTH_SHORT).show()
+                    navController.navigate(route = "RegisterScreen")
+                }
             )
         }
     }

@@ -20,6 +20,7 @@ class LoginViewModel : ViewModel() {
                 auth.signInWithCredential(credential)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
+
                             navigate()
                         }
                     }
@@ -38,7 +39,7 @@ class LoginViewModel : ViewModel() {
         errorAlert: () -> Unit
     ) = viewModelScope.launch {
         if (email.isNotEmpty()) {
-            if (password.isNotEmpty()) {
+            if (password.length >= 6) {
                 try {
                     auth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener { task ->
@@ -72,33 +73,29 @@ class LoginViewModel : ViewModel() {
         errorAlert: () -> Unit
     ) {
         if (email.isNotEmpty()) {
-            if (password.isNotEmpty()) {
+            if (password.length >= 6) {
                 if (password == repeatedPassword) {
                     if (loading.value == false) {
                         loading.value = true
-                        try {
-                            auth.createUserWithEmailAndPassword(email, password)
-                                .addOnCompleteListener { task ->
-                                    if (task.isSuccessful) {
-                                        navigate()
-                                    } else {
-                                        errorAlert()
-                                        Log.d("Logueo", "Error de creacion: ${task.result}")
-                                    }
-                                    loading.value = false
+                        auth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    navigate()
+                                } else {
+                                    errorAlert()
+                                    Log.d("Logueo", "Error de creacion: ${task.result}")
                                 }
-                        } catch (ex: Exception) {
-                            Log.d("Logueo", "Error de logueo: ${ex.message}")
-                        }
-                    } else {
-                        repeatedPasswordAlert()
+                            }
+                        loading.value = false
                     }
                 } else {
-                    passwordAlert()
+                    repeatedPasswordAlert()
                 }
             } else {
-                emailAlert()
+                passwordAlert()
             }
+        } else {
+            emailAlert()
         }
     }
 }
