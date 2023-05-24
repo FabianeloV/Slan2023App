@@ -1,4 +1,4 @@
-package com.example.prototiposlan.authenticationFiles
+package com.example.prototiposlan.viewModels
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -20,7 +20,6 @@ class LoginViewModel : ViewModel() {
                 auth.signInWithCredential(credential)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-
                             navigate()
                         }
                     }
@@ -45,10 +44,12 @@ class LoginViewModel : ViewModel() {
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
                                 navigate()
-                                Log.d("Logueo", "Logueo satisfactorio")
-                            } else {
+                            }
+                            if (!task.isSuccessful){
                                 errorAlert()
-                                Log.d("Logueo", "Error de logueo: ${task.result}")
+                            }
+                            if(task.isCanceled){
+                                errorAlert()
                             }
                         }
                 } catch (ex: Exception) {
@@ -81,9 +82,12 @@ class LoginViewModel : ViewModel() {
                             .addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
                                     navigate()
-                                } else {
+                                }
+                                if (!task.isSuccessful){
                                     errorAlert()
-                                    Log.d("Logueo", "Error de creacion: ${task.result}")
+                                }
+                                if(task.isCanceled){
+                                    errorAlert()
                                 }
                             }
                         loading.value = false

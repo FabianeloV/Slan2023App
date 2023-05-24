@@ -55,7 +55,6 @@ fun TopBar(title: String, scaffoldState: ScaffoldState, scope: CoroutineScope) {
                 fontSize = 25.sp,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start = 55.dp)
             )
         },
         navigationIcon = {

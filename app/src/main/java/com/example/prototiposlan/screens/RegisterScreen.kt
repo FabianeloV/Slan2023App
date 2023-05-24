@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.prototiposlan.R
-import com.example.prototiposlan.authenticationFiles.LoginViewModel
+import com.example.prototiposlan.viewModels.LoginViewModel
 import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.ui.theme.darkred
 import com.example.prototiposlan.ui.theme.monogram
@@ -35,6 +35,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.GoogleAuthProvider
+
 
 
 @Composable
@@ -138,14 +139,11 @@ fun RegisterScreen(
                 email = mail.value,
                 password = password.value,
                 repeatedPassword = repeatedPassword.value,
-                { navController.navigate(route = "HomeScreen")
-                    Toast.makeText(context, "Cargando...", Toast.LENGTH_SHORT).show()},
+                { navController.navigate(route = "HomeScreen")},
                 { Toast.makeText(context, "Ingrese una contraseña de 6 o más caracteres", Toast.LENGTH_SHORT).show() },
                 { Toast.makeText(context, "Ingrese un correo válido", Toast.LENGTH_SHORT).show() },
                 { Toast.makeText(context, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show() },
-                { Toast.makeText(context, "Error de registro", Toast.LENGTH_SHORT).show()
-                    navController.navigate(route = "RegisterScreen")
-                }
+                { Toast.makeText(context, "Error de registro", Toast.LENGTH_SHORT).show() }
             )
         }
     }
@@ -165,8 +163,11 @@ fun RegisterTitle() {
 fun CreateButton(
     function: () -> Unit
 ) {
+    val context = LocalContext.current
+
     OutlinedButton(
         onClick = {
+            Toast.makeText(context, "Cargando...", Toast.LENGTH_SHORT).show()
             function()
         },
         colors = ButtonDefaults.buttonColors(backgroundColor = darkred),

@@ -29,7 +29,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.prototiposlan.authenticationFiles.LoginViewModel
+import com.example.prototiposlan.viewModels.LoginViewModel
 import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.R
 import com.example.prototiposlan.ui.theme.darkred
@@ -67,7 +67,7 @@ fun LoginScreen(
                 viewModel.singInGoogle(credential,
                     { navController.navigate(route = "HomeScreen") },
                     { Toast.makeText(context, "Error de ingreso", Toast.LENGTH_SHORT).show() })
-            } catch (ex:Exception) {
+            } catch (ex: Exception) {
                 Log.d("Logueo google", "Error de logueo con google: ${ex.message}")
             }
         }
@@ -125,11 +125,11 @@ fun LoginScreen(
 
         Spacer(modifier = Modifier.padding(15.dp))
 
-        LoginTitle(text = "O regístrate con", font = 15)
+        LoginTitle(text = "O regístrate con", font = 25)
 
         Spacer(modifier = Modifier.padding(15.dp))
 
-        GoogleRegisterLogo{
+        GoogleRegisterLogo {
             Toast.makeText(context, "Cargando...", Toast.LENGTH_SHORT).show()
 
             val opciones = GoogleSignInOptions.Builder(
@@ -163,28 +163,33 @@ fun LoginTitle(text: String, font: Int) {
 
 @Composable
 fun LoginButton(click: () -> Unit) {
-    Row {
-        OutlinedButton(
-            onClick = { click() },
-            colors = ButtonDefaults.buttonColors(backgroundColor = darkblue),
-            shape = CircleShape
-        ) {
-            Text(
-                text = "INGRESAR",
-                color = Color.White,
-                fontSize = 16.sp,
-                fontFamily = FontFamily.Serif
-            )
 
-            Spacer(modifier = Modifier.padding(5.dp))
+    val context = LocalContext.current
 
-            Image(
-                painter = painterResource(id = R.drawable.ic_baseline_arrow_forward_ios_24),
-                contentDescription = null
-            )
-        }
+    OutlinedButton(
+        onClick = {
+            Toast.makeText(context, "Cargando...", Toast.LENGTH_SHORT).show()
+            click()
+        },
+        colors = ButtonDefaults.buttonColors(backgroundColor = darkblue),
+        shape = CircleShape
+    ) {
+        Text(
+            text = "INGRESAR",
+            color = Color.White,
+            fontSize = 16.sp,
+            fontFamily = FontFamily.Serif
+        )
+
+        Spacer(modifier = Modifier.padding(5.dp))
+
+        Image(
+            painter = painterResource(id = R.drawable.ic_baseline_arrow_forward_ios_24),
+            contentDescription = null
+        )
     }
 }
+
 
 @Composable
 fun CreateAccButton(navController: NavController) {
