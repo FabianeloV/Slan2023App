@@ -82,7 +82,7 @@ fun UserDialog(pasos: String, days: List<StepsPerDay>) {
             .fillMaxSize()
             .padding(top = 35.dp, bottom = 35.dp, start = 25.dp, end = 25.dp)
             .border(
-                border = BorderStroke(width = 5.dp, color = darkred),
+                border = BorderStroke(width = 2.dp, color = darkred),
                 shape = RoundedCornerShape(36.dp)
             )
     ) {
@@ -101,7 +101,7 @@ fun UserDialog(pasos: String, days: List<StepsPerDay>) {
             Spacer(modifier = Modifier.padding(10.dp))
 
             Text(
-                text = "NOMBRE",
+                text = "Fabian Verdesoto",
                 fontSize = 38.sp,
                 color = Color.Black,
                 fontFamily = monogram
@@ -111,14 +111,14 @@ fun UserDialog(pasos: String, days: List<StepsPerDay>) {
 
             Text(
                 text = pasos,
-                fontSize = 42.sp,
+                fontSize = 48.sp,
                 color = darkblue,
                 fontFamily = monogram
             )
 
             Spacer(modifier = Modifier.padding(2.dp))
 
-            Row {
+            Row (modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center){
                 Image(
                     painter = painterResource(id = R.drawable.baseline_directions_run_24),
                     contentDescription = "Runner",
@@ -127,7 +127,7 @@ fun UserDialog(pasos: String, days: List<StepsPerDay>) {
                 Spacer(modifier = Modifier.padding(horizontal = 5.dp))
                 Text(
                     text = "PASOS",
-                    fontSize = 28.sp,
+                    fontSize = 32.sp,
                     color = darkblue,
                     fontFamily = FontFamily.Monospace
                 )
@@ -136,25 +136,26 @@ fun UserDialog(pasos: String, days: List<StepsPerDay>) {
             Box(
                 modifier = Modifier
                     .border(
-                        border = BorderStroke(width = 2.dp, color = Color.Black),
+                        border = BorderStroke(width = 1.dp, color = darkblue),
                         shape = RoundedCornerShape(36.dp)
                     )
-                    .size(250.dp)
+                    .size(280.dp)
             ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(top = 10.dp),
-                    horizontalAlignment = Alignment.Start
-                ) {
+                Row(modifier = Modifier.fillMaxWidth().padding(5.dp), horizontalArrangement = Arrangement.Center) {
                     Text(
                         text = "DÍAS",
-                        fontFamily = FontFamily.Monospace,
-                        fontSize = 28.sp,
+                        fontFamily = monogram,
+                        fontSize = 30.sp,
                         color = darkred,
                         modifier = Modifier.padding(start = 35.dp)
                     )
-
+                }
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(top = 40.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
                     days.forEach { item ->
                         StepsDays(item = item)
                     }
@@ -166,18 +167,20 @@ fun UserDialog(pasos: String, days: List<StepsPerDay>) {
 
 @Composable
 fun StepsDays(item: StepsPerDay) {
-    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
-        Text(
-            text = item.day,
-            fontSize = 24.sp,
-            color = Color.Black,
-            fontFamily = FontFamily.Monospace
-        )
-        Text(
-            text = item.steps.toString(),
-            fontSize = 24.sp,
-            color = darkblue,
-            fontFamily = FontFamily.Monospace
-        )
+    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
+            Text(
+                text = item.day,
+                fontSize = 26.sp,
+                color = Color.Black,
+                fontFamily = monogram
+            )
+            Text(
+                text = item.steps.toString(),
+                fontSize = 26.sp,
+                color = darkblue,
+                fontFamily = monogram
+            )
+        }
     }
 }

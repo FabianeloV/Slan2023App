@@ -93,7 +93,7 @@ fun LoginScreen(
             value = mail.value,
             onValueChange = { mail.value = it },
             label = { Text("Correo electrónico") },
-            shape = shapes.small,
+            shape = CircleShape,
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Email
             )
@@ -106,7 +106,7 @@ fun LoginScreen(
             value = password.value,
             onValueChange = { password.value = it },
             label = { Text("Contraseña") },
-            shape = shapes.small,
+            shape = CircleShape,
             visualTransformation = PasswordVisualTransformation()
         )
 

@@ -23,13 +23,14 @@ class MainActivity : ComponentActivity() {
 fun Main(){
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "SplashScreen"){
-        composable(route = "SplashScreen"){ Splash(navController) }
-        composable(route = "LoginScreen"){ LoginScreen(navController) }
-        composable(route = "RegisterScreen"){ RegisterScreen(navController) }
-        composable(route = "HomeScreen"){ HomeScreen(navController) }
-        composable(route = "UserScreen"){ UserScreen(navController) }
-        composable(route = "PresentationsScreen"){ PresentationsScreen(navController) }
-        composable(route= "MapScreen"){ MapScreen(navController) }
+        composable(route = "SplashScreen"){ Splash(navController)}
+        composable(route = "LoginScreen"){ LoginScreen(navController)}
+        composable(route = "RegisterScreen"){ RegisterScreen(navController)}
+        composable(route = "HomeScreen"){ HomeScreen(navController)}
+        composable(route = "UserScreen"){ UserScreen(navController)}
+        composable(route = "ForumScreen"){ ForumScreen(navController)}
+        composable(route = "PresentationsScreen"){ PresentationsScreen(navController)}
+        composable(route= "MapScreen"){ MapScreen(navController)}
     }
 }
 
