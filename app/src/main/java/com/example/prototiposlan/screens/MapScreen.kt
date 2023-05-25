@@ -10,11 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomAppBar
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -23,11 +19,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import com.example.prototiposlan.R
 import com.example.prototiposlan.ui.theme.darkblue
-import com.example.prototiposlan.viewModels.LoginViewModel
 import com.example.prototiposlan.viewModels.MapviewModel
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.maps.android.compose.GoogleMap
@@ -39,28 +33,45 @@ import com.google.maps.android.compose.rememberCameraPositionState
 
 @Composable
 fun MapScreen(navController: NavController) {
+    val model = MapviewModel()
+    var mapMarkerValue by remember { mutableStateOf(0) }
     Scaffold(
         topBar = { GeneralTopBar(title = "MAPAS", navController = navController) },
-        content = ({ GoogleMapScreen() }),
-        bottomBar = { MapBottomBar({},{},{}) }
+        content = ({ GoogleMapScreen(model, mapMarkerValue) }),
+        bottomBar = { MapBottomBar({mapMarkerValue=1}, {mapMarkerValue=2}, {mapMarkerValue=3}) }
     )
 }
 
 @Composable
-fun GoogleMapScreen(viewModel: LoginViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
+fun GoogleMapScreen(coord:MapviewModel,mapMarkerValue:Int) {
     val uCuenca = com.google.android.gms.maps.model.LatLng(-2.9008975384128406, -79.01019314391168)
     val cameraPositionState = rememberCameraPositionState {
-        position = CameraPosition.fromLatLngZoom(uCuenca, 17f) }
+        position = CameraPosition.fromLatLngZoom(uCuenca, 16f)
+    }
     val properties = MapProperties(mapType = MapType.HYBRID)
 
-    val model = MapviewModel()
-
     GoogleMap(cameraPositionState = cameraPositionState, properties = properties) {
-        Marker(state = MarkerState(position = model.marker1))
-        Marker(state = MarkerState(position = model.marker2))
-        Marker(state = MarkerState(position = model.marker3))
-        Marker(state = MarkerState(position = model.marker4))
-        Marker(state = MarkerState(position = model.marker5))
+        when (mapMarkerValue) {
+            1 -> {
+                Marker(state = MarkerState(position = coord.placeMarker1))
+                Marker(state = MarkerState(position = coord.placeMarker2))
+                Marker(state = MarkerState(position = coord.placeMarker3))
+                Marker(state = MarkerState(position = coord.placeMarker4))
+                Marker(state = MarkerState(position = coord.placeMarker5))
+            }
+            2 ->{
+
+            }
+            3->{
+                Marker(state = MarkerState(position = coord.parkMarker1))
+                Marker(state = MarkerState(position = coord.parkMarker2))
+                Marker(state = MarkerState(position = coord.parkMarker3))
+                Marker(state = MarkerState(position = coord.parkMarker4))
+                Marker(state = MarkerState(position = coord.parkMarker5))
+            } else -> {
+
+            }
+        }
     }
 }
 
@@ -71,10 +82,13 @@ fun MapBottomBar(placeClick: () -> Unit, routeClick: () -> Unit, parkClick: () -
     var parksColor by remember { mutableStateOf(Color.LightGray) }
 
     BottomAppBar(modifier = Modifier.fillMaxWidth(), backgroundColor = Color.White) {
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceAround
+        ) {
             BottomButton(
                 painter = R.drawable.baseline_other_houses_24,
-                text = "L. turisticos",
+                text = "L. turísticos",
                 color = placesColor
             )
             {
