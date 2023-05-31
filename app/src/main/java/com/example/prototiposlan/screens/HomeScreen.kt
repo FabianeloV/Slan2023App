@@ -4,6 +4,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
@@ -20,7 +21,7 @@ import androidx.navigation.NavController
 import com.example.prototiposlan.Textos
 import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.R
-import com.example.prototiposlan.ui.theme.monogram
+import com.example.prototiposlan.ui.theme.graduateFont
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -31,9 +32,14 @@ fun HomeScreen(navController: NavController) {
     val scope = rememberCoroutineScope()
     val latMenuItem = listOf(
         LatMenuScreens.Usuario,
+        LatMenuScreens.Ranking,
+        LatMenuScreens.Reto,
         LatMenuScreens.Muro,
-        LatMenuScreens.Presentaciones,
-        LatMenuScreens.Mapa
+        LatMenuScreens.Ejercicios,
+        LatMenuScreens.Rutinas,
+        LatMenuScreens.Tabla,
+        LatMenuScreens.Mapa,
+        LatMenuScreens.Plantas
     )
 
     Scaffold(
@@ -51,8 +57,8 @@ fun TopBar(title: String, scaffoldState: ScaffoldState, scope: CoroutineScope) {
             Text(
                 title,
                 color = darkblue,
-                fontFamily = monogram,
                 fontSize = 25.sp,
+                fontFamily = graduateFont,
                 modifier = Modifier
                     .fillMaxWidth()
             )
@@ -89,20 +95,21 @@ fun DrawerItem(item: LatMenuScreens, navController: NavController) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 30.dp, start = 10.dp, end = 10.dp)
+            .padding(top = 10.dp, start = 8.dp, end = 8.dp)
             .height(56.dp)
     ) {
         OutlinedButton(onClick = { navController.navigate(route = item.route) },
             modifier = Modifier.fillMaxSize(),
             colors = ButtonDefaults.buttonColors(backgroundColor = Color.Transparent),
-            border = BorderStroke(5.dp, darkblue)
+            border = BorderStroke(1.dp, darkblue),
+            shape = CircleShape
         ) {
             Spacer(modifier = Modifier.padding(horizontal = 12.dp))
-            Image(painter = painterResource(id = item.icon),
+            Icon(painter = painterResource(id = item.icon),
                 contentDescription = item.title,
                 modifier = Modifier.size(28.dp))
             Spacer(modifier = Modifier.padding(horizontal = 8.dp))
-            Text(text = item.title, fontFamily = FontFamily.Serif, color = darkblue, fontSize = 22.sp)
+            Text(text = item.title, color = darkblue, fontSize = 22.sp, fontFamily = graduateFont)
         }
     }
 }

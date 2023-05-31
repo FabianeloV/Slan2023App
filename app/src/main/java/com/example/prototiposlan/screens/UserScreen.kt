@@ -13,7 +13,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -21,7 +20,7 @@ import com.example.prototiposlan.StepsPerDay
 import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.ui.theme.darkred
 import com.example.prototiposlan.R
-import com.example.prototiposlan.ui.theme.monogram
+import com.example.prototiposlan.ui.theme.graduateFont
 
 @Composable
 fun UserScreen(navController: NavController) {
@@ -60,8 +59,8 @@ fun GeneralTopBar(title: String, navController: NavController) {
                 Text(
                     title,
                     color = darkblue,
-                    fontFamily = monogram,
-                    fontSize = 25.sp
+                    fontSize = 25.sp,
+                    fontFamily = graduateFont
                 )
             }
         },
@@ -102,18 +101,17 @@ fun UserDialog(pasos: String, days: List<StepsPerDay>) {
 
             Text(
                 text = "Fabian Verdesoto",
-                fontSize = 38.sp,
-                color = Color.Black,
-                fontFamily = monogram
-            )
+                fontSize = 32.sp,
+                fontFamily = graduateFont,
+                color = Color.Black)
 
             Spacer(modifier = Modifier.padding(8.dp))
 
             Text(
                 text = pasos,
                 fontSize = 48.sp,
+                fontFamily = graduateFont,
                 color = darkblue,
-                fontFamily = monogram
             )
 
             Spacer(modifier = Modifier.padding(2.dp))
@@ -128,8 +126,8 @@ fun UserDialog(pasos: String, days: List<StepsPerDay>) {
                 Text(
                     text = "PASOS",
                     fontSize = 32.sp,
+                    fontFamily = graduateFont,
                     color = darkblue,
-                    fontFamily = FontFamily.Monospace
                 )
             }
             Spacer(modifier = Modifier.padding(20.dp))
@@ -141,15 +139,6 @@ fun UserDialog(pasos: String, days: List<StepsPerDay>) {
                     )
                     .size(280.dp)
             ) {
-                Row(modifier = Modifier.fillMaxWidth().padding(5.dp), horizontalArrangement = Arrangement.Center) {
-                    Text(
-                        text = "DÍAS",
-                        fontFamily = monogram,
-                        fontSize = 30.sp,
-                        color = darkred,
-                        modifier = Modifier.padding(start = 35.dp)
-                    )
-                }
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
@@ -172,14 +161,14 @@ fun StepsDays(item: StepsPerDay) {
             Text(
                 text = item.day,
                 fontSize = 26.sp,
-                color = Color.Black,
-                fontFamily = monogram
+                fontFamily = graduateFont,
+                color = Color.Black
             )
             Text(
                 text = item.steps.toString(),
                 fontSize = 26.sp,
                 color = darkblue,
-                fontFamily = monogram
+                fontFamily = graduateFont
             )
         }
     }

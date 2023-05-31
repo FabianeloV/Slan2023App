@@ -5,7 +5,6 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
@@ -56,7 +55,7 @@ fun TextBox() {
                 value = text.value,
                 onValueChange = { text.value = it },
                 shape = CircleShape,
-                modifier = Modifier.height(550.dp).width(300.dp).border(color = darkblue, width = 2.dp, shape = CircleShape)
+                modifier = Modifier.width(300.dp).border(color = darkblue, width = 2.dp, shape = CircleShape)
             )
 
             Button(

@@ -7,6 +7,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -20,7 +21,6 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
@@ -30,7 +30,7 @@ import com.example.prototiposlan.R
 import com.example.prototiposlan.viewModels.LoginViewModel
 import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.ui.theme.darkred
-import com.example.prototiposlan.ui.theme.monogram
+import com.example.prototiposlan.ui.theme.graduateFont
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -89,7 +89,7 @@ fun RegisterScreen(
             value = mail.value,
             onValueChange = { mail.value = it },
             label = { Text("Correo electrónico") },
-            shape = MaterialTheme.shapes.small,
+            shape = CircleShape,
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Email
             )
@@ -102,7 +102,7 @@ fun RegisterScreen(
             value = password.value,
             onValueChange = { password.value = it },
             label = { Text("Contraseña") },
-            shape = MaterialTheme.shapes.small,
+            shape = CircleShape,
             visualTransformation = PasswordVisualTransformation()
         )
 
@@ -113,7 +113,7 @@ fun RegisterScreen(
             value = repeatedPassword.value,
             onValueChange = { repeatedPassword.value = it },
             label = { Text("Repetir contraseña") },
-            shape = MaterialTheme.shapes.small,
+            shape = CircleShape,
             visualTransformation = PasswordVisualTransformation()
         )
 
@@ -154,8 +154,8 @@ fun RegisterTitle() {
     Text(
         text = "Crear una cuenta",
         color = darkred,
-        fontSize = 40.sp,
-        fontFamily = monogram
+        fontSize = 32.sp,
+        fontFamily = graduateFont
     )
 }
 
@@ -177,7 +177,7 @@ fun CreateButton(
             text = "CREAR CUENTA",
             color = Color.White,
             fontSize = 16.sp,
-            fontFamily = FontFamily.Serif
+            fontFamily = graduateFont
         )
 
         Spacer(modifier = Modifier.padding(5.dp))

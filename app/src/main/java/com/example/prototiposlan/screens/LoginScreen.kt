@@ -23,7 +23,6 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
@@ -33,7 +32,7 @@ import com.example.prototiposlan.viewModels.LoginViewModel
 import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.R
 import com.example.prototiposlan.ui.theme.darkred
-import com.example.prototiposlan.ui.theme.monogram
+import com.example.prototiposlan.ui.theme.graduateFont
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -158,7 +157,7 @@ fun LoginLogo(id: Int, width: Int, height: Int) {
 
 @Composable
 fun LoginTitle(text: String, font: Int) {
-    Text(text = text, color = darkblue, fontSize = font.sp, fontFamily = monogram)
+    Text(text = text, color = darkblue, fontSize = font.sp, fontFamily = graduateFont)
 }
 
 @Composable
@@ -178,8 +177,7 @@ fun LoginButton(click: () -> Unit) {
             text = "INGRESAR",
             color = Color.White,
             fontSize = 16.sp,
-            fontFamily = FontFamily.Serif
-        )
+            fontFamily = graduateFont)
 
         Spacer(modifier = Modifier.padding(5.dp))
 
@@ -202,8 +200,7 @@ fun CreateAccButton(navController: NavController) {
             text = "CREAR UNA CUENTA",
             color = darkblue,
             fontSize = 16.sp,
-            fontFamily = FontFamily.Serif
-        )
+            fontFamily = graduateFont)
     }
 }
 

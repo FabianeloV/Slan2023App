@@ -29,7 +29,6 @@ fun Main(){
         composable(route = "HomeScreen"){ HomeScreen(navController)}
         composable(route = "UserScreen"){ UserScreen(navController)}
         composable(route = "ForumScreen"){ ForumScreen(navController)}
-        composable(route = "PresentationsScreen"){ PresentationsScreen(navController)}
         composable(route= "MapScreen"){ MapScreen(navController)}
     }
 }
