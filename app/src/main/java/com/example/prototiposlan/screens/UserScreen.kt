@@ -24,7 +24,6 @@ import com.example.prototiposlan.ui.theme.graduateFont
 
 @Composable
 fun UserScreen(navController: NavController) {
-
     val stepsDays = listOf(
         StepsPerDay.Lunes,
         StepsPerDay.Martes,
