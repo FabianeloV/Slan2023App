@@ -33,14 +33,12 @@ import com.google.maps.android.compose.rememberCameraPositionState
 
 @Composable
 fun MapScreen(navController: NavController, viewModel: MapviewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
-
     Scaffold(
         topBar = { GeneralTopBar(title = "MAPAS", navController = navController) },
         content = ({ GoogleMapScreen(viewModel, viewModel.mapMarkerValue) }),
         bottomBar = { MapBottomBar(viewModel) }
     )
 }
-
 @Composable
 fun GoogleMapScreen(coord:MapviewModel,mapMarkerValue:Int) {
     val uCuenca = com.google.android.gms.maps.model.LatLng(-2.9008975384128406, -79.01019314391168)
@@ -106,7 +104,6 @@ fun MapBottomBar(viewModel: MapviewModel) {
         }
     }
 }
-
 @Composable
 fun BottomButton(painter: Int, text: String, color: Color, click: () -> Unit) {
     Column(

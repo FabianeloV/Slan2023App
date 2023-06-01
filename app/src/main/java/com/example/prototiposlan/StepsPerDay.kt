@@ -1,12 +1,20 @@
 package com.example.prototiposlan
 
-sealed class StepsPerDay(val day:String, val steps:Int){
+import android.icu.util.Calendar
+import androidx.lifecycle.ViewModel
 
-    object Lunes :StepsPerDay("LUNES", 6810)
-    object Martes :StepsPerDay("MARTES", 7204)
-    object Miercoles :StepsPerDay("MIERCOLES", 8290)
-    object Jueves :StepsPerDay("JUEVES", 633)
-    object Viernes :StepsPerDay("VIERNES", 0)
-    object Sabado :StepsPerDay("SÁBADO", 0)
-    object Domingo :StepsPerDay("DOMINGO", 0)
+class StepsPerDay : ViewModel() {
+    fun dayOfTheWeek(): Int {
+        val calendar = Calendar.getInstance()
+        return when (calendar.get(Calendar.DAY_OF_WEEK)) {
+            Calendar.SUNDAY -> 1
+            Calendar.MONDAY -> 2
+            Calendar.TUESDAY -> 3
+            Calendar.WEDNESDAY -> 4
+            Calendar.THURSDAY -> 5
+            Calendar.FRIDAY -> 6
+            Calendar.SATURDAY -> 7
+            else -> 0
+        }
+    }
 }

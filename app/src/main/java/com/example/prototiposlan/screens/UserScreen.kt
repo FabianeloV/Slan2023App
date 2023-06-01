@@ -4,7 +4,6 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ArrowBack
@@ -16,40 +15,20 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.prototiposlan.R
 import com.example.prototiposlan.StepsPerDay
+import com.example.prototiposlan.ui.theme.Shapes
 import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.ui.theme.darkred
-import com.example.prototiposlan.R
 import com.example.prototiposlan.ui.theme.graduateFont
 
 @Composable
-fun UserScreen(navController: NavController) {
-    val stepsDays = listOf(
-        StepsPerDay.Lunes,
-        StepsPerDay.Martes,
-        StepsPerDay.Miercoles,
-        StepsPerDay.Jueves,
-        StepsPerDay.Viernes,
-        StepsPerDay.Sabado,
-        StepsPerDay.Domingo
-    )
-    val pasosLunes: Int = StepsPerDay.Lunes.steps
-    val pasosMartes: Int = StepsPerDay.Martes.steps
-    val pasosMiercoles: Int = StepsPerDay.Miercoles.steps
-    val pasosJueves: Int = StepsPerDay.Jueves.steps
-    val pasosViernes: Int = StepsPerDay.Viernes.steps
-    val pasosSabado: Int = StepsPerDay.Sabado.steps
-    val pasosDomingo: Int = StepsPerDay.Domingo.steps
-
-    val pasos =
-        pasosLunes + pasosMartes + pasosMiercoles + pasosJueves + pasosViernes + pasosSabado + pasosDomingo
-
+fun UserScreen(navController: NavController, viewModel: StepsPerDay = androidx.lifecycle.viewmodel.compose.viewModel()) {
     Scaffold(
         topBar = { GeneralTopBar(title = "USUARIO", navController = navController) },
-        content = ({ UserDialog(pasos = pasos.toString(), stepsDays) })
+        content = ({ UserContent(viewModel) })
     )
 }
-
 @Composable
 fun GeneralTopBar(title: String, navController: NavController) {
     TopAppBar(
@@ -72,103 +51,62 @@ fun GeneralTopBar(title: String, navController: NavController) {
         elevation = 1.dp
     )
 }
-
 @Composable
-fun UserDialog(pasos: String, days: List<StepsPerDay>) {
-    Box(
+fun UserContent(viewModel: StepsPerDay) {
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = 35.dp, bottom = 35.dp, start = 25.dp, end = 25.dp)
-            .border(
-                border = BorderStroke(width = 2.dp, color = darkred),
-                shape = RoundedCornerShape(36.dp)
-            )
+            .padding(35.dp)
+            .border(shape = Shapes.small, border = BorderStroke(2.dp, color = darkblue))
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(top = 35.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.usericon),
-                contentDescription = null,
-                modifier = Modifier.size(120.dp)
-            )
+        Image(
+            painter = painterResource(id = R.drawable.usericon),
+            contentDescription = "User icon",
+            modifier = Modifier.size(150.dp)
+        )
+        Spacer(modifier = Modifier.padding(25.dp))
 
-            Spacer(modifier = Modifier.padding(10.dp))
+        GenericUserText(text = "Fabian Verdesoto", fontSize = 28, color = Color.Black)
 
-            Text(
-                text = "Fabian Verdesoto",
-                fontSize = 32.sp,
-                fontFamily = graduateFont,
-                color = Color.Black)
+        Spacer(modifier = Modifier.padding(16.dp))
 
-            Spacer(modifier = Modifier.padding(8.dp))
+        GenericUserNumber(number = viewModel.dayOfTheWeek(), fontSize = 44, color = darkred)
 
-            Text(
-                text = pasos,
-                fontSize = 48.sp,
-                fontFamily = graduateFont,
-                color = darkblue,
-            )
+        RowWithIcon()
 
-            Spacer(modifier = Modifier.padding(2.dp))
+        Spacer(modifier = Modifier.padding(20.dp))
 
-            Row (modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center){
-                Image(
-                    painter = painterResource(id = R.drawable.baseline_directions_run_24),
-                    contentDescription = "Runner",
-                    modifier = Modifier.size(width = 44.dp, height = 44.dp)
-                )
-                Spacer(modifier = Modifier.padding(horizontal = 5.dp))
-                Text(
-                    text = "PASOS",
-                    fontSize = 32.sp,
-                    fontFamily = graduateFont,
-                    color = darkblue,
-                )
-            }
-            Spacer(modifier = Modifier.padding(20.dp))
-            Box(
-                modifier = Modifier
-                    .border(
-                        border = BorderStroke(width = 1.dp, color = darkblue),
-                        shape = RoundedCornerShape(36.dp)
-                    )
-                    .size(280.dp)
-            ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(top = 40.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    days.forEach { item ->
-                        StepsDays(item = item)
-                    }
-                }
-            }
-        }
+        GenericUserNumber(number = 400, fontSize = 44, color = darkred)
+
+        GenericUserText(text = "cal quemadas", fontSize = 32, color = darkblue)
+
+        Spacer(modifier = Modifier.padding(20.dp))
+
+        GenericUserNumber(number = 240, fontSize = 44, color = darkred)
+
+        GenericUserText(text = "Puntos", fontSize = 32, color = darkblue)
+
     }
+}
+@Composable
+fun GenericUserText(text: String, fontSize: Int, color: Color) {
+    Text(text = text, fontSize = fontSize.sp, color = color, fontFamily = graduateFont)
 }
 
 @Composable
-fun StepsDays(item: StepsPerDay) {
+fun GenericUserNumber(number:Int, fontSize: Int, color: Color){
+    Text(text = number.toString(), fontSize = fontSize.sp, color = color, fontFamily = graduateFont)
+}
+@Composable
+fun RowWithIcon() {
     Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
-            Text(
-                text = item.day,
-                fontSize = 26.sp,
-                fontFamily = graduateFont,
-                color = Color.Black
-            )
-            Text(
-                text = item.steps.toString(),
-                fontSize = 26.sp,
-                color = darkblue,
-                fontFamily = graduateFont
-            )
-        }
+        Image(
+            painter = painterResource(id = R.drawable.baseline_directions_run_24),
+            contentDescription = "Runner",
+            modifier = Modifier.size(36.dp)
+        )
+        GenericUserText(text = "Pasos de hoy", fontSize = 32, color = darkblue)
     }
 }

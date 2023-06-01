@@ -167,7 +167,7 @@ fun LoginButton(click: () -> Unit) {
 
     OutlinedButton(
         onClick = {
-            Toast.makeText(context, "Cargando...", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Cargando...", Toast.LENGTH_LONG).show()
             click()
         },
         colors = ButtonDefaults.buttonColors(backgroundColor = darkblue),
