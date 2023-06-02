@@ -115,7 +115,7 @@ fun LoginScreen(
             viewModel.logIn(
                 email = mail.value,
                 password = password.value,
-                { navController.navigate(route = "HomeScreen") },
+                { navController.navigate(route = "HomeScreen") {navController.popBackStack()}},
                 { Toast.makeText(context, "Ingrese una contraseña válida", Toast.LENGTH_SHORT).show() },
                 { Toast.makeText(context, "Ingrese un correo válido", Toast.LENGTH_SHORT).show() },
                 { Toast.makeText(context, "Error de ingreso", Toast.LENGTH_SHORT).show() }
@@ -130,7 +130,7 @@ fun LoginScreen(
 
         GoogleRegisterLogo {
             Toast.makeText(context, "Cargando...", Toast.LENGTH_SHORT).show()
-
+            navController.popBackStack()
             val opciones = GoogleSignInOptions.Builder(
                 GoogleSignInOptions.DEFAULT_SIGN_IN
             )

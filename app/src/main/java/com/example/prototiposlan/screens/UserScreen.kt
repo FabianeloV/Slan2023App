@@ -2,6 +2,7 @@ package com.example.prototiposlan.screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -10,6 +11,7 @@ import androidx.compose.material.icons.outlined.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -31,6 +33,10 @@ fun UserScreen(navController: NavController, viewModel: StepsPerDay = androidx.l
 }
 @Composable
 fun GeneralTopBar(title: String, navController: NavController) {
+    val linear = Brush.linearGradient(
+        0.77f to Color.White,
+        1.0f to darkred
+    )
     TopAppBar(
         title = {
             Row(horizontalArrangement = Arrangement.Center) {
@@ -48,7 +54,8 @@ fun GeneralTopBar(title: String, navController: NavController) {
             }
         },
         backgroundColor = Color.Transparent,
-        elevation = 1.dp
+        elevation = 1.dp,
+        modifier = Modifier.background(linear)
     )
 }
 @Composable
@@ -84,7 +91,7 @@ fun UserContent(viewModel: StepsPerDay) {
 
         Spacer(modifier = Modifier.padding(20.dp))
 
-        GenericUserNumber(number = 240, fontSize = 44, color = darkred)
+        GenericUserNumber(number = 0, fontSize = 44, color = darkred)
 
         GenericUserText(text = "Puntos", fontSize = 32, color = darkblue)
 
