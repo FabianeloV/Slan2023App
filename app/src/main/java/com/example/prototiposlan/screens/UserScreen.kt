@@ -9,6 +9,9 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -18,17 +21,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.prototiposlan.R
-import com.example.prototiposlan.StepsPerDay
+import com.example.prototiposlan.DaysViewModel
 import com.example.prototiposlan.ui.theme.Shapes
 import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.ui.theme.darkred
 import com.example.prototiposlan.ui.theme.graduateFont
 
 @Composable
-fun UserScreen(navController: NavController, viewModel: StepsPerDay = androidx.lifecycle.viewmodel.compose.viewModel()) {
+fun UserScreen(navController: NavController, Steps: Int,viewModel: DaysViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
     Scaffold(
         topBar = { GeneralTopBar(title = "USUARIO", navController = navController) },
-        content = ({ UserContent(viewModel) })
+        content = ({ UserContent(viewModel, Steps) })
     )
 }
 @Composable
@@ -59,7 +62,10 @@ fun GeneralTopBar(title: String, navController: NavController) {
     )
 }
 @Composable
-fun UserContent(viewModel: StepsPerDay) {
+fun UserContent(viewModel: DaysViewModel, Steps:Int) {
+    val steps by remember { mutableStateOf(Steps) }
+    val calories by remember { mutableStateOf(steps*0.04) }
+
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -79,13 +85,13 @@ fun UserContent(viewModel: StepsPerDay) {
 
         Spacer(modifier = Modifier.padding(16.dp))
 
-        GenericUserNumber(number = viewModel.dayOfTheWeek(), fontSize = 44, color = darkred)
+        GenericUserNumber(number = steps, fontSize = 44, color = darkred)
 
         RowWithIcon()
 
         Spacer(modifier = Modifier.padding(20.dp))
 
-        GenericUserNumber(number = 400, fontSize = 44, color = darkred)
+        GenericUserNumber(number = calories.toInt(), fontSize = 44, color = darkred)
 
         GenericUserText(text = "cal quemadas", fontSize = 32, color = darkblue)
 
