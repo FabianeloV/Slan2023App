@@ -32,12 +32,12 @@ fun ForumScreen(navController: NavController) {
     Scaffold(
         topBar = { GeneralTopBar(title = "MURO", navController = navController) },
         content = ({}),
-        bottomBar = ({ TextBox() })
+        bottomBar = ({ ForumContent() })
     )
 }
 
 @Composable
-fun TextBox() {
+fun ForumContent() {
     val context = LocalContext.current
     val text = rememberSaveable { mutableStateOf("") }
     BottomAppBar(

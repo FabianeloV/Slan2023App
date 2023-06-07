@@ -1,6 +1,7 @@
 package com.example.prototiposlan
 
 import android.icu.util.Calendar
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 
@@ -18,6 +19,16 @@ class DaysViewModel : ViewModel() {
             else -> 0
         }
     }
-
     val stepCounter = mutableStateOf(0)
+
+    val DailyChallengeText1 = mutableStateOf("")
+    val DailyChallengeText2 = mutableStateOf("")
+    val DailyChallengeText3 = mutableStateOf("")
+
+    fun DailyChallengeText1Func(): MutableState<String> {
+        when(dayOfTheWeek()){
+            1->{}
+        }
+        return DailyChallengeText1
+    }
 }

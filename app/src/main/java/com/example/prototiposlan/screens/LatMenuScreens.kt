@@ -9,7 +9,7 @@ sealed class LatMenuScreens(val icon:Int,val title:String, val route:String) {
 
     object Ranking : LatMenuScreens(R.drawable.ic_baseline_arrow_forward_ios_24, "RANKING", "")
 
-    object Reto : LatMenuScreens(R.drawable.baseline_directions_run_24, "RETO DEL DIA", "")
+    object Reto : LatMenuScreens(R.drawable.baseline_directions_run_24, "RETO DEL DIA", "ChallengeScreen")
 
     object Muro : LatMenuScreens(R.drawable.baseline_forum_24, "MURO", "ForumScreen")
 

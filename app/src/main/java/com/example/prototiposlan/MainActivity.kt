@@ -18,6 +18,7 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.prototiposlan.screens.ChallengeScreen
 import com.example.prototiposlan.screens.ForumScreen
 import com.example.prototiposlan.screens.HomeScreen
 import com.example.prototiposlan.screens.LoginScreen
@@ -94,5 +95,6 @@ fun Main(steps:Int){
         composable(route = "UserScreen"){ UserScreen(navController, steps)}
         composable(route = "ForumScreen"){ ForumScreen(navController)}
         composable(route= "MapScreen"){ MapScreen(navController)}
+        composable(route = "ChallengeScreen"){ ChallengeScreen(navController)}
     }
 }
