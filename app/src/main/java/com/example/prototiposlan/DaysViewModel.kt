@@ -6,7 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 
 class DaysViewModel : ViewModel() {
-    fun dayOfTheWeek(): Int {
+    private fun dayOfTheWeek(): Int {
         val calendar = Calendar.getInstance()
         return when (calendar.get(Calendar.DAY_OF_WEEK)) {
             Calendar.SUNDAY -> 1
@@ -21,14 +21,14 @@ class DaysViewModel : ViewModel() {
     }
     val stepCounter = mutableStateOf(0)
 
-    val DailyChallengeText1 = mutableStateOf("")
-    val DailyChallengeText2 = mutableStateOf("")
-    val DailyChallengeText3 = mutableStateOf("")
+    private val dailyChallengeText1 = mutableStateOf("")
+    val dailyChallengeText2 = mutableStateOf("")
+    val dailyChallengeText3 = mutableStateOf("")
 
-    fun DailyChallengeText1Func(): MutableState<String> {
+    fun dailyChallengeText1Func(): MutableState<String> {
         when(dayOfTheWeek()){
             1->{}
         }
-        return DailyChallengeText1
+        return dailyChallengeText1
     }
 }
