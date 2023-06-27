@@ -26,6 +26,7 @@ import com.example.prototiposlan.screens.MapScreen
 import com.example.prototiposlan.screens.RegisterScreen
 import com.example.prototiposlan.screens.Splash
 import com.example.prototiposlan.screens.UserScreen
+import com.example.prototiposlan.viewModels.DaysViewModel
 
 class MainActivity : ComponentActivity(), SensorEventListener {
 

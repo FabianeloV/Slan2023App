@@ -1,4 +1,4 @@
-package com.example.prototiposlan
+package com.example.prototiposlan.viewModels
 
 import android.icu.util.Calendar
 import androidx.compose.runtime.MutableState
