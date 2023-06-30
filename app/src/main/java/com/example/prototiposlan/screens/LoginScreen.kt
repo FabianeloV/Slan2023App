@@ -19,7 +19,6 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.ImageShader
@@ -35,7 +34,6 @@ import androidx.navigation.NavController
 import com.example.prototiposlan.viewModels.LoginViewModel
 import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.R
-import com.example.prototiposlan.ui.theme.darkred
 import com.example.prototiposlan.ui.theme.graduateFont
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -48,13 +46,6 @@ fun LoginScreen(
     navController: NavController,
     viewModel: LoginViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
 ) {
-    val gradient = Brush.verticalGradient(
-        0.77f to Color.White,
-        1.0f to darkred,
-        startY = 0.0f,
-        endY = 2500.0f
-    )
-
     val mail = rememberSaveable { mutableStateOf("") }
     val password = rememberSaveable { mutableStateOf("") }
 

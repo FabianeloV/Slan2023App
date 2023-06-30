@@ -100,23 +100,28 @@ fun GoogleMapScreen(coord: MapviewModel, mapMarkerValue: Int) {
             3 -> {
                 Marker(
                     state = MarkerState(position = coord.parkMarker1),
-                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)
+                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN),
+                    title = "Parque 1"
                 )
                 Marker(
                     state = MarkerState(position = coord.parkMarker2),
-                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)
+                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN),
+                    title = "Parque 2"
                 )
                 Marker(
                     state = MarkerState(position = coord.parkMarker3),
-                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)
+                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN),
+                    title = "Parque 3"
                 )
                 Marker(
                     state = MarkerState(position = coord.parkMarker4),
-                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)
+                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN),
+                    title = "Parque 4"
                 )
                 Marker(
                     state = MarkerState(position = coord.parkMarker5),
-                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)
+                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN),
+                    title = "Parque 5"
                 )
             }
         }
