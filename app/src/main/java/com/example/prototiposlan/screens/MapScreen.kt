@@ -66,20 +66,58 @@ fun GoogleMapScreen(coord: MapviewModel, mapMarkerValue: Int) {
                 Marker(
                     state = MarkerState(position = coord.route1Marker),
                     title = "Ruta puertas del sol",
-                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)
+                    snippet = "2.71 km -" + " 31.35 min -" + " 3.561 pasos",
+                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)
                 )
                 Polyline(
                     points = coord.route1,
-                    color = Color.Red
+                    color = Color.Blue
+                )
+
+                Marker(
+                    state = MarkerState(position = coord.route2Marker),
+                    title = "Ruta San Sebastian",
+                    snippet = "1 km -" + " 10 min -" + " 1.062 pasos",
+                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)
+                )
+                Polyline(
+                    points = coord.route2,
+                    color = Color.Yellow
+                )
+
+                Marker(
+                    state = MarkerState(position = coord.route3Marker),
+                    title = "Ruta Paraiso",
+                    snippet = "2.9 km -" + " 34 min -" + " 7.281 pasos",
+                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)
+                )
+                Polyline(
+                    points = coord.route3,
+                    color = Color.Green
                 )
             }
 
             3 -> {
-                Marker(state = MarkerState(position = coord.parkMarker1))
-                Marker(state = MarkerState(position = coord.parkMarker2))
-                Marker(state = MarkerState(position = coord.parkMarker3))
-                Marker(state = MarkerState(position = coord.parkMarker4))
-                Marker(state = MarkerState(position = coord.parkMarker5))
+                Marker(
+                    state = MarkerState(position = coord.parkMarker1),
+                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)
+                )
+                Marker(
+                    state = MarkerState(position = coord.parkMarker2),
+                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)
+                )
+                Marker(
+                    state = MarkerState(position = coord.parkMarker3),
+                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)
+                )
+                Marker(
+                    state = MarkerState(position = coord.parkMarker4),
+                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)
+                )
+                Marker(
+                    state = MarkerState(position = coord.parkMarker5),
+                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)
+                )
             }
         }
     }
