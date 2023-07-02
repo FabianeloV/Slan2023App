@@ -1,6 +1,5 @@
 package com.example.prototiposlan.screens
 
-import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -20,7 +19,6 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Done
-import androidx.compose.material.icons.outlined.Done
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -35,7 +33,6 @@ import com.example.prototiposlan.Textos
 import com.example.prototiposlan.viewModels.DaysViewModel
 import com.example.prototiposlan.ui.theme.Shapes
 import com.example.prototiposlan.ui.theme.darkblue
-import com.example.prototiposlan.ui.theme.darkred
 import com.example.prototiposlan.ui.theme.graduateFont
 
 @Composable
