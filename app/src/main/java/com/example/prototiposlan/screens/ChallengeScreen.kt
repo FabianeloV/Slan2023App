@@ -30,7 +30,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.prototiposlan.R
 import com.example.prototiposlan.Textos
-import com.example.prototiposlan.viewModels.DaysViewModel
 import com.example.prototiposlan.ui.theme.Shapes
 import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.ui.theme.graduateFont
@@ -48,7 +47,6 @@ fun ChallengeScreen(
 @Preview
 @Composable
 fun ChallengeBody() {
-    val viewModel: DaysViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -64,12 +62,12 @@ fun ChallengeBody() {
             modifier = Modifier.padding(top = 30.dp),
             color = darkblue
         )
-        ChallengeBox(viewModel)
+        ChallengeBox()
     }
 }
 
 @Composable
-fun ChallengeBox(viewModel: DaysViewModel) {
+fun ChallengeBox() {
     val challenges = Textos()
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Challenge(challenges.mondayChallenge1, R.drawable.musculoso)
