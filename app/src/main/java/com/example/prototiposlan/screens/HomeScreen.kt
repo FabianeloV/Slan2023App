@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -32,7 +33,6 @@ fun HomeScreen(navController: NavController) {
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
     val latMenuItem = listOf(
-        LatMenuScreens.Usuario,
         LatMenuScreens.Ranking,
         LatMenuScreens.Reto,
         LatMenuScreens.Muro,
@@ -40,19 +40,18 @@ fun HomeScreen(navController: NavController) {
         LatMenuScreens.Rutinas,
         LatMenuScreens.Tabla,
         LatMenuScreens.Mapa,
-        LatMenuScreens.Plantas
     )
 
     Scaffold(
         scaffoldState = scaffoldState,
-        topBar = { TopBar(title = "HOME PAGE", scaffoldState, scope) },
+        topBar = { TopBar(scaffoldState, scope, navController) },
         drawerContent = { DrawerMenu(menuItems = latMenuItem, navController) },
         content = ({ HomeInfo() })
     )
 }
 
 @Composable
-fun TopBar(title: String, scaffoldState: ScaffoldState, scope: CoroutineScope) {
+fun TopBar(scaffoldState: ScaffoldState, scope: CoroutineScope, navController: NavController) {
     val linear = Brush.linearGradient(
         0.77f to Color.White,
         1.0f to darkblue
@@ -60,7 +59,7 @@ fun TopBar(title: String, scaffoldState: ScaffoldState, scope: CoroutineScope) {
     TopAppBar(
         title = {
             Text(
-                title,
+                "Home page",
                 color = darkblue,
                 fontSize = 25.sp,
                 fontFamily = graduateFont,
@@ -71,6 +70,11 @@ fun TopBar(title: String, scaffoldState: ScaffoldState, scope: CoroutineScope) {
         navigationIcon = {
             IconButton(onClick = { scope.launch { scaffoldState.drawerState.open() } }) {
                 Icon(Icons.Filled.Menu, contentDescription = null)
+            }
+        },
+        actions = {
+            IconButton(onClick = { navController.navigate(route = "UserScreen") }) {
+                Icon(Icons.Filled.Face, contentDescription = null)
             }
         },
         backgroundColor = Color.Transparent,
@@ -91,17 +95,21 @@ fun DrawerMenu(menuItems: List<LatMenuScreens>, navController: NavController) {
             .background(brush = linear)
     ) {
         Spacer(modifier = Modifier.padding(top = 25.dp))
-        Box(modifier = Modifier
-            .fillMaxWidth()
-            .height(16.dp)
-            .background(color = darkred)
-            .padding(top = 20.dp))
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(16.dp)
+                .background(color = darkred)
+                .padding(top = 20.dp)
+        )
         Spacer(modifier = Modifier.padding(top = 5.dp))
-        Box(modifier = Modifier
-            .fillMaxWidth()
-            .height(8.dp)
-            .background(color = darkred)
-            .padding(top = 20.dp))
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(8.dp)
+                .background(color = darkred)
+                .padding(top = 20.dp)
+        )
         Spacer(modifier = Modifier.padding(top = 10.dp))
         menuItems.forEach { item ->
             DrawerItem(item = item, navController)
@@ -124,7 +132,7 @@ fun DrawerItem(item: LatMenuScreens, navController: NavController) {
             colors = ButtonDefaults.buttonColors(backgroundColor = Color.Transparent),
             border = BorderStroke(1.dp, Color.Transparent)
         ) {
-            Row(modifier = Modifier.fillMaxWidth(),horizontalArrangement = Arrangement.Start) {
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Start) {
                 Icon(
                     painter = painterResource(id = item.icon),
                     contentDescription = item.title,
