@@ -49,10 +49,6 @@ fun HomeScreen(navController: NavController) {
 
 @Composable
 fun TopBar(scaffoldState: ScaffoldState, scope: CoroutineScope, navController: NavController) {
-    val linear = Brush.linearGradient(
-        0.77f to Color.White,
-        1.0f to darkblue
-    )
     TopAppBar(
         title = {
             Text(
@@ -76,7 +72,6 @@ fun TopBar(scaffoldState: ScaffoldState, scope: CoroutineScope, navController: N
         },
         backgroundColor = Color.Transparent,
         elevation = 1.dp,
-        modifier = Modifier.background(linear)
     )
 }
 

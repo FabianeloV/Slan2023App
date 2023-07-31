@@ -40,7 +40,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.GoogleAuthProvider
 
-
 @Composable
 fun LoginScreen(
     navController: NavController,
@@ -70,7 +69,7 @@ fun LoginScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(ShaderBrush(ImageShader(ImageBitmap.imageResource(id = R.drawable.background))))
+            .background(ShaderBrush(ImageShader(ImageBitmap.imageResource(id = R.drawable.loginbackground))))
             .padding(top = 40.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

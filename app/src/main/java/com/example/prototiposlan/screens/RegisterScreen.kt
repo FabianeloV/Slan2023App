@@ -17,9 +17,12 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.ImageShader
+import androidx.compose.ui.graphics.ShaderBrush
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -28,15 +31,12 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.prototiposlan.R
 import com.example.prototiposlan.viewModels.LoginViewModel
-import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.ui.theme.darkred
 import com.example.prototiposlan.ui.theme.graduateFont
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.GoogleAuthProvider
-
-
 
 @Composable
 fun RegisterScreen(
@@ -48,14 +48,6 @@ fun RegisterScreen(
     val password = rememberSaveable { mutableStateOf("") }
     val repeatedPassword = rememberSaveable { mutableStateOf("") }
     val context = LocalContext.current
-
-    val gradient =
-        Brush.verticalGradient(
-            0.77f to Color.White,
-            1.0f to darkblue,
-            startY = 0.0f,
-            endY = 2500.0f
-        )
 
     //Google client
     val token = "638724186254-5ip7kj91ljfqlua9u663fk7djtlh0a9i.apps.googleusercontent.com"
@@ -76,13 +68,17 @@ fun RegisterScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(gradient)
-            .padding(top = 85.dp),
+            .background(ShaderBrush(ImageShader(ImageBitmap.imageResource(id = R.drawable.singinbackground))))
+            .padding(top = 40.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        LoginLogo(id = R.drawable.usericon, width = 150, height = 150)
+
+        Spacer(modifier = Modifier.padding(15.dp))
+
         RegisterTitle()
 
-        Spacer(modifier = Modifier.padding(25.dp))
+        Spacer(modifier = Modifier.padding(20.dp))
 
         OutlinedTextField(
             leadingIcon = { Icon(imageVector = Icons.Outlined.Email, contentDescription = null) },
@@ -95,7 +91,7 @@ fun RegisterScreen(
             )
         )
 
-        Spacer(modifier = Modifier.padding(25.dp))
+        Spacer(modifier = Modifier.padding(20.dp))
 
         OutlinedTextField(
             leadingIcon = { Icon(imageVector = Icons.Outlined.Lock, contentDescription = null) },
@@ -106,7 +102,7 @@ fun RegisterScreen(
             visualTransformation = PasswordVisualTransformation()
         )
 
-        Spacer(modifier = Modifier.padding(25.dp))
+        Spacer(modifier = Modifier.padding(20.dp))
 
         OutlinedTextField(
             leadingIcon = { Icon(imageVector = Icons.Outlined.Lock, contentDescription = null) },
@@ -117,7 +113,7 @@ fun RegisterScreen(
             visualTransformation = PasswordVisualTransformation()
         )
 
-        Spacer(modifier = Modifier.padding(25.dp))
+        Spacer(modifier = Modifier.padding(15.dp))
 
         GoogleRegisterLogo {
             Toast.makeText(context, "Cargando...", Toast.LENGTH_SHORT).show()
@@ -132,7 +128,7 @@ fun RegisterScreen(
             launcher.launch(googleClient.signInIntent)
         }
 
-        Spacer(modifier = Modifier.padding(25.dp))
+        Spacer(modifier = Modifier.padding(15.dp))
 
         CreateButton {
             viewModel.createUser(
