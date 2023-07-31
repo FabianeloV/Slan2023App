@@ -18,7 +18,7 @@ import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Done
+import androidx.compose.material.icons.outlined.Done
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -32,6 +32,7 @@ import com.example.prototiposlan.R
 import com.example.prototiposlan.Textos
 import com.example.prototiposlan.ui.theme.Shapes
 import com.example.prototiposlan.ui.theme.darkblue
+import com.example.prototiposlan.ui.theme.gold
 import com.example.prototiposlan.ui.theme.graduateFont
 
 @Composable
@@ -39,7 +40,7 @@ fun ChallengeScreen(
     navController: NavController
 ) {
     Scaffold(
-        topBar = { GeneralTopBar(title = "Reto del dia", navController = navController) },
+        topBar = { GeneralTopBar(title = "Reto del día", navController = navController) },
         content = ({ ChallengeBody() })
     )
 }
@@ -50,19 +51,25 @@ fun ChallengeBody() {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(35.dp)
-            .border(shape = Shapes.small, border = BorderStroke(2.dp, color = darkblue))
+        modifier = Modifier.fillMaxSize()
     ) {
         Text(
             text = "VIERNES",
-            fontSize = 32.sp,
+            fontSize = 36.sp,
             fontFamily = graduateFont,
             modifier = Modifier.padding(top = 30.dp),
             color = darkblue
         )
-        ChallengeBox()
+        Column(
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(35.dp)
+                .border(shape = Shapes.small, border = BorderStroke(2.dp, color = darkblue))
+        ) {
+            ChallengeBox()
+        }
     }
 }
 
@@ -106,7 +113,7 @@ fun Challenge(challenge: String, icon: Int) {
 }
 
 @Composable
-fun InvertedChallenge(challenge: String, icon: Int){
+fun InvertedChallenge(challenge: String, icon: Int) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -131,21 +138,21 @@ fun InvertedChallenge(challenge: String, icon: Int){
 }
 
 @Composable
-fun PointsButton(){
-
+fun PointsButton() {
     OutlinedButton(
-        onClick = {  },
-        colors = ButtonDefaults.buttonColors(backgroundColor = darkblue),
+        onClick = { },
+        colors = ButtonDefaults.buttonColors(backgroundColor = gold),
         shape = CircleShape
     ) {
         Text(
             text = "COMPLETADO",
             color = Color.White,
             fontSize = 16.sp,
-            fontFamily = graduateFont)
+            fontFamily = graduateFont
+        )
 
         Spacer(modifier = Modifier.padding(5.dp))
 
-        Icon(imageVector = Icons.Filled.Done, contentDescription = null)
+        Icon(imageVector = Icons.Outlined.Done, contentDescription = null)
     }
 }

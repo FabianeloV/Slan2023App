@@ -36,9 +36,6 @@ fun HomeScreen(navController: NavController) {
         LatMenuScreens.Ranking,
         LatMenuScreens.Reto,
         LatMenuScreens.Muro,
-        LatMenuScreens.Ejercicios,
-        LatMenuScreens.Rutinas,
-        LatMenuScreens.Tabla,
         LatMenuScreens.Mapa,
     )
 

@@ -11,12 +11,6 @@ sealed class LatMenuScreens(val icon:Int,val title:String, val route:String) {
 
     object Muro : LatMenuScreens(R.drawable.baseline_forum_24, "MURO", "ForumScreen")
 
-    object Ejercicios : LatMenuScreens(R.drawable.baseline_park_24, "EJERCICIOS","")
-
-    object Rutinas : LatMenuScreens(R.drawable.baseline_other_houses_24,"RUTINAS","")
-
-    object Tabla : LatMenuScreens(R.drawable.baseline_park_24, "TABLA CALÓRICA", "")
-
     object Mapa : LatMenuScreens(R.drawable.baseline_map_24, "MAPA", "MapScreen")
 }
 
