@@ -37,6 +37,7 @@ fun HomeScreen(navController: NavController) {
         LatMenuScreens.Reto,
         LatMenuScreens.Muro,
         LatMenuScreens.Mapa,
+        LatMenuScreens.Flora
     )
 
     Scaffold(

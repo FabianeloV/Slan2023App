@@ -23,6 +23,7 @@ import com.example.prototiposlan.screens.ForumScreen
 import com.example.prototiposlan.screens.HomeScreen
 import com.example.prototiposlan.screens.LoginScreen
 import com.example.prototiposlan.screens.MapScreen
+import com.example.prototiposlan.screens.PlantsScreen
 import com.example.prototiposlan.screens.RegisterScreen
 import com.example.prototiposlan.screens.Splash
 import com.example.prototiposlan.screens.UserScreen
@@ -97,5 +98,6 @@ fun Main(steps:Int){
         composable(route = "ForumScreen"){ ForumScreen(navController)}
         composable(route= "MapScreen"){ MapScreen(navController)}
         composable(route = "ChallengeScreen"){ ChallengeScreen(navController)}
+        composable(route = "PlantsScreen"){ PlantsScreen(navController)}
     }
 }
