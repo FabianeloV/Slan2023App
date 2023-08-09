@@ -1,11 +1,13 @@
 package com.example.prototiposlan.screens
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Search
 import com.example.prototiposlan.R
 
 
 sealed class LatMenuScreens(val icon:Int,val title:String, val route:String) {
 
-    object Ranking : LatMenuScreens(R.drawable.ic_baseline_arrow_forward_ios_24, "RANKING", "")
+    object Ranking : LatMenuScreens(R.drawable.ic_baseline_arrow_forward_ios_24, "RANKING", "RankingScreen")
 
     object Reto : LatMenuScreens(R.drawable.baseline_directions_run_24, "RETO DEL DIA", "ChallengeScreen")
 
@@ -14,5 +16,9 @@ sealed class LatMenuScreens(val icon:Int,val title:String, val route:String) {
     object Mapa : LatMenuScreens(R.drawable.baseline_map_24, "MAPA", "MapScreen")
 
     object Flora : LatMenuScreens(R.drawable.baseline_park_24, "Flora y fauna", "PlantsScreen")
+
+    object Scanner : LatMenuScreens(R.drawable.baseline_camera_24, "Escáner", "ScannerScreen")
+
+    object Album : LatMenuScreens(R.drawable.baseline_video_library_24, "Album", "AlbumScreen")
 }
 

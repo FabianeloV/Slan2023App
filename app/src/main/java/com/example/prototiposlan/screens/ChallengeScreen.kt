@@ -54,7 +54,7 @@ fun ChallengeBody() {
         modifier = Modifier.fillMaxSize()
     ) {
         Text(
-            text = "VIERNES",
+            text = "Miércoles",
             fontSize = 36.sp,
             fontFamily = graduateFont,
             modifier = Modifier.padding(top = 30.dp),

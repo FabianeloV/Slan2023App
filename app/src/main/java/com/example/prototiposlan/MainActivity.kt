@@ -18,13 +18,16 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.prototiposlan.screens.AlbumScreen
 import com.example.prototiposlan.screens.ChallengeScreen
 import com.example.prototiposlan.screens.ForumScreen
 import com.example.prototiposlan.screens.HomeScreen
 import com.example.prototiposlan.screens.LoginScreen
 import com.example.prototiposlan.screens.MapScreen
 import com.example.prototiposlan.screens.PlantsScreen
+import com.example.prototiposlan.screens.RankingScreen
 import com.example.prototiposlan.screens.RegisterScreen
+import com.example.prototiposlan.screens.ScannerScreen
 import com.example.prototiposlan.screens.Splash
 import com.example.prototiposlan.screens.UserScreen
 import com.example.prototiposlan.viewModels.DaysViewModel
@@ -99,5 +102,8 @@ fun Main(steps:Int){
         composable(route= "MapScreen"){ MapScreen(navController)}
         composable(route = "ChallengeScreen"){ ChallengeScreen(navController)}
         composable(route = "PlantsScreen"){ PlantsScreen(navController)}
+        composable(route = "ScannerScreen"){ ScannerScreen(navController)}
+        composable(route = "RankingScreen"){ RankingScreen(navController)}
+        composable(route = "AlbumScreen"){ AlbumScreen(navController)}
     }
 }
