@@ -18,15 +18,16 @@ class Textos {
             "\n" +
             "En 1868, se crearon las cátedras de Química Industrial, Botánica, Zoología, Geología, Ingeniería, Litografía y Grabado, bajo la conducción de profesores alemanes. A raíz de esto, se creó en 1890 la Facultad de Ciencias. En 1897, después de la Revolución Liberal, se reconoció a la entonces Corporación Universitaria del Azuay como Universidad del Azuay."
 
-    val mondayChallenge1 = "15 flexiones\n" +
-            "10 burpees\n" +
-            "15 segs \n" +
-            "en plancha\n" +
-            "20 abdomen"
+    val mondayChallenge1 = "Realiza 10\n" +
+            "saltos con\n" +
+            "los pies \n" +
+            "juntos donde\n" +
+            "estés"
 
-    val mondayChallenge2 = "Completa una\n" +
-            "ruta de min\n" +
-            "1 kilómetro"
+    val mondayChallenge2 = "Realiza 10\n" +
+            "abdominales\n" +
+            "donde estés"
 
-    val mondayChallenge3 = "VISITA 1 PARQUE"
+    val mondayChallenge3 = "Realiza 10\n" +
+            "burpees"
 }

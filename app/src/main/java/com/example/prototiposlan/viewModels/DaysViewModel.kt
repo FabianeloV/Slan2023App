@@ -21,6 +21,12 @@ class DaysViewModel : ViewModel() {
     }
     val stepCounter = mutableStateOf(0)
 
+    val userPoints = mutableStateOf(100)
+
+    fun sumUserPoints(){
+        userPoints.value + 100
+    }
+
     private val dailyChallengeText1 = mutableStateOf("")
     val dailyChallengeText2 = mutableStateOf("")
     val dailyChallengeText3 = mutableStateOf("")

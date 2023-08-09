@@ -43,13 +43,9 @@ fun SplashImage() {
         verticalArrangement = Arrangement.Center) {
 
         Image(
-            painter = painterResource(id = R.drawable.escudo),
+            painter = painterResource(id = R.drawable.slanlogo),
             contentDescription = "Escudo",
-            modifier = Modifier.size(width = 250.dp, height = 250.dp)
+            modifier = Modifier.size(width = 350.dp, height = 350.dp)
         )
-
-        Spacer(modifier = Modifier.padding(top = 20.dp))
-
-        Image(painter = painterResource(id = R.drawable.fonotipo), contentDescription = "Fonotipo")
     }
 }

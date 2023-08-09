@@ -20,6 +20,9 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Done
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -34,6 +37,7 @@ import com.example.prototiposlan.ui.theme.Shapes
 import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.ui.theme.gold
 import com.example.prototiposlan.ui.theme.graduateFont
+import com.example.prototiposlan.viewModels.DaysViewModel
 
 @Composable
 fun ChallengeScreen(
@@ -74,16 +78,16 @@ fun ChallengeBody() {
 }
 
 @Composable
-fun ChallengeBox() {
+fun ChallengeBox(viewModel: DaysViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
     val challenges = Textos()
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
-        Challenge(challenges.mondayChallenge1, R.drawable.musculoso)
+        Challenge(challenges.mondayChallenge1, R.drawable.baseline_fitness_center_24)
 
-        InvertedChallenge(challenge = challenges.mondayChallenge2, icon = R.drawable.hearth)
+        InvertedChallenge(challenge = challenges.mondayChallenge2, icon = R.drawable.baseline_monitor_heart_24)
 
         Challenge(challenge = challenges.mondayChallenge3, icon = R.drawable.pin)
 
-        PointsButton()
+        PointsButton(viewModel)
     }
 }
 
@@ -138,11 +142,13 @@ fun InvertedChallenge(challenge: String, icon: Int) {
 }
 
 @Composable
-fun PointsButton() {
+fun PointsButton(viewModel: DaysViewModel) {
+    val colorBut by remember { mutableStateOf(gold) }
     OutlinedButton(
-        onClick = { },
-        colors = ButtonDefaults.buttonColors(backgroundColor = gold),
-        shape = CircleShape
+        onClick = { viewModel.sumUserPoints() },
+        colors = ButtonDefaults.buttonColors(backgroundColor = colorBut),
+        shape = CircleShape,
+        modifier = Modifier.padding(top = 30.dp)
     ) {
         Text(
             text = "COMPLETADO",

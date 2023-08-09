@@ -44,7 +44,7 @@ class MainActivity : ComponentActivity(), SensorEventListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Main(daysViewModel.stepCounter.value)
+            Main(daysViewModel.stepCounter.value, daysViewModel.userPoints.value)
         }
         if (isPermissionGranted()) {
             requestPermission()
@@ -90,14 +90,14 @@ class MainActivity : ComponentActivity(), SensorEventListener {
 
 }
 @Composable
-fun Main(steps:Int){
+fun Main(steps:Int, points: Int){
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "SplashScreen"){
         composable(route = "SplashScreen"){ Splash(navController)}
         composable(route = "LoginScreen"){ LoginScreen(navController)}
         composable(route = "RegisterScreen"){ RegisterScreen(navController)}
         composable(route = "HomeScreen"){ HomeScreen(navController)}
-        composable(route = "UserScreen"){ UserScreen(navController, steps)}
+        composable(route = "UserScreen"){ UserScreen(navController, steps, points)}
         composable(route = "ForumScreen"){ ForumScreen(navController)}
         composable(route= "MapScreen"){ MapScreen(navController)}
         composable(route = "ChallengeScreen"){ ChallengeScreen(navController)}

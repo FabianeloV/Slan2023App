@@ -4,6 +4,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ArrowBack
@@ -13,6 +14,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -26,10 +28,10 @@ import com.example.prototiposlan.ui.theme.darkred
 import com.example.prototiposlan.ui.theme.graduateFont
 
 @Composable
-fun UserScreen(navController: NavController, Steps: Int,viewModel: DaysViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
+fun UserScreen(navController: NavController, Steps: Int, points: Int) {
     Scaffold(
         topBar = { GeneralTopBar(title = "USUARIO", navController = navController) },
-        content = ({ UserContent(viewModel, Steps) })
+        content = ({ UserContent(Steps, points) })
     )
 }
 @Composable
@@ -55,9 +57,10 @@ fun GeneralTopBar(title: String, navController: NavController) {
     )
 }
 @Composable
-fun UserContent(viewModel: DaysViewModel, Steps:Int) {
+fun UserContent(Steps:Int, points:Int) {
     val steps by remember { mutableStateOf(Steps) }
     val calories by remember { mutableStateOf(steps*0.04) }
+    val points by remember { mutableStateOf(points) }
 
     Column(
         verticalArrangement = Arrangement.Center,
@@ -68,9 +71,9 @@ fun UserContent(viewModel: DaysViewModel, Steps:Int) {
             .border(shape = Shapes.small, border = BorderStroke(2.dp, color = darkblue))
     ) {
         Image(
-            painter = painterResource(id = R.drawable.usericon),
+            painter = painterResource(id = R.drawable.foto),
             contentDescription = "User icon",
-            modifier = Modifier.size(150.dp)
+            modifier = Modifier.size(150.dp).clip(CircleShape).border(2.dp, color = darkblue)
         )
         Spacer(modifier = Modifier.padding(25.dp))
 
@@ -90,7 +93,7 @@ fun UserContent(viewModel: DaysViewModel, Steps:Int) {
 
         Spacer(modifier = Modifier.padding(20.dp))
 
-        GenericUserNumber(number = 0, fontSize = 44, color = darkred)
+        GenericUserNumber(number = points, fontSize = 44, color = darkred)
 
         GenericUserText(text = "Puntos", fontSize = 32, color = darkblue)
 
