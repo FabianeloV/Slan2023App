@@ -43,7 +43,7 @@ fun AlbumScreen(navController: NavController) {
 fun AlbumContent() {
     Column(
         modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.SpaceAround,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(text = "Los usuarios pueden subir vivencias y fotografías de su experiencia en el Slan 2023 al album fotográfico, el mejor collage será premiado por los organizadores del evento",
@@ -52,7 +52,6 @@ fun AlbumContent() {
             fontFamily = graduateFont,
             modifier = Modifier.padding(4.dp)
         )
-        Spacer(modifier = Modifier.padding(20.dp))
         AddRows()
         AddRows()
         AddRows()
@@ -61,8 +60,7 @@ fun AlbumContent() {
 
 @Composable
 fun AddRows() {
-    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
-        AddBox()
+    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
         AddBox()
         AddBox()
     }
@@ -73,7 +71,7 @@ fun AddBox() {
     Box(
         modifier = Modifier
             .background(color = Color.LightGray)
-            .size(128.dp)
+            .size(160.dp)
             .border(1.dp, color = Color.Gray)
             .clickable { }, contentAlignment = Alignment.Center
     ) {
