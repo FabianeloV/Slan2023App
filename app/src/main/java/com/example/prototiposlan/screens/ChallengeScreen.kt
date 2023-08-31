@@ -2,15 +2,19 @@ package com.example.prototiposlan.screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
@@ -35,6 +39,7 @@ import com.example.prototiposlan.R
 import com.example.prototiposlan.Textos
 import com.example.prototiposlan.ui.theme.Shapes
 import com.example.prototiposlan.ui.theme.darkblue
+import com.example.prototiposlan.ui.theme.darkred
 import com.example.prototiposlan.ui.theme.gold
 import com.example.prototiposlan.ui.theme.graduateFont
 import com.example.prototiposlan.viewModels.DaysViewModel
@@ -72,8 +77,7 @@ fun ChallengeBody() {
                 .padding(35.dp)
                 .border(shape = Shapes.small, border = BorderStroke(2.dp, color = darkblue))
         ) {
-            ChallengeBox()
-        }
+            ChallengeBox()       }
     }
 }
 
@@ -83,9 +87,33 @@ fun ChallengeBox(viewModel: DaysViewModel = androidx.lifecycle.viewmodel.compose
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Challenge(challenges.mondayChallenge1, R.drawable.baseline_fitness_center_24)
 
+        Box(
+            modifier = Modifier
+                .height(2.dp)
+                .width(200.dp)
+                .background(color = darkblue)
+                .padding(top = 20.dp)
+        )
+
         InvertedChallenge(challenge = challenges.mondayChallenge2, icon = R.drawable.baseline_monitor_heart_24)
 
+        Box(
+            modifier = Modifier
+                .height(2.dp)
+                .width(200.dp)
+                .background(color = darkblue)
+                .padding(top = 20.dp)
+        )
+
         Challenge(challenge = challenges.mondayChallenge3, icon = R.drawable.pin)
+
+        Box(
+            modifier = Modifier
+                .height(2.dp)
+                .width(250.dp)
+                .background(color = darkred)
+                .padding(top = 40.dp)
+        )
 
         PointsButton(viewModel)
     }

@@ -1,10 +1,8 @@
 package com.example.prototiposlan.screens
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Face
@@ -15,19 +13,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.prototiposlan.Textos
 import com.example.prototiposlan.ui.theme.darkblue
-import com.example.prototiposlan.R
 import com.example.prototiposlan.ui.theme.darkred
 import com.example.prototiposlan.ui.theme.graduateFont
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-
-
 @Composable
 fun HomeScreen(navController: NavController) {
     val scaffoldState = rememberScaffoldState()
@@ -38,7 +31,6 @@ fun HomeScreen(navController: NavController) {
         LatMenuScreens.Muro,
         LatMenuScreens.Mapa,
         LatMenuScreens.Flora,
-        LatMenuScreens.Scanner,
         LatMenuScreens.Album
     )
 
@@ -148,79 +140,6 @@ fun DrawerItem(item: LatMenuScreens, navController: NavController) {
 @Composable
 fun HomeInfo() {
 
-    val textos = Textos()
-
-    LazyColumn(modifier = Modifier.fillMaxSize()) {
-        item {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth(), horizontalArrangement = Arrangement.Center
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.cuencaciudad),
-                    contentDescription = null,
-                    modifier = Modifier.fillMaxWidth()
-                )
-            }
-        }
-
-        item {
-            Spacer(modifier = Modifier.padding(top = 20.dp))
-        }
-
-        item {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 10.dp),
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                Text(
-                    text = textos.textoCuenca, fontFamily = FontFamily.Serif
-                )
-                Image(
-                    painter = painterResource(id = R.drawable.escudocuenca),
-                    contentDescription = null,
-                    modifier = Modifier.size(width = 200.dp, height = 200.dp)
-                )
-            }
-        }
-
-        item {
-            Spacer(modifier = Modifier.padding(top = 20.dp))
-        }
-
-        item {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 10.dp),
-                horizontalArrangement = Arrangement.Center
-            ) {
-
-                Image(
-                    painter = painterResource(id = R.drawable.ucuenca),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .size(width = 335.dp, height = 235.dp)
-                        .padding(end = 10.dp)
-                )
-            }
-        }
-
-        item {
-            Spacer(modifier = Modifier.padding(top = 20.dp))
-        }
-
-        item {
-            Text(
-                text = textos.textoUCuenca,
-                fontFamily = FontFamily.Serif,
-                modifier = Modifier.padding(all = 10.dp)
-            )
-        }
-    }
 }
 
 

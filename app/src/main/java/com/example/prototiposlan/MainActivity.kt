@@ -27,7 +27,6 @@ import com.example.prototiposlan.screens.MapScreen
 import com.example.prototiposlan.screens.PlantsScreen
 import com.example.prototiposlan.screens.RankingScreen
 import com.example.prototiposlan.screens.RegisterScreen
-import com.example.prototiposlan.screens.ScannerScreen
 import com.example.prototiposlan.screens.Splash
 import com.example.prototiposlan.screens.UserScreen
 import com.example.prototiposlan.viewModels.DaysViewModel
@@ -102,7 +101,6 @@ fun Main(steps:Int, points: Int){
         composable(route= "MapScreen"){ MapScreen(navController)}
         composable(route = "ChallengeScreen"){ ChallengeScreen(navController)}
         composable(route = "PlantsScreen"){ PlantsScreen(navController)}
-        composable(route = "ScannerScreen"){ ScannerScreen(navController)}
         composable(route = "RankingScreen"){ RankingScreen(navController)}
         composable(route = "AlbumScreen"){ AlbumScreen(navController)}
     }
