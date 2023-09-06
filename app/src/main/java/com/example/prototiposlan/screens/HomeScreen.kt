@@ -8,13 +8,19 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.outlined.DateRange
+import androidx.compose.material.icons.outlined.LocationOn
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -23,6 +29,7 @@ import com.example.prototiposlan.ui.theme.darkred
 import com.example.prototiposlan.ui.theme.graduateFont
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+
 @Composable
 fun HomeScreen(navController: NavController) {
     val scaffoldState = rememberScaffoldState()
@@ -35,12 +42,13 @@ fun HomeScreen(navController: NavController) {
         LatMenuScreens.Flora,
         LatMenuScreens.Album
     )
+    val eventList = listOf(Schedule.T2, Schedule.T3, Schedule.T1)
 
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = { TopBar(scaffoldState, scope, navController) },
         drawerContent = { DrawerMenu(menuItems = latMenuItem, navController) },
-        content = ({ HomeInfo() })
+        content = ({ DaySchedule(eventList) })
     )
 }
 
@@ -100,6 +108,7 @@ fun DrawerMenu(menuItems: List<LatMenuScreens>, navController: NavController) {
                 .padding(top = 20.dp)
         )
         Spacer(modifier = Modifier.padding(top = 10.dp))
+
         menuItems.forEach { item ->
             DrawerItem(item = item, navController)
         }
@@ -140,14 +149,79 @@ fun DrawerItem(item: LatMenuScreens, navController: NavController) {
 }
 
 @Composable
-fun HomeInfo() {
+fun DaySchedule(eventList: List<Schedule>) {
+    val firstDayEvents = eventList.subList(0, 3)
+    val secondDayEvents = eventList.subList(3, 3)
+    LazyColumn(modifier = Modifier.fillMaxSize()) {
+        item {
+            Text(
+                text = "21 de Octubre",
+                color = darkred,
+                fontFamily = graduateFont,
+                fontSize = 22.sp,
+                modifier = Modifier.padding(15.dp)
+            )
+        }
 
+        item { firstDayEvents.forEach { event -> EventColumn(event = event) } }
+
+        item {
+            Text(
+                text = "22 de Octubre",
+                color = darkred,
+                fontFamily = graduateFont,
+                fontSize = 22.sp,
+                modifier = Modifier.padding(15.dp)
+            )
+        }
+
+        item { secondDayEvents.forEach { event -> EventColumn(event = event) } }
+    }
 }
 
-@Preview
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun DaySchedule(){
-    LazyColumn(content = {})
+fun EventColumn(event: Schedule) {
+    val showDialog by remember { mutableStateOf(false) }
+    Card(
+        elevation = 4.dp,
+        modifier = Modifier.padding(top = 5.dp),
+        onClick = { showDialog }) {
+        Column(
+            verticalArrangement = Arrangement.SpaceAround,
+            horizontalAlignment = Alignment.Start,
+            modifier = Modifier.padding(15.dp)
+        ) {
+            Text(text = event.event, modifier = Modifier.padding(bottom = 8.dp))
+
+            Row(Modifier.fillMaxWidth()) {
+                Icon(Icons.Outlined.LocationOn, contentDescription = event.event)
+                Spacer(modifier = Modifier.padding(horizontal = 5.dp))
+                Text(text = event.ubication, color = Color.Gray)
+            }
+
+            Row(Modifier.fillMaxWidth()) {
+                Icon(Icons.Outlined.DateRange, contentDescription = event.event)
+                Spacer(modifier = Modifier.padding(horizontal = 5.dp))
+                Text(text = event.hour, color = Color.Gray)
+            }
+
+            AlertDialog(
+                onDismissRequest = { !showDialog },
+                text = { Text(text = event.description) },
+                title = { Text(text = "Description") },
+                buttons = {})
+
+        }
+    }
 }
 
-
+@Composable
+fun DescriptionDialog(description: String, click: () -> Unit) {
+    AlertDialog(
+        onDismissRequest = { click() },
+        text = { Text(text = description) },
+        title = { Text(text = "Descripción") },
+        buttons = {}
+    )
+}

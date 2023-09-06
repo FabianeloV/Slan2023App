@@ -22,14 +22,13 @@ fun Splash(navController: NavController) {
         navController.popBackStack()
         navController.navigate("LoginScreen")
 
-       /*
+
         if(FirebaseAuth.getInstance().currentUser?.email.isNullOrEmpty()){
             navController.navigate("LoginScreen")
         } else{
             navController.navigate("HomeScreen")
-        }*/
+        }
     }
-
     SplashImage()
 }
 
