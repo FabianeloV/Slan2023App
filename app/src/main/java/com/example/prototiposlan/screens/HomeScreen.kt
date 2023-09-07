@@ -186,7 +186,7 @@ fun EventColumn(event: Schedule) {
     Card(
         elevation = 4.dp,
         modifier = Modifier.padding(top = 5.dp),
-        onClick = { showDialog }) {
+        onClick = {  }) {
         Column(
             verticalArrangement = Arrangement.SpaceAround,
             horizontalAlignment = Alignment.Start,
@@ -206,12 +206,6 @@ fun EventColumn(event: Schedule) {
                 Text(text = event.hour, color = Color.Gray)
             }
 
-            AlertDialog(
-                onDismissRequest = { !showDialog },
-                text = { Text(text = event.description) },
-                title = { Text(text = "Description") },
-                buttons = {})
-
         }
     }
 }
@@ -222,6 +216,7 @@ fun DescriptionDialog(description: String, click: () -> Unit) {
         onDismissRequest = { click() },
         text = { Text(text = description) },
         title = { Text(text = "Descripción") },
-        buttons = {}
-    )
+        dismissButton = {},
+        confirmButton = {}
+        )
 }
