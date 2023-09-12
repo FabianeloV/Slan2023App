@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.outlined.DateRange
@@ -24,12 +25,11 @@ import androidx.navigation.NavController
 import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.ui.theme.darkred
 import com.example.prototiposlan.ui.theme.graduateFont
-import com.example.prototiposlan.viewModels.HomeViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Composable
-fun HomeScreen(navController: NavController, viewModel: HomeViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
+fun HomeScreen(navController: NavController) {
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
     val latMenuItem = listOf(
@@ -40,13 +40,22 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = androidx
         LatMenuScreens.Flora,
         LatMenuScreens.Album
     )
-    val eventList = listOf(Schedule.T2, Schedule.T3, Schedule.T1)
+    val eventList = listOf(
+        Schedule.T2,
+        Schedule.T3,
+        Schedule.T1,
+        Schedule.T5,
+        Schedule.T6,
+        Schedule.T4,
+        Schedule.Conf,
+        Schedule.Music
+    )
 
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = { TopBar(scaffoldState, scope, navController) },
         drawerContent = { DrawerMenu(menuItems = latMenuItem, navController) },
-        content = ({ DaySchedule(eventList, viewModel) })
+        content = ({ DaySchedule(eventList) })
     )
 }
 
@@ -147,49 +156,24 @@ fun DrawerItem(item: LatMenuScreens, navController: NavController) {
 }
 
 @Composable
-fun DaySchedule(eventList: List<Schedule>, homeViewModel : HomeViewModel ) {
+fun DaySchedule(eventList: List<Schedule>) {
     val firstDayEvents = eventList.subList(0, 3)
-    val secondDayEvents = eventList.subList(3, 3)
+    val secondDayEvents = eventList.subList(3, 7)
+    val thirdDayEvents = eventList.subList(7, 7)
 
     LazyColumn(modifier = Modifier.fillMaxSize()) {
 
-        item {
-            if (homeViewModel.showDialog.value){
-                AlertDialog(
-                    onDismissRequest = {homeViewModel.t2()},
-                    text = { Text(text = "prueba insana") },
-                    title = { Text(text = "Descripción") },
-                    dismissButton = {},
-                    confirmButton = {}
-                )
-            }
-        }
+        item { DateText(text = "21 de Octubre") }
 
-        item {
-            Text(
-                text = "21 de Octubre",
-                color = darkred,
-                fontFamily = graduateFont,
-                fontSize = 22.sp,
-                modifier = Modifier.padding(15.dp)
-            )
-        }
+        item { firstDayEvents.forEach { event -> EventColumn(event = event) } }
 
-        item { firstDayEvents.forEach { event -> EventColumn(event = event)  } }
-
-        item {
-            Text(
-                text = "22 de Octubre",
-                color = darkred,
-                fontFamily = graduateFont,
-                fontSize = 22.sp,
-                modifier = Modifier.padding(15.dp)
-            )
-        }
+        item { DateText(text = "22 de Octubre") }
 
         item { secondDayEvents.forEach { event -> EventColumn(event = event) } }
 
+        item { DateText(text = "23 de Octubre") }
 
+        item { thirdDayEvents.forEach { event -> EventColumn(event = event) } }
     }
 }
 
@@ -203,7 +187,9 @@ fun EventColumn(event: Schedule) {
         Column(
             verticalArrangement = Arrangement.SpaceAround,
             horizontalAlignment = Alignment.Start,
-            modifier = Modifier.padding(15.dp)
+            modifier = Modifier
+                .padding(15.dp)
+                .fillMaxWidth()
         ) {
             Text(text = event.event, modifier = Modifier.padding(bottom = 8.dp))
 
@@ -217,10 +203,32 @@ fun EventColumn(event: Schedule) {
                 Icon(Icons.Outlined.DateRange, contentDescription = event.event)
                 Spacer(modifier = Modifier.padding(horizontal = 5.dp))
                 Text(text = event.hour, color = Color.Gray)
+
+                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                    Icon(Icons.Filled.ArrowDropDown, contentDescription = "Show description")
+                }
             }
+
+
+
             AnimatedVisibility(visible = event.showDialog.value) {
-                Text(text = event.description)
+                Text(
+                    text = event.description,
+                    color = Color.Black,
+                    modifier = Modifier.padding(6.dp)
+                )
             }
         }
     }
+}
+
+@Composable
+fun DateText(text: String) {
+    Text(
+        text = text,
+        color = darkred,
+        fontFamily = graduateFont,
+        fontSize = 22.sp,
+        modifier = Modifier.padding(15.dp)
+    )
 }
