@@ -1,5 +1,6 @@
 package com.example.prototiposlan.screens
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -11,10 +12,6 @@ import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.outlined.DateRange
 import androidx.compose.material.icons.outlined.LocationOn
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,11 +24,12 @@ import androidx.navigation.NavController
 import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.ui.theme.darkred
 import com.example.prototiposlan.ui.theme.graduateFont
+import com.example.prototiposlan.viewModels.HomeViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Composable
-fun HomeScreen(navController: NavController) {
+fun HomeScreen(navController: NavController, viewModel: HomeViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
     val latMenuItem = listOf(
@@ -48,7 +46,7 @@ fun HomeScreen(navController: NavController) {
         scaffoldState = scaffoldState,
         topBar = { TopBar(scaffoldState, scope, navController) },
         drawerContent = { DrawerMenu(menuItems = latMenuItem, navController) },
-        content = ({ DaySchedule(eventList) })
+        content = ({ DaySchedule(eventList, viewModel) })
     )
 }
 
@@ -149,10 +147,24 @@ fun DrawerItem(item: LatMenuScreens, navController: NavController) {
 }
 
 @Composable
-fun DaySchedule(eventList: List<Schedule>) {
+fun DaySchedule(eventList: List<Schedule>, homeViewModel : HomeViewModel ) {
     val firstDayEvents = eventList.subList(0, 3)
     val secondDayEvents = eventList.subList(3, 3)
+
     LazyColumn(modifier = Modifier.fillMaxSize()) {
+
+        item {
+            if (homeViewModel.showDialog.value){
+                AlertDialog(
+                    onDismissRequest = {homeViewModel.t2()},
+                    text = { Text(text = "prueba insana") },
+                    title = { Text(text = "Descripción") },
+                    dismissButton = {},
+                    confirmButton = {}
+                )
+            }
+        }
+
         item {
             Text(
                 text = "21 de Octubre",
@@ -163,7 +175,7 @@ fun DaySchedule(eventList: List<Schedule>) {
             )
         }
 
-        item { firstDayEvents.forEach { event -> EventColumn(event = event) } }
+        item { firstDayEvents.forEach { event -> EventColumn(event = event)  } }
 
         item {
             Text(
@@ -176,17 +188,18 @@ fun DaySchedule(eventList: List<Schedule>) {
         }
 
         item { secondDayEvents.forEach { event -> EventColumn(event = event) } }
+
+
     }
 }
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun EventColumn(event: Schedule) {
-    val showDialog by remember { mutableStateOf(false) }
     Card(
-        elevation = 4.dp,
+        elevation = 6.dp,
         modifier = Modifier.padding(top = 5.dp),
-        onClick = {  }) {
+        onClick = { event.showDialog.value = !event.showDialog.value }) {
         Column(
             verticalArrangement = Arrangement.SpaceAround,
             horizontalAlignment = Alignment.Start,
@@ -205,18 +218,9 @@ fun EventColumn(event: Schedule) {
                 Spacer(modifier = Modifier.padding(horizontal = 5.dp))
                 Text(text = event.hour, color = Color.Gray)
             }
-
+            AnimatedVisibility(visible = event.showDialog.value) {
+                Text(text = event.description)
+            }
         }
     }
-}
-
-@Composable
-fun DescriptionDialog(description: String, click: () -> Unit) {
-    AlertDialog(
-        onDismissRequest = { click() },
-        text = { Text(text = description) },
-        title = { Text(text = "Descripción") },
-        dismissButton = {},
-        confirmButton = {}
-        )
 }
