@@ -510,35 +510,229 @@ sealed class Schedule(
         "7:00 a 7:45 Hrs",
         ""
     )
+
+    object MT5: Schedule(
+        "Guías Alimentarias basadas en el procesamiento de alimentos - desarrollo, implementación y evaluación",
+        "Sala 9 Aula Taller",
+        "8:20 a 9:20 Hrs",
+        ""
+    )
+    object S39: Schedule(
+        "La investigación en la educación física y deporte vinculada con la alimentación sana en el contexto Latinoamericano",
+        "Sala 2 Aula Magna Mario Vintimilla",
+        "8:20 a 9:35 Hrs",
+        ""
+    )
+    object S40: Schedule(
+        "Políticas para reducir el costo de alimentos nutritivos y mejorar la asequibilidad a una dieta saludable, con enfoque de sistemas agroalimentarios",
+        "Sala 3 Arquitectura",
+        "8:20 a 9:35 Hrs",
+        ""
+    )
+    object S41: Schedule(
+        "Avances y desafíos en la implementación del etiquetado frontal de advertencia de los alimentos en Latinoamérica",
+        "Sala 4 Hugo Ordóñez",
+        "8:20 a 9:35 Hrs",
+        ""
+    )
+    object S43: Schedule(
+        "Prácticas sub-óptimas de alimentación complementaria y mala nutrición en América Latina: un llamado urgente para la acción",
+        "Sala 6 Auditorio Las Monjas",
+        "8:20 a 9:35 Hrs",
+        ""
+    )
+    object S44: Schedule(
+        "Los lipofenoles de hidroxitirosol de aceites de oliva son bioaccesibles mediante digestión gastrointestinal in vitro simulada: Desentrañando el papel de las enzimas digestivas en su estabilidad",
+        "Sala 7 Auditorio Ex-Ciencias Químicas",
+        "8:20 a 9:35 Hrs",
+        ""
+    )
+    object S45: Schedule(
+        "Desafios de las guias alimentarias para una alimentación saludable, sostenible y con pertinencia cultural",
+        "Sala 8 Sala de Audiencias Jurisprudencia",
+        "8:20 a 9:35 Hrs",
+        ""
+    )
+    object CM10: Schedule(
+        "Alimentos ultraprocesados y salud humana: la tesis y las evidencias",
+        "Sala 1 Teatro Carlos Cueva Tamariz",
+        "9:50 a 10:20 Hrs",
+        ""
+    )
+    object CM11: Schedule(
+        "Shaping food environments through public regulations – the WHO recommendations",
+        "Sala 1 Teatro Carlos Cueva Tamariz",
+        "10:20 a 10:50 Hrs",
+        ""
+    )
+    object MTC10: Schedule(
+        "Estrategias nutricionales para la prevención de la obesidad infantil",
+        "Sala 8 Sala de Audiencias Jurisprudencia",
+        "11:30 a 12:00 Hrs",
+        ""
+    )
+    object S46: Schedule(
+        " Strategies for improving health in vulnerable population through community-based health screening and interventions for combating malnutrition in children",
+        "Sala 2 Aula Magna Mario Vintimilla",
+        "11:30 a 12:45 Hrs",
+        ""
+    )
+    object S47: Schedule(
+        "Abordajes metodológicos y desafíos en el logro de guías alimentarias saludables y sostenibles consolidadas: experiencia para su adaptación en infantes, niños pequeños y mujeres embarazadas y lactantes",
+        "Sala 3 Arquitectura",
+        "11:30 a 12:45 Hrs",
+        ""
+    )
+    object S48: Schedule(
+        "Incai: proyecto integral multidisciplinario experiencia y recomendaciones para el diseño y la aplicación de proyectos en entornos escolares",
+        "Sala 4 Hugo Ordóñez",
+        "11:30 a 12:45 Hrs",
+        ""
+    )
+    object S49: Schedule(
+        "The NOVA-UPF screener - a short dietary assessment instrument capturing ultraprocessed food consumption and its validation in multiple countries",
+        "Sala 5 Aula Magna Economía",
+        "11:30 a 12:45 Hrs",
+        ""
+    )
+    object S50: Schedule(
+        "Política de alimentación escolar saludable y sostenible en Latinoamérica: estrategias para la incidencia desde la sociedad civil basada en evidencia",
+        "Sala 6 Auditorio Las Monjas",
+        "11:30 a 12:45 Hrs",
+        ""
+    )
+    object S51: Schedule(
+        "Dimensiones de la seguridad alimentaria en el nuevo escenario global. Una mirada sobre la evolución del consumo alimentario mundial y en Argentina en las últimas seis décadas",
+        "Sala 7 Auditorio Ex-Ciencias Químicas",
+        "11:30 a 12:45 Hrs",
+        ""
+    )
+    object CM12: Schedule(
+        "Physical activity: the key to healthy aging",
+        "Sala 1 Teatro Carlos Cueva Tamariz",
+        "14:10 a 14:40 Hrs",
+        ""
+    )
+    object CM13: Schedule(
+        "Cuidado integral de adultos mayores en la comunidad",
+        "Sala 1 Teatro Carlos Cueva Tamariz",
+        "14:40 a 15:10 Hrs",
+        ""
+    )
+    object PCO17: Schedule(
+        "Presentación de Comunicaciones Orales 17 - Cultura y alimentación",
+        "Sala 2 Aula Magna Mario Vintimilla",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object PCO18: Schedule(
+        "Presentación de Comunicaciones Orales 18 - Etiquetado nutricional II",
+        "Sala 3 Arquitectura",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object PCO19: Schedule(
+        "Presentación de Comunicaciones Orales 19 - Alimentos ultraprocesados",
+        "Sala 4 Hugo Ordóñez",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object PCO20: Schedule(
+        "Presentación de Comunicaciones Orales 20 - Niños / adolescentes y alimentación",
+        "Sala 5 Aula Magna Economía",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object PCO21: Schedule(
+        "Presentación de Comunicaciones Orales 21 - Tendencias en la alimentación",
+        "Sala 6 Auditorio Las Monjas",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object PCO22: Schedule(
+        "Presentación de Comunicaciones Orales 22 - Estudios de patrones de adquisición de alimentos II",
+        "Sala 7 Auditorio Ex-Ciencias Químicas",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object PCO23: Schedule(
+        "Presentación de Comunicaciones Orales 23 - Adulto mayor y alimentación",
+        "Sala 8 Sala de Audiencias Jurisprudencia",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object PCO24: Schedule(
+        "Presentación de Comunicaciones Orales 24 - Adquisición de alimentos",
+        "Sala 9 Aula Taller",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object MT6: Schedule(
+        "De la Obesidad a la Diabetes Tipo 2. (Diabesidad)",
+        "Sala 9 Aula Taller",
+        "16:30 a 17:30 Hrs",
+        ""
+    )
+    object S53: Schedule(
+        "Obesity prevention across borders: the promise of US-Latin American research",
+        "Sala 2 Aula Magna Mario Vintimilla",
+        "16:30 a 17:45 Hrs",
+        ""
+    )
+    object S59: Schedule(
+        "Para los 1000 primeros días: mamar, comer, jugar y amar (UNICEF)",
+        "Sala 3 Arquitectura\n",
+        "16:30 a 17:45 Hrs",
+        ""
+    )
+    object S55: Schedule(
+        "Aciertos y retos en la regulación de la mercadotecnia de alimentos y bebidas dirigida a las niñas, niños y adolescentes en la región de América Latina y Caribe",
+        "Sala 4 Hugo Ordóñez\n",
+        "16:30 a 17:45 Hrs",
+        ""
+    )
+    object S56: Schedule(
+        "Determinantes comerciales de la salud: impacto en las enfermedades crónicas y soluciones en la práctica",
+        "Sala 5 Aula Magna Economía",
+        "16:30 a 17:45 Hrs",
+        ""
+    )
+    object S57: Schedule(
+        "Fondo conjunto de cooperación Chile-México: marcos para la acción en intervenciones de ambientes alimentarios en escuelas",
+        "Sala 6 Auditorio Las Monjas",
+        "16:30 a 17:45 Hrs",
+        ""
+    )
+    object S58: Schedule(
+        "Agroecología: motor para la transformación del sistema alimentario",
+        "Sala 7 Auditorio Ex-Ciencias Químicas",
+        "16:30 a 17:45 Hrs",
+        ""
+    )
+    object S54: Schedule(
+        "Experiencias de implementación de programas e intervenciones escolares para la promoción de estilos de vida saludable en Chile, Guatemala y México",
+        "Sala 8 Sala de Audiencias Jurisprudencia",
+        "16:30 a 17:45 Hrs",
+        ""
+    )
+    object MT7: Schedule(
+        "Micronutrientes en América Latina: Escenario actual y relevancia",
+        "Sala 9 Aula Taller",
+        "8:20 a 9:20 Hrs",
+        ""
+    )
     /*
-    object S1: Schedule(
+    object MTC10: Schedule(
         "",
         "",
         "",
         ""
     )
-    object S1: Schedule(
+    object MTC10: Schedule(
         "",
         "",
         "",
         ""
     )
-    object S1: Schedule(
-        "",
-        "",
-        "",
-        ""
-    )
-    object S1: Schedule(
-        "",
-        "",
-        "",
-        ""
-    )
-    object S1: Schedule(
-        "",
-        "",
-        "",
-        ""
-    ) */
+    */
 }

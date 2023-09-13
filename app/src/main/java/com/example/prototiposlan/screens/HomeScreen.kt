@@ -168,6 +168,10 @@ fun DaySchedule(homeViewModel: HomeViewModel) {
         item { homeViewModel.fourthDayEvents.forEach {event -> EventColumn(event = event)} }
         
         item { DateText(text = "25 de Octubre") }
+        
+        item { homeViewModel.fifthDayEvents.forEach { event -> EventColumn(event = event) } }
+
+        item { DateText(text = "26 de Octubre") }
     }
 }
 

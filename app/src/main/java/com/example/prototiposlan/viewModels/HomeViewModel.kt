@@ -85,11 +85,47 @@ class HomeViewModel:ViewModel() {
         Schedule.S38,
         Schedule.S69,
         Schedule.E2,
-        Schedule.AFF
+        Schedule.AFF,
+        Schedule.MT5,
+        Schedule.S39,
+        Schedule.S40,
+        Schedule.S41,
+        Schedule.S43,
+        Schedule.S44,
+        Schedule.S45,
+        Schedule.CM10,
+        Schedule.CM11,
+        Schedule.MTC10,
+        Schedule.S46,
+        Schedule.S47,
+        Schedule.S48,
+        Schedule.S49,
+        Schedule.S50,
+        Schedule.S51,
+        Schedule.CM12,
+        Schedule.CM13,
+        Schedule.PCO17,
+        Schedule.PCO18,
+        Schedule.PCO19,
+        Schedule.PCO20,
+        Schedule.PCO21,
+        Schedule.PCO22,
+        Schedule.PCO23,
+        Schedule.PCO24,
+        Schedule.MT6,
+        Schedule.S53,
+        Schedule.S59,
+        Schedule.S55,
+        Schedule.S56,
+        Schedule.S57,
+        Schedule.S58,
+        Schedule.S54,
+        Schedule.MT7
     )
 
     val firstDayEvents = eventList.subList(0, 3)
     val secondDayEvents = eventList.subList(3, 7)
     val thirdDayEvents = eventList.subList(7, 43)
     val fourthDayEvents = eventList.subList(43, 80)
+    val fifthDayEvents = eventList.subList(80, 115)
 }
