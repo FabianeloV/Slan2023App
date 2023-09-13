@@ -25,11 +25,12 @@ import androidx.navigation.NavController
 import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.ui.theme.darkred
 import com.example.prototiposlan.ui.theme.graduateFont
+import com.example.prototiposlan.viewModels.HomeViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Composable
-fun HomeScreen(navController: NavController) {
+fun HomeScreen(navController: NavController, homeViewModel: HomeViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
     val latMenuItem = listOf(
@@ -40,22 +41,12 @@ fun HomeScreen(navController: NavController) {
         LatMenuScreens.Flora,
         LatMenuScreens.Album
     )
-    val eventList = listOf(
-        Schedule.T2,
-        Schedule.T3,
-        Schedule.T1,
-        Schedule.T5,
-        Schedule.T6,
-        Schedule.T4,
-        Schedule.Conf,
-        Schedule.Music
-    )
 
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = { TopBar(scaffoldState, scope, navController) },
         drawerContent = { DrawerMenu(menuItems = latMenuItem, navController) },
-        content = ({ DaySchedule(eventList) })
+        content = ({ DaySchedule(homeViewModel) })
     )
 }
 
@@ -156,24 +147,27 @@ fun DrawerItem(item: LatMenuScreens, navController: NavController) {
 }
 
 @Composable
-fun DaySchedule(eventList: List<Schedule>) {
-    val firstDayEvents = eventList.subList(0, 3)
-    val secondDayEvents = eventList.subList(3, 7)
-    val thirdDayEvents = eventList.subList(7, 7)
+fun DaySchedule(homeViewModel: HomeViewModel) {
 
     LazyColumn(modifier = Modifier.fillMaxSize()) {
 
         item { DateText(text = "21 de Octubre") }
 
-        item { firstDayEvents.forEach { event -> EventColumn(event = event) } }
+        item { homeViewModel.firstDayEvents.forEach { event -> EventColumn(event = event) } }
 
         item { DateText(text = "22 de Octubre") }
 
-        item { secondDayEvents.forEach { event -> EventColumn(event = event) } }
+        item { homeViewModel.secondDayEvents.forEach { event -> EventColumn(event = event) } }
 
         item { DateText(text = "23 de Octubre") }
 
-        item { thirdDayEvents.forEach { event -> EventColumn(event = event) } }
+        item { homeViewModel.thirdDayEvents.forEach { event -> EventColumn(event = event) } }
+        
+        item { DateText(text = "24 de Octubre") }
+        
+        item { homeViewModel.fourthDayEvents.forEach {event -> EventColumn(event = event)} }
+        
+        item { DateText(text = "25 de Octubre") }
     }
 }
 
@@ -204,13 +198,12 @@ fun EventColumn(event: Schedule) {
                 Spacer(modifier = Modifier.padding(horizontal = 5.dp))
                 Text(text = event.hour, color = Color.Gray)
 
-                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-                    Icon(Icons.Filled.ArrowDropDown, contentDescription = "Show description")
+                if (event.description.isNotEmpty()){
+                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                        Icon(Icons.Filled.ArrowDropDown, contentDescription = "Show description")
+                    }
                 }
             }
-
-
-
             AnimatedVisibility(visible = event.showDialog.value) {
                 Text(
                     text = event.description,

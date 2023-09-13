@@ -39,7 +39,7 @@ sealed class Schedule(
 
     object T6: Schedule(
         "Estimación de ingesta: Método de Recordatorio, herramientas de análisis y emparejamiento de tablas de composición",
-        "Sala 4 Hugo Ordoñéz",
+        "Sala 4 Hugo Ordóñez",
         "9:00 a 12:00 Hrs",
         "Materiales y espacios requeridos para la realización del taller: Tablero, infocus, cada participante puede venir con su computadora con instalación de R y RStudio. Número de cupos ofertados: 30 Institución Organizadora: USFQ - ISYN Objetivos del taller: - Entender los métodos de estimación de ingesta nutricional, - Introducción al uso de nuevas soluciones tecnológicas para emparejar tablas de composición y encuestas Público Objetivo del taller: Personas familiarizadas con cuestionarios de ingesta Personas interesadas en el análisis de datos Breve resumen de su propuesta de taller Evaluar la ingesta dietaria es una tarea fundamental en nutrición poblacional y llegar a estimaciones precisas siempre un reto. En fundamental para analizar asociaciones entre la dieta y la salud. Por ellos varios métodos estandarizados existen para obtener estimados de alimentos consumidos y las porciones ingeridas. Dentro de los métodos mencionaremos métodos prospectivos (registro por pesada de alimentos) y retrospectivos. Ahí se encuentran los cuestionarios de frecuencia de consumo (CFC), el recordatorio de 24 horas (R24h) y las historias dietarias. El R24h y los CFC son los principalmente utilizados en la investigación en nutrición. Sin embargo, pese a los esfuerzos que existen en el levantamiento de información, el emparejamiento con información de tablas de composición es seguramente el más pesado en tiempo y sujeto a errores variados. Detallaremos metodologías claras de análisis de información textual y técnicas de emparejamiento de texto para juntar esta información con bases de datos de composición de alimentos."
     )
@@ -64,6 +64,481 @@ sealed class Schedule(
         "7:00 a 7:45 Hrs",
         ""
     )
+    object S1: Schedule(
+        "Understanding and amplifying the role of women’s leadership in food systems transformation",
+        "Sala 2 Aula Magna Mario Vintimilla",
+        "8:20 a 9:35 Hrs",
+        ""
+    )
 
+    object S2: Schedule(
+        "Avances de la región en el cumplimiento de las metas del plan de acción en contra de la desnutrición aguda",
+        "Sala 3 de Arquitectura",
+        "8:20 a 9:35 Hrs",
+        ""
+    )
 
+    object S3: Schedule(
+        "Costo e impacto ambiental de las dietas saludables y sostenibles en América Latina",
+        "Sala 4 Hugo Ordóñez",
+        "8:20 a 9:35 Hrs",
+        ""
+    )
+
+    object S16: Schedule(
+        "Modelos de Sistemas Alimentarios Sostenibles en Alimentación Escolar: oportunidades y desafíos para América Latina y el Caribe (PMA)",
+        "Sala 5 Economía",
+        "8:20 a 9:35 Hrs",
+        ""
+    )
+
+    object S4: Schedule(
+        "Caracterización, percepción y enfrentamiento estructural de los entornos alimentarios",
+        "Sala 6 Auditorio Las Monjas",
+        "8:20 a 9:35 Hrs",
+        ""
+    )
+
+    object S6: Schedule(
+        "Redes de alimentos alternativos para la prevención de la diabetes tipo II y la hipertensión arterial",
+        "Sala 7 Auditorio Ex- Ciencias Químicas",
+        "8:20 a 9:35 Hrs",
+        ""
+    )
+    object S7: Schedule(
+        "Determinantes comerciales de la salud, la alimentación y nutrición de las poblaciones en América Latina.",
+        "Sala 8 de audiencias Jurisprudencia",
+        "8:20 a 9:35 Hrs",
+        ""
+    )
+    object CM1: Schedule(
+        "Alimentación perceptiva para el crecimiento y el desarrollo: Políticas para la promoción de una alimentación saludable desde el comienzo de la vida",
+        "Sala 1 Teatro Carlos Cueva Tamariz",
+        "9:50 a 10:20 Hrs",
+        ""
+    )
+    object CM2: Schedule(
+        "First-food systems and corporate power",
+        "Sala 1 Teatro Carlos Cueva Tamariz",
+        "10:20 a 10:50 Hrs",
+        ""
+    )
+    object MT1: Schedule(
+        "Desafíos de la alimentación durante el primer año de vida",
+        "Sala 9 Aula Taller",
+        "11:30 a 12:30 Hrs",
+        ""
+    )
+    object S8: Schedule(
+        "Los determinantes sociales, ambientes y económicos de la obesidad infantil (UNICEF)",
+        "Sala 2 Aula Magna Mario Vintimilla",
+        "11:30 a 12:45 Hrs",
+        ""
+    )
+    object S9: Schedule(
+        "Una mirada a la respuesta migratoria en América Latina y el Caribe: experiencias, desafíos y oportunidades para mejorar el acceso a sistemas de protección social y salud (PMA)",
+        "Sala 3 Arquitectura",
+        "11:30 a 12:45 Hrs",
+        ""
+    )
+    object S10: Schedule(
+        "Nuevo enfoque en el desarrollo e implementacion de las guías alimentarias basadas en sistemas alimentarios",
+        "Sala 4 Hugo Ordóñez",
+        "11:30 a 12:45 Hrs",
+        ""
+    )
+    object S11: Schedule(
+        "La pandemia silenciosa de la obesidad: un enfoque multi e interdisciplinario para su prevención y tratamiento",
+        "Sala 5 Economía",
+        "11:30 a 12:45 Hrs",
+        ""
+    )
+    object S12: Schedule(
+        "Seguridad alimentaria y soberanía alimentaria: aportes de la agroecología",
+        "Sala 6 Auditorio Las Monjas",
+        "11:30 a 12:45 Hrs",
+        ""
+    )
+    object S23: Schedule(
+        "Resultados de la implementación final de la ley de etiquetado y publicidad de los alimentos en Chile",
+        "Sala 7 Auditorio Ex- Ciencias Químicas",
+        "11:30 a 12:45 Hrs",
+        ""
+    )
+    object S13: Schedule(
+        "Diseño centrado en las personas para el cambio social y de comportamiento; tres casos de éxito para promover la alimentación complementaria de África a Latinoamérica: Nigeria, Zambia y Guatemala",
+        "Sala 8 Sala de Audiencias Jurisprudencia",
+        "11:30 a 12:45 Hrs",
+        ""
+    )
+    object CM3: Schedule(
+        "Título pendiente | Popkin Barry",
+        "Sala 1 Teatro Carlos Cueva Tamariz",
+        "14:10 a 14:40 Hrs",
+        ""
+    )
+    object PCO1: Schedule(
+        "Presentación de Comunicaciones Orales 1 - Entornos alimentarios",
+        "Sala 2 Aula Magna Mario Vintimilla",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object PCO2: Schedule(
+        "Presentación de Comunicaciones Orales 2 - Consumo de alimentos ultraprocesados",
+        "Sala 3 Arquitectura",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object PCO3: Schedule(
+        "Presentación de Comunicaciones Orales 3 - Monitoreo nutricional",
+        "Sala 4 Hugo Ordóñez",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object PCO4: Schedule(
+        "Presentación de Comunicaciones Orales 4 - Avances en las guías nutriconales",
+        "Sala 5 Aula magna Economía",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object PCO5: Schedule(
+        "Presentación de Comunicaciones Orales 5 - Avances en la investigación en la alimentación",
+        "Sala 6 Auditorio Las Monjas",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object PCO6: Schedule(
+        "Presentación de Comunicaciones Orales 6 - Alimentos e innovación",
+        "Sala 7 Auditorio Ex-Ciencias Químicas",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object PCO7: Schedule(
+        "Presentación de Comunicaciones Orales 7 - Entornos alimentarios III",
+        "Sala 8 Sala de Audiencias Jurisprudencia",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object PCO8: Schedule(
+        "Presentación de Comunicaciones Orales 8 - Mujer y alimentación",
+        "Sala 9 Aula Taller",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object MT2: Schedule(
+        "Problemas contemporáneos en alimentación, nutrición y sustentabilidad. Relevancia para la formación de recursos humanos en nutrición, alimentación y áreas relacionadas",
+        "Sala 9 Aula Taller",
+        "16:30 a 17:30 Hrs",
+        ""
+    )
+    object S14: Schedule(
+        "Plan de aceleración para la prevención y control de obesidad OMS-WOF en Latinoamérica",
+        "Sala 2 Aula Magna Mario Vintimilla",
+        "16:30 a 17:45 Hrs",
+        ""
+    )
+    object S15: Schedule(
+        "Comunicación para el cambio de comportamiento social orientada a generar prácticas de vida saludables desde la niñez (UNICEF)",
+        "Sala 3 Arquitectura",
+        "16:30 a 17:45 Hrs",
+        ""
+    )
+    object S71: Schedule(
+        "Red de Alimentación Escolar Sostenible_ Avances y perspectivas en ALC",
+        "Sala 4 Hugo Ordóñez",
+        "16:30 a 17:45 Hrs",
+        ""
+    )
+    object S66: Schedule(
+        "Alimentación del lactante y el niño pequeño en contextos de emergencias en LAC (UNICEF)",
+        "Sala 5 Aula Magna Economía",
+        "16:30 a 17:45 Hrs",
+        ""
+    )
+    object S17: Schedule(
+        "El estado de nutrición en niños y adolescentes mexicanos: su evaluación desde diferentes perspectivas y algunas estrategias para la acción",
+        "Sala 6 Auditorio Las Monjas",
+        "16:30 a 17:45 Hrs",
+        ""
+    )
+    object S18: Schedule(
+        "Investigación social en el campo de la nutrición en Guatemala: perspectivas desde la experiencia nacional y aplicada",
+        "Sala 7 Auditorio Ex-Ciencias Químicas",
+        "16:30 a 17:45 Hrs",
+        ""
+    )
+    object S19: Schedule(
+        "Desafíos sobre la ingesta de micronutrientes en América Latina en la era de la crisis alimentaria e industrialización de la dieta",
+        "Sala 8 Sala de Audiencias Jurisprudencia",
+        "16:30 a 17:45 Hrs",
+        ""
+    )
+    object E1: Schedule(
+        "Lanzamiento de la Alianza Mundial para la Alimentación Saludable en Niñas y Niños: Capítulo América Latina y el Caribe",
+        "Sala 1 Teatro Carlos Cueva Tamariz",
+        "18:00 a 19:30 Hrs",
+        ""
+    )
+
+    object YOGA: Schedule(
+        "Yoga y atención plena",
+        "Coliseo y Estadio de la Universidad de Cuenca",
+        "7:00 a 7:45 Hrs",
+        ""
+    )
+
+    object MT8: Schedule(
+        "Rutas de impacto de Programas de Protección Social hacia la Nutrición en América Latina y el Caribe: el caso del Programa de Alimentación Escolar de Guatemala (PMA)",
+        "Sala 9 Aula Taller",
+        "8:20 a 9:20 Hrs",
+        ""
+    )
+    object S20: Schedule(
+        "Gene-nutrient interactions- implications for nutrition interventions",
+        "Sala 2 Aula Magna Mario Vintimilla",
+        "8:20 a 9:35 Hrs",
+        ""
+    )
+    object S21: Schedule(
+        "El monitoreo y el combate a la interferencia de la industria en las políticas públicas de alimentación y nutrición en latinoamérica y el caribe",
+        "Sala 3 Arquitectura",
+        "8:20 a 9:35 Hrs",
+        ""
+    )
+    object S22: Schedule(
+        "Habilidades culinarias domésticas para promover una nutrición adecuada y saludable",
+        "Sala 4 Hugo Ordóñez",
+        "8:20 a 9:35 Hrs",
+        ""
+    )
+    object S68: Schedule(
+        "La cohorte NutriNet Brasil: creación y acompañamiento por la Internet, instrumentos de coleta de datos sobre alimentación y estado de salud y resultados de asociaciones prospectivas dieta-riesgo de enfermedades crónicas",
+        "Sala 5 Aula Magna Economía",
+        "8:20 a 9:35 Hrs",
+        ""
+    )
+    object S24: Schedule(
+        "Calidad de la atención nutricional materno infantil en el primer nivel de atención: implicaciones metodológicas y resultados en México",
+        "Sala 6 Auditorio Las Monjas",
+        "8:20 a 9:35 Hrs",
+        ""
+    )
+    object S25: Schedule(
+        "Desigualdades en salud y malnutrición infantil en poblaciones indígenas de Latinoamérica",
+        "Sala 7 Auditorio Ex-Ciencias Químicas\n",
+        "8:20 a 9:35 Hrs",
+        ""
+    )
+    object S26: Schedule(
+        "La alimentación tradicional: una perspectiva vigente en la actuación del nutricionista dietista",
+        "Sala 8 Sala de Audiencias Jurisprudencia",
+        "8:20 a 9:35 Hrs",
+        ""
+    )
+    object CM5: Schedule(
+        "Hacia una imposición a productos ultraprocesados: ¿Por qué es una buena idea?",
+        "Sala 1 Teatro Carlos Cueva Tamariz",
+        "9:50 a 10:50 Hrs",
+        ""
+    )
+    object CM6: Schedule(
+        "Políticas de prevención y control de la obesidad y promoción de alimentación saludable en Latinoamérica",
+        "Sala 1 Teatro Carlos Cueva Tamariz",
+        "9:50 a 10:50 Hrs",
+        ""
+    )
+    object MT3: Schedule(
+        "Éxitos y desafíos en el desarrollo y la implementación de políticas de alimentación saludable en entornos escolares en Latinoamérica",
+        "Sala 9 Aula Taller",
+        "11:30 a 12:30 Hrs",
+        ""
+    )
+    object S28: Schedule(
+        "Dibujando una ruta para combatir la malnutrición: marketing de alimentos y bebidas no saludables y medidas para mitigar sus efectos (UNICEF)",
+        "Sala 3 Arquitectura",
+        "11:30 a 12:45 Hrs",
+        ""
+    )
+    object S29: Schedule(
+        "Un fitoprostano del alga Gracilaria longissima aumenta la activación plaquetaria, la adhesión plaquetaria a leucocitos y la migración celular endotelial mediante una unión potencial al receptor prostaglandina EP3",
+        "Sala 4 Hugo Ordóñez",
+        "11:30 a 12:45 Hrs",
+        ""
+    )
+    object S30: Schedule(
+        "Nuevos Horizontes de la Educación Alimentaria Nutricional (EAN)",
+        "Sala 5 Aula Magna Economía",
+        "11:30 a 12:45 Hrs",
+        ""
+    )
+    object S65: Schedule(
+        "Proceso de actualización de las nuevas Guías Alimentarias para la población mexicana",
+        "Sala 6 Auditorio Las Monjas",
+        "11:30 a 12:45 Hrs",
+        ""
+    )
+    object S31: Schedule(
+        "Determinantes de la calidad de la dieta y contribución de la Ingesta de proteínas, grasas y ácidos grasos esenciales y colina. Resultados del Estudio ELANS",
+        "Sala 7 Auditorio Ex-Ciencias Químicas",
+        "11:30 a 12:45 Hrs",
+        ""
+    )
+    object S32: Schedule(
+        "Aportes de la red LATINFOODS al conocimiento de alimentos nativos de Latinoamerica",
+        "Sala 8 Sala de Audiencias Jurisprudencia",
+        "11:30 a 12:45 Hrs",
+        ""
+    )
+    object CM7: Schedule(
+        "Reporting nutrition research: where are we and what’s next?",
+        "Sala 1 Teatro Carlos Cueva Tamariz",
+        "14:10 a 15:10 Hrs",
+        ""
+    )
+    object CM8: Schedule(
+        "The use of data and evidence to drive decision-making processes in nutrition",
+        "Sala 1 Teatro Carlos Cueva Tamariz",
+        "14:10 a 15:10 Hrs",
+        ""
+    )
+    object PCO9: Schedule(
+        "Presentación de Comunicaciones Orales 9 - Medioambiete y alimentación",
+        "Sala 2 Aula Magna Mario Vintimilla",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object PCO10: Schedule(
+        "Presentación de Comunicaciones Orales 10 - Etiquetado nutricional",
+        "Sala 3 Arquitectura",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object PCO11: Schedule(
+        "Presentación de Comunicaciones Orales 11 - Regulaciones alimenticias",
+        "Sala 4 Hugo Ordóñez",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object PCO12: Schedule(
+        "Presentación de Comunicaciones Orales 12 - Entornos alimentarios II",
+        "Sala 5 Aula Magna Economía",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object PCO13: Schedule(
+        "Presentación de Comunicaciones Orales 13 - Bioquímica y alimentación",
+        "Sala 6 Auditorio Las Monjas",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object PCO14: Schedule(
+        "Presentación de Comunicaciones Orales 14 - Estudios de patrones de adquisición de alimentos I",
+        "Sala 7 Auditorio Ex-Ciencias Químicas",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object PCO15: Schedule(
+        "Presentación de Comunicaciones Orales 15 - Alimentación e indicadores de salud",
+        "Sala 8 Sala de Audiencias Jurisprudencia",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object PCO16: Schedule(
+        "Presentación de Comunicaciones Orales 16 - Alimentos e innovación II",
+        "Sala 9 Aula Taller",
+        "15:20 a 16:15 Hrs",
+        ""
+    )
+    object MT4: Schedule(
+        "Anemia e implicaciones de nueva evidencia para los programas públicos",
+        "Sala 9 Aula Taller",
+        "16:30 a 17:30 Hrs",
+        ""
+    )
+    object S33: Schedule(
+        "Interactions between industry and nutrition professionals: what do we know and what to do about it?",
+        "Sala 2 Aula Magna Mario Vintimilla",
+        "16:30 a 17:45 Hrs",
+        ""
+    )
+    object S70: Schedule(
+        "Ácidos grasos trans",
+        "Sala 3 Arquitectura",
+        "16:30 a 17:45 Hrs",
+        ""
+    )
+    object S35: Schedule(
+        "Recomendaciones de política pública para combatir la mala nutrición materno infantil desde una perspectiva de equidad, sostenibilidad y curso de vida: análisis y propuestas desde el Observatorio Materno Infantil.",
+        "Sala 4 Hugo Ordóñez",
+        "16:30 a 17:45 Hrs",
+        ""
+    )
+    object S36: Schedule(
+        "Implementación y efectividad del Etiquetado frontal de advertencia de los alimentos en América Latina",
+        "Sala 5 Aula Magna Economía",
+        "16:30 a 17:45 Hrs",
+        ""
+    )
+    object S37: Schedule(
+        "Promoviendo una alimentación saludable y sostenible: evidencia emergente desde la perspectiva ambiental, funcional y metabólica",
+        "Sala 6 Auditorio Las Monjas",
+        "16:30 a 17:45 Hrs",
+        ""
+    )
+    object S38: Schedule(
+        "Seguridad hídrica y derecho humano a la alimentación",
+        "Sala 7 Auditorio Ex-Ciencias Químicas",
+        "16:30 a 17:45 Hrs",
+        ""
+    )
+    object S69: Schedule(
+        "Por generaciones saludables: Apoyo técnico basado en evidencia de la OPS/OMS al estado ecuatoriano en su lucha contra la Desnutrición Crónica Infantil",
+        "Sala 8 Sala de Audiencias Jurisprudencia",
+        "16:30 a 17:45 Hrs",
+        ""
+    )
+    object E2: Schedule(
+        "Acciones para prevenir la influencia de intereses comerciales en la educación, investigación y políticas de salud del Comité de la Sociedad Latinoamericana de Nutrición",
+        "Sala 1 Teatro Carlos Cueva Tamariz",
+        "18:00 a 19:15 Hrs",
+        ""
+    )
+
+    object AFF: Schedule(
+        "Actividad Física Funcional",
+        "Coliseo y Estadio de la Universidad de Cuenca",
+        "7:00 a 7:45 Hrs",
+        ""
+    )
+    /*
+    object S1: Schedule(
+        "",
+        "",
+        "",
+        ""
+    )
+    object S1: Schedule(
+        "",
+        "",
+        "",
+        ""
+    )
+    object S1: Schedule(
+        "",
+        "",
+        "",
+        ""
+    )
+    object S1: Schedule(
+        "",
+        "",
+        "",
+        ""
+    )
+    object S1: Schedule(
+        "",
+        "",
+        "",
+        ""
+    ) */
 }
