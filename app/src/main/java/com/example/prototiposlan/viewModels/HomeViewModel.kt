@@ -1,9 +1,23 @@
 package com.example.prototiposlan.viewModels
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import com.example.prototiposlan.screens.LatMenuScreens
 import com.example.prototiposlan.screens.Schedule
 
-class HomeViewModel:ViewModel() {
+class HomeViewModel : ViewModel() {
+
+    val latMenuItem = listOf(
+        LatMenuScreens.Ranking,
+        LatMenuScreens.Reto,
+        LatMenuScreens.Muro,
+        LatMenuScreens.Mapa,
+        LatMenuScreens.Flora,
+        LatMenuScreens.Album
+    )
+
     private val eventList = listOf(
         Schedule.T2,
         Schedule.T3,
@@ -123,9 +137,21 @@ class HomeViewModel:ViewModel() {
         Schedule.MT7
     )
 
+    val daysSchedule = listOf(Days.Day1, Days.Day2, Days.Day3, Days.Day4, Days.Day5, Days.Day6)
+    var selectedDay by mutableStateOf(daysSchedule.first())
+
     val firstDayEvents = eventList.subList(0, 3)
     val secondDayEvents = eventList.subList(3, 7)
     val thirdDayEvents = eventList.subList(7, 43)
     val fourthDayEvents = eventList.subList(43, 80)
     val fifthDayEvents = eventList.subList(80, 115)
+}
+
+sealed class Days(val text: String,val click: () -> Unit) {
+    object Day1:Days("Día 1", {})
+    object Day2:Days("Día 2", {})
+    object Day3:Days("Día 3", {})
+    object Day4:Days("Día 4", {})
+    object Day5:Days("Día 5", {})
+    object Day6:Days("Día 6", {})
 }

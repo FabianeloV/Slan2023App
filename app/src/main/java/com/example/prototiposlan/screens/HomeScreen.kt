@@ -30,22 +30,34 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Composable
-fun HomeScreen(navController: NavController, homeViewModel: HomeViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
+fun HomeScreen(
+    navController: NavController,
+    homeViewModel: HomeViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
+) {
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
-    val latMenuItem = listOf(
-        LatMenuScreens.Ranking,
-        LatMenuScreens.Reto,
-        LatMenuScreens.Muro,
-        LatMenuScreens.Mapa,
-        LatMenuScreens.Flora,
-        LatMenuScreens.Album
-    )
+
 
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = { TopBar(scaffoldState, scope, navController) },
-        drawerContent = { DrawerMenu(menuItems = latMenuItem, navController) },
+        drawerContent = { DrawerMenu(menuItems = homeViewModel.latMenuItem, navController) },
+        bottomBar = {
+            BottomNavigation {
+                homeViewModel.daysSchedule.forEach { day ->
+                    BottomNavigationItem(
+                        label = { Text(text = day.text) },
+                        icon = {},
+                        selected = day == homeViewModel.selectedDay,
+                        onClick = {
+                            homeViewModel.selectedDay = day
+                            day.click
+                        },
+                        modifier = Modifier.padding(10.dp)
+                    )
+                }
+            }
+        },
         content = ({ DaySchedule(homeViewModel) })
     )
 }
@@ -55,7 +67,7 @@ fun TopBar(scaffoldState: ScaffoldState, scope: CoroutineScope, navController: N
     TopAppBar(
         title = {
             Text(
-                "Home page",
+                "Cronograma",
                 color = darkblue,
                 fontSize = 25.sp,
                 fontFamily = graduateFont,
@@ -162,13 +174,13 @@ fun DaySchedule(homeViewModel: HomeViewModel) {
         item { DateText(text = "23 de Octubre") }
 
         item { homeViewModel.thirdDayEvents.forEach { event -> EventColumn(event = event) } }
-        
+
         item { DateText(text = "24 de Octubre") }
-        
-        item { homeViewModel.fourthDayEvents.forEach {event -> EventColumn(event = event)} }
-        
+
+        item { homeViewModel.fourthDayEvents.forEach { event -> EventColumn(event = event) } }
+
         item { DateText(text = "25 de Octubre") }
-        
+
         item { homeViewModel.fifthDayEvents.forEach { event -> EventColumn(event = event) } }
 
         item { DateText(text = "26 de Octubre") }
@@ -202,8 +214,11 @@ fun EventColumn(event: Schedule) {
                 Spacer(modifier = Modifier.padding(horizontal = 5.dp))
                 Text(text = event.hour, color = Color.Gray)
 
-                if (event.description.isNotEmpty()){
-                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                if (event.description.isNotEmpty()) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.End
+                    ) {
                         Icon(Icons.Filled.ArrowDropDown, contentDescription = "Show description")
                     }
                 }

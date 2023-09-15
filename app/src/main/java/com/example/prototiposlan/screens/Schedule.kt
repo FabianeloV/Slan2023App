@@ -681,13 +681,13 @@ sealed class Schedule(
     )
     object S59: Schedule(
         "Para los 1000 primeros días: mamar, comer, jugar y amar (UNICEF)",
-        "Sala 3 Arquitectura\n",
+        "Sala 3 Arquitectura",
         "16:30 a 17:45 Hrs",
         ""
     )
     object S55: Schedule(
         "Aciertos y retos en la regulación de la mercadotecnia de alimentos y bebidas dirigida a las niñas, niños y adolescentes en la región de América Latina y Caribe",
-        "Sala 4 Hugo Ordóñez\n",
+        "Sala 4 Hugo Ordóñez",
         "16:30 a 17:45 Hrs",
         ""
     )
@@ -721,18 +721,4 @@ sealed class Schedule(
         "8:20 a 9:20 Hrs",
         ""
     )
-    /*
-    object MTC10: Schedule(
-        "",
-        "",
-        "",
-        ""
-    )
-    object MTC10: Schedule(
-        "",
-        "",
-        "",
-        ""
-    )
-    */
 }
