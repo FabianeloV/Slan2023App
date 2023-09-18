@@ -1,3 +1,5 @@
+@file:Suppress("NAME_SHADOWING")
+
 package com.example.prototiposlan.screens
 
 import androidx.compose.foundation.BorderStroke

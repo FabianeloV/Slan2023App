@@ -37,28 +37,33 @@ fun HomeScreen(
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
 
-
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = { TopBar(scaffoldState, scope, navController) },
         drawerContent = { DrawerMenu(menuItems = homeViewModel.latMenuItem, navController) },
+
+        content = ({
+            DaySchedule(
+                homeViewModel.getEventsList(),
+                homeViewModel.getDateText()
+            )
+        }),
         bottomBar = {
-            BottomNavigation {
+            BottomNavigation(backgroundColor = Color.White, elevation = 8.dp) {
                 homeViewModel.daysSchedule.forEach { day ->
                     BottomNavigationItem(
-                        label = { Text(text = day.text) },
+                        label = { Text(text = day, fontFamily = graduateFont) },
                         icon = {},
                         selected = day == homeViewModel.selectedDay,
                         onClick = {
                             homeViewModel.selectedDay = day
-                            day.click
                         },
                         modifier = Modifier.padding(10.dp)
                     )
                 }
             }
-        },
-        content = ({ DaySchedule(homeViewModel) })
+        }
+
     )
 }
 
@@ -159,31 +164,14 @@ fun DrawerItem(item: LatMenuScreens, navController: NavController) {
 }
 
 @Composable
-fun DaySchedule(homeViewModel: HomeViewModel) {
+fun DaySchedule(eventsList: List<Schedule>, dateText: String) {
 
     LazyColumn(modifier = Modifier.fillMaxSize()) {
 
-        item { DateText(text = "21 de Octubre") }
+        item { DateText(text = dateText) }
 
-        item { homeViewModel.firstDayEvents.forEach { event -> EventColumn(event = event) } }
+        item { eventsList.forEach { event -> EventColumn(event = event) } }
 
-        item { DateText(text = "22 de Octubre") }
-
-        item { homeViewModel.secondDayEvents.forEach { event -> EventColumn(event = event) } }
-
-        item { DateText(text = "23 de Octubre") }
-
-        item { homeViewModel.thirdDayEvents.forEach { event -> EventColumn(event = event) } }
-
-        item { DateText(text = "24 de Octubre") }
-
-        item { homeViewModel.fourthDayEvents.forEach { event -> EventColumn(event = event) } }
-
-        item { DateText(text = "25 de Octubre") }
-
-        item { homeViewModel.fifthDayEvents.forEach { event -> EventColumn(event = event) } }
-
-        item { DateText(text = "26 de Octubre") }
     }
 }
 
@@ -233,7 +221,6 @@ fun EventColumn(event: Schedule) {
         }
     }
 }
-
 @Composable
 fun DateText(text: String) {
     Text(

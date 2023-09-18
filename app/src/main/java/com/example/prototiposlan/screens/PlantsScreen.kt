@@ -24,6 +24,5 @@ fun PlantsContent() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-
     }
 }
