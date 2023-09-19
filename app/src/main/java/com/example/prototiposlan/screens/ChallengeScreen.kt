@@ -42,7 +42,6 @@ import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.ui.theme.darkred
 import com.example.prototiposlan.ui.theme.gold
 import com.example.prototiposlan.ui.theme.graduateFont
-import com.example.prototiposlan.viewModels.DaysViewModel
 
 @Composable
 fun ChallengeScreen(
@@ -82,7 +81,7 @@ fun ChallengeBody() {
 }
 
 @Composable
-fun ChallengeBox(viewModel: DaysViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
+fun ChallengeBox() {
     val challenges = Textos()
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Challenge(challenges.mondayChallenge1, R.drawable.baseline_fitness_center_24)
@@ -115,7 +114,7 @@ fun ChallengeBox(viewModel: DaysViewModel = androidx.lifecycle.viewmodel.compose
                 .padding(top = 40.dp)
         )
 
-        PointsButton(viewModel)
+        PointsButton()
     }
 }
 
@@ -170,10 +169,10 @@ fun InvertedChallenge(challenge: String, icon: Int) {
 }
 
 @Composable
-fun PointsButton(viewModel: DaysViewModel) {
+fun PointsButton() {
     val colorBut by remember { mutableStateOf(gold) }
     OutlinedButton(
-        onClick = { viewModel.sumUserPoints() },
+        onClick = {  },
         colors = ButtonDefaults.buttonColors(backgroundColor = colorBut),
         shape = CircleShape,
         modifier = Modifier.padding(top = 30.dp)

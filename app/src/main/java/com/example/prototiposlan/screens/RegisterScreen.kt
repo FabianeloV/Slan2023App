@@ -12,6 +12,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Email
+import androidx.compose.material.icons.outlined.Face
 import androidx.compose.material.icons.outlined.Lock
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -47,6 +48,7 @@ fun RegisterScreen(
     val mail = rememberSaveable { mutableStateOf("") }
     val password = rememberSaveable { mutableStateOf("") }
     val repeatedPassword = rememberSaveable { mutableStateOf("") }
+    val nickName = rememberSaveable { mutableStateOf("") }
     val context = LocalContext.current
 
     //Google client
@@ -69,7 +71,7 @@ fun RegisterScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(ShaderBrush(ImageShader(ImageBitmap.imageResource(id = R.drawable.singinbackground))))
-            .padding(top = 40.dp),
+            .padding(top = 20.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         LoginLogo(id = R.drawable.usericon, width = 150, height = 150)
@@ -78,7 +80,7 @@ fun RegisterScreen(
 
         RegisterTitle()
 
-        Spacer(modifier = Modifier.padding(20.dp))
+        Spacer(modifier = Modifier.padding(15.dp))
 
         OutlinedTextField(
             leadingIcon = { Icon(imageVector = Icons.Outlined.Email, contentDescription = null) },
@@ -91,7 +93,7 @@ fun RegisterScreen(
             )
         )
 
-        Spacer(modifier = Modifier.padding(20.dp))
+        Spacer(modifier = Modifier.padding(15.dp))
 
         OutlinedTextField(
             leadingIcon = { Icon(imageVector = Icons.Outlined.Lock, contentDescription = null) },
@@ -102,7 +104,7 @@ fun RegisterScreen(
             visualTransformation = PasswordVisualTransformation()
         )
 
-        Spacer(modifier = Modifier.padding(20.dp))
+        Spacer(modifier = Modifier.padding(15.dp))
 
         OutlinedTextField(
             leadingIcon = { Icon(imageVector = Icons.Outlined.Lock, contentDescription = null) },
@@ -111,6 +113,16 @@ fun RegisterScreen(
             label = { Text("Repetir contraseña") },
             shape = CircleShape,
             visualTransformation = PasswordVisualTransformation()
+        )
+
+        Spacer(modifier = Modifier.padding(15.dp))
+
+        OutlinedTextField(
+            leadingIcon = { Icon(imageVector = Icons.Outlined.Face, contentDescription = null) },
+            value = nickName.value,
+            onValueChange = { nickName.value = it },
+            label = { Text("Nombre de usuario") },
+            shape = CircleShape
         )
 
         Spacer(modifier = Modifier.padding(15.dp))
@@ -135,6 +147,7 @@ fun RegisterScreen(
                 email = mail.value,
                 password = password.value,
                 repeatedPassword = repeatedPassword.value,
+                nickName = nickName.value,
                 { navController.navigate(route = "HomeScreen")},
                 { Toast.makeText(context, "Ingrese una contraseña de 6 o más caracteres", Toast.LENGTH_SHORT).show() },
                 { Toast.makeText(context, "Ingrese un correo válido", Toast.LENGTH_SHORT).show() },
@@ -184,5 +197,3 @@ fun CreateButton(
         )
     }
 }
-
-

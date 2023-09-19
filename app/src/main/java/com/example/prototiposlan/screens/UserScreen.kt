@@ -2,6 +2,7 @@
 
 package com.example.prototiposlan.screens
 
+import android.util.Log
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -27,14 +28,66 @@ import com.example.prototiposlan.ui.theme.Shapes
 import com.example.prototiposlan.ui.theme.darkblue
 import com.example.prototiposlan.ui.theme.darkred
 import com.example.prototiposlan.ui.theme.graduateFont
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 
 @Composable
-fun UserScreen(navController: NavController, Steps: Int, points: Int) {
+fun UserScreen(navController: NavController, steps: Int) {
+    val userPoints = remember { mutableStateOf(0) }
+    val userNickname = remember { mutableStateOf("") }
+    val auth: FirebaseAuth = Firebase.auth
+    val userId = auth.currentUser?.uid
+    val db = FirebaseFirestore.getInstance()
+    val docRef = db.collection("users").document(userId.toString())
+
+    docRef.get().addOnSuccessListener { documentSnapshot ->
+        if (documentSnapshot.exists()) {
+            val fieldValue = documentSnapshot.getString("nickname")
+            if (fieldValue != null) {
+                // Do something with the field value
+                userNickname.value = fieldValue.toString()
+            } else {
+                // Handle the case where the field doesn't exist or is null
+                userNickname.value = "Usuario"
+            }
+        } else {
+            // Handle the case where the document doesn't exist
+            userNickname.value = "Usuario"
+        }
+    }
+        .addOnFailureListener { exception ->
+            // Handle any errors that occurred during the retrieval
+            println("Error getting document: $exception")
+        }
+
+    docRef.get().addOnSuccessListener { documentSnapshot ->
+        if (documentSnapshot.exists()) {
+            val fieldValue = documentSnapshot.getLong("points")?.toInt()
+            if (fieldValue != null) {
+                // Do something with the field value
+                userPoints.value = fieldValue
+            } else {
+                // Handle the case where the field doesn't exist or is null
+                userPoints.value = 1
+            }
+        } else {
+            // Handle the case where the document doesn't exist
+            userPoints.value = 3
+        }
+    }
+        .addOnFailureListener { exception ->
+            // Handle any errors that occurred during the retrieval
+            Log.d("points", "error $exception")
+        }
+
     Scaffold(
         topBar = { GeneralTopBar(title = "USUARIO", navController = navController) },
-        content = ({ UserContent(Steps, points) })
+        content = ({ UserContent(steps, userPoints.value, userNickname.value) })
     )
 }
+
 @Composable
 fun GeneralTopBar(title: String, navController: NavController) {
     TopAppBar(
@@ -57,10 +110,11 @@ fun GeneralTopBar(title: String, navController: NavController) {
         elevation = 1.dp,
     )
 }
+
 @Composable
-fun UserContent(Steps:Int, points:Int) {
+fun UserContent(Steps: Int, points: Int, nickName: String) {
     val steps by remember { mutableStateOf(Steps) }
-    val calories by remember { mutableStateOf(steps*0.04) }
+    val calories by remember { mutableStateOf(steps * 0.04) }
     val points by remember { mutableStateOf(points) }
 
     Column(
@@ -74,11 +128,14 @@ fun UserContent(Steps:Int, points:Int) {
         Image(
             painter = painterResource(id = R.drawable.foto),
             contentDescription = "User icon",
-            modifier = Modifier.size(150.dp).clip(CircleShape).border(2.dp, color = darkblue)
+            modifier = Modifier
+                .size(150.dp)
+                .clip(CircleShape)
+                .border(2.dp, color = darkblue)
         )
         Spacer(modifier = Modifier.padding(25.dp))
 
-        GenericUserText(text = "Fabian Verdesoto", fontSize = 28, color = Color.Black)
+        GenericUserText(text = nickName, fontSize = 28, color = Color.Black)
 
         Spacer(modifier = Modifier.padding(16.dp))
 
@@ -100,15 +157,17 @@ fun UserContent(Steps:Int, points:Int) {
 
     }
 }
+
 @Composable
 fun GenericUserText(text: String, fontSize: Int, color: Color) {
     Text(text = text, fontSize = fontSize.sp, color = color, fontFamily = graduateFont)
 }
 
 @Composable
-fun GenericUserNumber(number:Int, fontSize: Int, color: Color){
+fun GenericUserNumber(number: Int, fontSize: Int, color: Color) {
     Text(text = number.toString(), fontSize = fontSize.sp, color = color, fontFamily = graduateFont)
 }
+
 @Composable
 fun RowWithIcon() {
     Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {

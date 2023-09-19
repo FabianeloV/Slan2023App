@@ -1,9 +1,13 @@
 package com.example.prototiposlan.viewModels
 
 import android.icu.util.Calendar
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.firestore.ktx.firestore
+
 
 class DaysViewModel : ViewModel() {
     private fun dayOfTheWeek(): Int {
@@ -19,22 +23,7 @@ class DaysViewModel : ViewModel() {
             else -> 0
         }
     }
+
     val stepCounter = mutableStateOf(0)
 
-    val userPoints = mutableStateOf(100)
-
-    fun sumUserPoints(){
-        userPoints.value + 100
-    }
-
-    private val dailyChallengeText1 = mutableStateOf("")
-    val dailyChallengeText2 = mutableStateOf("")
-    val dailyChallengeText3 = mutableStateOf("")
-
-    fun dailyChallengeText1Func(): MutableState<String> {
-        when(dayOfTheWeek()){
-            1->{}
-        }
-        return dailyChallengeText1
-    }
 }

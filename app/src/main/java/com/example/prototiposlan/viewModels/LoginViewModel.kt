@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.launch
 
@@ -21,6 +22,7 @@ class LoginViewModel : ViewModel() {
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             navigate()
+                            addUserField(auth.currentUser?.displayName.toString())
                         }
                     }
                     .addOnFailureListener { errorAlert() }
@@ -45,10 +47,10 @@ class LoginViewModel : ViewModel() {
                             if (task.isSuccessful) {
                                 navigate()
                             }
-                            if (!task.isSuccessful){
+                            if (!task.isSuccessful) {
                                 errorAlert()
                             }
-                            if(task.isCanceled){
+                            if (task.isCanceled) {
                                 errorAlert()
                             }
                         }
@@ -67,6 +69,7 @@ class LoginViewModel : ViewModel() {
         email: String,
         password: String,
         repeatedPassword: String,
+        nickName: String,
         navigate: () -> Unit,
         passwordAlert: () -> Unit,
         emailAlert: () -> Unit,
@@ -81,12 +84,13 @@ class LoginViewModel : ViewModel() {
                         auth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
+                                    addUserField(nickName)
                                     navigate()
                                 }
-                                if (!task.isSuccessful){
+                                if (!task.isSuccessful) {
                                     errorAlert()
                                 }
-                                if(task.isCanceled){
+                                if (task.isCanceled) {
                                     errorAlert()
                                 }
                             }
@@ -101,5 +105,23 @@ class LoginViewModel : ViewModel() {
         } else {
             emailAlert()
         }
+    }
+
+    private fun addUserField(nickName: String) {
+        val userId = auth.currentUser?.uid
+
+        val userField = UserFields(
+            id = userId.toString(),
+            nickname = nickName,
+            avatar = "",
+            points = 0
+        ).userMap()
+
+        FirebaseFirestore.getInstance().collection("users")
+            .document(userId.toString())
+            .set(userField)
+            .addOnSuccessListener { Log.d("userField", "creado $it") }
+            .addOnFailureListener { Log.d("userField", "error $it") }
+
     }
 }
