@@ -2,7 +2,6 @@
 
 package com.example.prototiposlan.screens
 
-import android.util.Log
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -35,7 +34,7 @@ import com.google.firebase.ktx.Firebase
 
 @Composable
 fun UserScreen(navController: NavController, steps: Int) {
-    val userPoints = remember { mutableStateOf(0) }
+    val userPoints = remember { mutableStateOf(5) }
     val userNickname = remember { mutableStateOf("") }
     val auth: FirebaseAuth = Firebase.auth
     val userId = auth.currentUser?.uid
@@ -44,42 +43,27 @@ fun UserScreen(navController: NavController, steps: Int) {
 
     docRef.get().addOnSuccessListener { documentSnapshot ->
         if (documentSnapshot.exists()) {
+
             val fieldValue = documentSnapshot.getString("nickname")
             if (fieldValue != null) {
-                // Do something with the field value
                 userNickname.value = fieldValue.toString()
             } else {
-                // Handle the case where the field doesn't exist or is null
                 userNickname.value = "Usuario"
             }
+
+            val pointsData = documentSnapshot.getLong("points")
+            if (pointsData != null) {
+                userPoints.value = pointsData.toInt()
+            } else {
+                userPoints.value = 3
+            }
         } else {
-            // Handle the case where the document doesn't exist
             userNickname.value = "Usuario"
         }
     }
         .addOnFailureListener { exception ->
             // Handle any errors that occurred during the retrieval
             println("Error getting document: $exception")
-        }
-
-    docRef.get().addOnSuccessListener { documentSnapshot ->
-        if (documentSnapshot.exists()) {
-            val fieldValue = documentSnapshot.getLong("points")?.toInt()
-            if (fieldValue != null) {
-                // Do something with the field value
-                userPoints.value = fieldValue
-            } else {
-                // Handle the case where the field doesn't exist or is null
-                userPoints.value = 1
-            }
-        } else {
-            // Handle the case where the document doesn't exist
-            userPoints.value = 3
-        }
-    }
-        .addOnFailureListener { exception ->
-            // Handle any errors that occurred during the retrieval
-            Log.d("points", "error $exception")
         }
 
     Scaffold(
