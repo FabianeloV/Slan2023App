@@ -221,6 +221,7 @@ fun EventColumn(event: Schedule) {
         }
     }
 }
+
 @Composable
 fun DateText(text: String) {
     Text(
