@@ -12,9 +12,13 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.ArrowForward
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -42,18 +46,14 @@ fun PlantsContent() {
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
-    ) {
-    }
+    ) {}
 }
 
 @Preview
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun PlantCard() {
-    Card(
-        elevation = 6.dp,
-        modifier = Modifier.padding(top = 5.dp),
-        onClick = {}) {
+    Card(elevation = 6.dp, modifier = Modifier.padding(top = 5.dp), onClick = {}) {
         Column(
             verticalArrangement = Arrangement.SpaceAround,
             horizontalAlignment = Alignment.Start,
@@ -62,8 +62,7 @@ fun PlantCard() {
                 .fillMaxWidth()
         ) {
             Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween
+                modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Column(verticalArrangement = Arrangement.SpaceEvenly) {
                     Text(text = "Manzanilla", fontSize = 16.sp, fontFamily = graduateFont)
@@ -73,16 +72,19 @@ fun PlantCard() {
                         fontFamily = graduateFont,
                         color = Color.DarkGray
                     )
-
-                    OutlinedTextField(
-                        value = "",
-                        onValueChange = {},
-                        label = { Text(text = "Ingresar código") },
-                        modifier = Modifier.size(height = 60.dp, width = 200.dp),
-                        shape = CircleShape
-                    )
+                    Row {
+                        OutlinedTextField(
+                            value = "",
+                            onValueChange = {},
+                            label = { Text(text = "Ingresar código") },
+                            modifier = Modifier.size(height = 60.dp, width = 150.dp),
+                            shape = CircleShape
+                        )
+                        IconButton(onClick = { /*TODO*/ }) {
+                            Icon(imageVector = Icons.Outlined.ArrowForward, contentDescription = null)
+                        }
+                    }
                 }
-
                 Image(
                     painter = painterResource(id = R.drawable.foto),
                     contentDescription = "Flower",
@@ -92,13 +94,13 @@ fun PlantCard() {
                             CircleShape
                         )
                 )
-                AnimatedVisibility(visible = false) {
-                    Text(
-                        text = "Se emplean las flores y hojas para tratar un gran número de afecciones: trastornos digestivos (dolor de estómago, indigestión, dispepsia, cólicos, diarreas), afecciones renales y de la vejiga, dolores menstruales.",
-                        modifier = Modifier.padding(top = 5.dp)
-                    )
-                }
             }
         }
+    }
+    AnimatedVisibility(visible = false) {
+        Text(
+            text = "Se emplean las flores y hojas para tratar un gran número de afecciones: trastornos digestivos (dolor de estómago, indigestión, dispepsia, cólicos, diarreas), afecciones renales y de la vejiga, dolores menstruales.",
+            modifier = Modifier.padding(top = 5.dp)
+        )
     }
 }
