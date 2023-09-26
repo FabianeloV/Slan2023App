@@ -2,6 +2,7 @@ package com.example.prototiposlan.screens
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -72,7 +73,7 @@ fun PlantCard() {
                         fontFamily = graduateFont,
                         color = Color.DarkGray
                     )
-                    Row {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
                         OutlinedTextField(
                             value = "",
                             onValueChange = {},
@@ -80,8 +81,16 @@ fun PlantCard() {
                             modifier = Modifier.size(height = 60.dp, width = 150.dp),
                             shape = CircleShape
                         )
-                        IconButton(onClick = { /*TODO*/ }) {
-                            Icon(imageVector = Icons.Outlined.ArrowForward, contentDescription = null)
+                        IconButton(
+                            onClick = { /*TODO*/ },
+                            modifier = Modifier
+                                .padding(start = 6.dp)
+                                .border(width = 1.dp, color = Color.Black, shape = CircleShape)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Outlined.ArrowForward,
+                                contentDescription = null
+                            )
                         }
                     }
                 }
