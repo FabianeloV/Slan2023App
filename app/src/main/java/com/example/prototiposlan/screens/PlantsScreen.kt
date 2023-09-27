@@ -47,7 +47,7 @@ fun PlantsContent() {
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
-    ) {}
+    ) { PlantCard() }
 }
 
 @Preview
