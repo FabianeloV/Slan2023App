@@ -104,7 +104,7 @@ fun ChallengeBox() {
                 .padding(top = 20.dp)
         )
 
-        Challenge(challenge = challenges.mondayChallenge3, icon = R.drawable.pin)
+        Challenge(challenge = challenges.mondayChallenge3, icon = R.drawable.baseline_directions_run_24)
 
         Box(
             modifier = Modifier

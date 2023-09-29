@@ -1,5 +1,3 @@
-@file:Suppress("NAME_SHADOWING")
-
 package com.example.prototiposlan.screens
 
 import androidx.compose.foundation.BorderStroke
@@ -11,9 +9,11 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -34,7 +34,6 @@ import com.google.firebase.ktx.Firebase
 
 @Composable
 fun UserScreen(navController: NavController, steps: Int) {
-    val userPoints = remember { mutableStateOf(5) }
     val userNickname = remember { mutableStateOf("") }
     val auth: FirebaseAuth = Firebase.auth
     val userId = auth.currentUser?.uid
@@ -50,25 +49,15 @@ fun UserScreen(navController: NavController, steps: Int) {
             } else {
                 userNickname.value = "Usuario"
             }
-
-            val pointsData = documentSnapshot.getLong("points")
-            if (pointsData != null) {
-                userPoints.value = pointsData.toInt()
-            } else {
-                userPoints.value = 3
-            }
-        } else {
-            userNickname.value = "Usuario"
         }
     }
         .addOnFailureListener { exception ->
-            // Handle any errors that occurred during the retrieval
             println("Error getting document: $exception")
         }
 
     Scaffold(
         topBar = { GeneralTopBar(title = "USUARIO", navController = navController) },
-        content = ({ UserContent(steps, userPoints.value, userNickname.value) })
+        content = ({ UserContent(steps, userNickname.value) })
     )
 }
 
@@ -96,10 +85,9 @@ fun GeneralTopBar(title: String, navController: NavController) {
 }
 
 @Composable
-fun UserContent(Steps: Int, points: Int, nickName: String) {
+fun UserContent(Steps: Int, nickName: String) {
     val steps by remember { mutableStateOf(Steps) }
     val calories by remember { mutableStateOf(steps * 0.04) }
-    val points by remember { mutableStateOf(points) }
 
     Column(
         verticalArrangement = Arrangement.Center,
@@ -135,7 +123,7 @@ fun UserContent(Steps: Int, points: Int, nickName: String) {
 
         Spacer(modifier = Modifier.padding(20.dp))
 
-        GenericUserNumber(number = points, fontSize = 44, color = darkred)
+        Points()
 
         GenericUserText(text = "Puntos", fontSize = 32, color = darkblue)
 
@@ -162,4 +150,38 @@ fun RowWithIcon() {
         )
         GenericUserText(text = "Pasos de hoy", fontSize = 32, color = darkblue)
     }
+}
+
+@Composable
+fun Points(){
+    var userPoints by remember { mutableStateOf(6) }
+
+    val auth: FirebaseAuth = Firebase.auth
+    val userId = auth.currentUser?.uid
+
+    val db = FirebaseFirestore.getInstance()
+    val docRef = db.collection("users").document(userId.toString())
+
+    DisposableEffect(Unit) {
+        val listener = docRef
+            .addSnapshotListener { snapshot, exception ->
+                if (exception != null) {
+                    // Handle the error
+                    return@addSnapshotListener
+                }
+
+                if (snapshot != null && snapshot.exists()) {
+                    val data = snapshot.data
+                    // Retrieve the integer field from the snapshot and update the State
+                    val intValueFromFirestore = data?.get("points") as Long?
+                    if (intValueFromFirestore != null) {
+                        userPoints = intValueFromFirestore.toInt()
+                    }
+                }
+            }
+        onDispose {
+            listener.remove()
+        }
+    }
+    GenericUserNumber(number = userPoints, fontSize = 44, color = darkred)
 }

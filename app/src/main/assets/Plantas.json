@@ -1,612 +1,605 @@
-{
-  "plantas" : [
-    {
-      "id": 0,
-      "nombre": "Nogal",
-      "nCientifico": "Juglans neotropica",
-      "funcion": "Su fruta, el tocte, es alta en proteína, grasas, fósforo, calcio,potasio y fosfatos",
-      "curioso" : "Es alelopática, como muchos nogales, y su presencia mata otras especies.",
-      "codigo" : "XjPSF"
-    },
-
-    {
-      "id": 1,
-      "nombre": "Capulí",
-      "nCientifico": "Prunus Serotina",
-      "funcion": "Ante altos niveles de antioxidantes, ayuda a combatir los radicales libres, reduciendo el riesgo de tener enfermedades del corazón o algunos tipos de cáncer,así como al fortalecimiento de nuestro sistema inmunológico y al retraso del proceso de envejecimiento.",
-      "curioso" : "contiene vitaminas A, B, C y minerales, elementos que ayudan a mantener la salud de nuestro organismo.",
-      "codigo" : "jhwkA"
-
-    },
-
-    {
-      "id": 2,
-      "nombre": "Oreja de burro",
-      "nCientifico": "Stachys Byzantin",
-      "funcion": "En picaduras de insectos. Igualmente se usa como vendaje antibacteriano para tratar las heridas. Sus hojas se usan en el tratamiento para aliviar resfriados, gripes y las crisis de asma.",
-      "curioso" : "Esta especie no sufre del ataque de los molestos pulgones, pero si es afectada por el moho o el polvo blanco.",
-      "codigo" : "SJJEg"
-    },
-
-    {
-      "id": 3,
-      "nombre": "Manzanilla",
-      "nCientifico": "Chamaemelum nobile",
-      "funcion": "Se emplean las flores y hojas para tratar un gran número de afecciones: trastornos digestivos (dolor de estómago, indigestión, dispepsia, cólicos, diarreas), afecciones renales y de la vejiga, dolores menstruales. ",
-      "curioso" : "Tradicionalmente se usa en productos para el cuidado del cabello (como aclarante) y de la piel en perfumes y cosméticos.",
-      "codigo" : "nxbfT"
-
-    },
-
-    {
-      "id": 4,
-      "nombre": "Hiedra Trepadora",
-      "nCientifico": "Ficus Pumila",
-      "funcion": "Cubrir Paredes",
-      "curioso" : "Tiene mucha facilidad para trepar a diferentes tipos de soporte, como paredes y troncos de árboles.",
-      "codigo" : "MAilJ"
-
-    },
-
-    {
-      "id": 5,
-      "nombre": "Árbol de Jade",
-      "nCientifico": "Crasulla ovata",
-      "funcion": "Es decoración no solo por su estética, sino por ser conocida como la planta del dinero, abundancia y la prosperidad en la cultura popular china y algunas prácticas de Feng Shui. ",
-      "curioso" : "Es moderadamente tóxico para los perros.",
-      "codigo" : "cFgzy"
-
-    },
-
-    {
-      "id": 6,
-      "nombre": "Crotón",
-      "nCientifico": "Codiaeum variegatum ",
-      "funcion": "Las hojas se usan como agente cicatrizante, posee propiedades antiinflamatorias, antisépticas y hemostáticas, así como antidiarreico.",
-      "curioso" : "En el caso de personas que puedan presentar condiciones de sensibilidad preexistentes, el contacto directo con el tallo o la savia de las hojas del crotón (Codiaeum variegatum) puede generar afecciones de la piel, como dermatitis, y en caso del consumo de cualquiera de sus partes puede producir una intoxicación gastrointestinal de grado menor de acuerdo a estudios de especialistas",
-      "codigo" : "26kA7"
-    },
-    {
-      "id": 7,
-      "nombre": "Flor de Nácar",
-      "nCientifico": "Begonia cucullata",
-      "funcion": "Decoramiento de hogares",
-     "curioso" : "Son tóxicas para los humanos y los animales (No comestible)",
-      "codigo" : "71bGT"
-
-    },
-
-    {
-      "id": 8,
-      "nombre": "Alegría guineana",
-      "nCientifico": "Impatiens hawkeri ",
-      "funcion": "Decoración en casas por su belleza de florecimiento",
-      "curioso" : "La alegría guineana es una especie de muy fácil cultivo en el interior y exterior. A cambio, te alegrará con su cuantiosa floración desde el verano hasta el otoño. ",
-      "codigo" : "VOm6h"
-    },
-
-    {
-      "id": 9,
-      "nombre": "Ruda",
-      "nCientifico": "Ruta graveolens",
-      "funcion": ":se utilizan las ramas con sus hojas, sobre todo, para calmar los cólicos abdominales y eliminar parásitos intestinales; como estimulante del flujo menstrual en casos de reglas dolorosas, irregulares y débiles. ",
-      "curioso" : "Es una hierba de toxicidad moderada a severa y letal si es ingerida en grandes cantidades, con la cual podría desarrollarse una intoxicación de múltiples órganos. ",
-      "codigo" : "hGqfL"
-    },
-
-    {
-      "id": 10,
-      "nombre": "Cactus de navidad",
-      "nCientifico": "Schlumbergera truncata",
-      "funcion": "Por sus bellas flores, es muy indicado para decoración, sobre todo de interior.",
-      "curioso" : "Recibe su nombre dado que florece en otoño e invierno, siendo el invierno la época que coincide con Navidad en el hemisferio norte del planeta.",
-      "codigo" : "CfNTi"
-    },
-
-    {
-      "id": 11,
-      "nombre": "Aguacate",
-      "nCientifico": "Persea americana",
-      "funcion": "Mejora la digestión. Nutre la piel, las uñas y el cabello por su alto contenido en vitaminas C y E. Contribuye a nivelar la presión arterial por ser rico en Potasio. Reduce el riesgo de padecimientos en los ojos, como las cataratas.",
-      "curioso" : "puede tener una altura grande como hasta 20 metros de altura, sin embargo cuando es cultivado comercialmente no se deja crecer más de 5 metros para facilitar todas las actividades agronómicas durante el cultivo. ",
-      "codigo" : "SsvrX"
-    },
-
-    {
-      "id": 12,
-      "nombre": "Salvia",
-      "nCientifico": "Salvia Elegans",
-      "funcion": "decoración por la belleza de sus hojas.",
-      "curioso" : "La planta se utiliza ampliamente en la medicina tradicional mexicana, especialmente para el tratamiento de la ansiedad, y también para la reducción de la presión arterial. ",
-      "codigo" : "kEdKz"
-    },
-
-
-    {
-      "id": 13,
-      "nombre": "Romerillo",
-      "nCientifico": "Prumnopitys montana ",
-      "funcion": "Se utiliza tradicionalmente como emenagogo en forma de infusión y como expectorante en afecciones catarrales.",
-      "curioso" : "Árbol que crece aproximadamente 35 metros de alto, en zonas de grandes altitudes es grueso y de poca altura con ramas extensa y anchas, con numerosas ramita",
-      "codigo" : "JvMo5"
-    },
-
-    {
-      "id": 14,
-      "nombre": "Eucalipto",
-      "nCientifico": "Eucalyptus globulus",
-      "funcion": "Se utiliza tradicionalmente como emenagogo en forma de infusión y como expectorante en afecciones catarrales.",
-      "curioso" : "Puede ser neurotóxico por acelerar el metabolismo hepático de algunos anestésicos, analgésicos y tranquilizantes. Su aceite esencial no puede ser aplicado directamente sobre la cara de niños pequeños o lactantes. ",
-      "codigo" : "7dMQv"
-    },
-
-    {
-      "id": 15,
-      "nombre": "Nigua",
-      "nCientifico": "tournefortia",
-      "funcion": "Planta medicinal utilizada como diurético y contra las enfermedades venéreas",
-      "curioso" : "Son árboles pequeños, arbustos o trepadoras leñosas. Con hojas alternas u opuestas, enteras, pecioladas o raramente sésiles.",
-      "codigo" : "2glum"
-    },
-
-    {
-      "id": 16 ,
-      "nombre": "Enebro",
-      "nCientifico": "Juniperus communis",
-      "funcion": "Utilizadas como medicina en muchas culturas ya que, si se consumen, actúan como un fuerte desinfectante de las vías urinarias. Fueron utilizadas por los indios navajos como un remedio herbal para la diabetes.",
-      "curioso" : "Los frutos también se utilizan para aromatizar la ginebra, bebida a la que le da su nombre, en cuya composición se encuentran los gálbulos de juniperus, entre otras plantas.",
-      "codigo" : "QHDZi"
-    },
-
-    {
-      "id": 17,
-      "nombre": "Joyapa",
-      "nCientifico": "Macleania hirtiflora",
-      "funcion": "Decoramiento por la belleza de su florecimiento.",
-      "curioso" : "arbusto erecto o extendido de 1,5 a 4 m de alto, tallos redondeados, lignificados, de corteza externa de color gris o marrón. Hojas simples, alternas, pecioladas; lámina de elíptica a oblonga de 2 a 3 cm de largo de 0, 8 a 1,2 cm de ancho, de textura coriácea, margen entero y ápice agudo, haz y envés con pubescencia de pelos blancos hirsutos.",
-      "codigo" : "rl9pi"
-    },
-
-    {
-      "id": 18,
-      "nombre": "Quindi Sugana",
-      "nCientifico": "Salvia corrugata Vahl",
-      "funcion": "Se utiliza para frenar los síntomas del resfriado común, como la tos y la garganta inflamada. Puede mejorar la función cognitiva s",
-      "curioso" : "Tiene propiedades astringentes, antisépticas y antiinflamatorias por lo cual es muy eficaz para aliviar las molestias de garganta y calmar la tos, al tiempo que ayuda a fortalecer el sistema inmune ya que es rica en vitaminas A y C.",
-      "codigo" : "mWo1u"
-    },
-
-    {
-      "id": 19,
-      "nombre": "Yugyung hembra",
-      "nCientifico": "Axinaea merianiae",
-      "funcion": " ",
-      "curioso" : "Hojas opuestas, de textura coriácea, de forma ovalada-lanceo lada, sin pubescencia, con 5 nervios principales muy remarcados en el envés y márgenes dentados.",
-      "codigo" : "0hClI"
-    },
-
-    {
-      "id": 20,
-      "nombre": "Cérrag rosarillo",
-      "nCientifico": "Miconia aspergillosis",
-      "funcion": " ",
-      "curioso" : "El fruto es comestible: una baya roja con muchas semillas",
-      "codigo" : "ja9S8"
-    },
-
-    {
-      "id": 21,
-      "nombre": "Guagual arrayán",
-      "nCientifico": "Myrcianthes rhopaloides",
-      "funcion": "en medicina popular se utiliza la rama con hojas, en infusión, para el tratamiento del reumatismo, gota, tos y diarrea. Probablemente tiene propiedades antiinflamatorias.",
-      "curioso" : "Es un aromatizante en los Andes de Ecuador.",
-      "codigo" : "CtN10"
-    },
-
-    {
-      "id": 22,
-      "nombre": "Gañal Cucharill",
-      "nCientifico": "Oreocallis grandiflora",
-      "funcion": "La planta se utiliza para leña, muebles/carpintería; su \"madera marrón agradablemente moteado crema-blanco, rosado y pálido\" se utiliza para trabajos de incrustación y bordes de tableros de ajedrez.",
-      "curioso" : "Estas plantas se utilizan para problemas en el riñón",
-      "codigo" : "Itgut"
-    },
-
-    {
-      "id": 23,
-      "nombre": "Ataco",
-      "nCientifico": "Amaranthus hybridus L.",
-      "funcion": "Sirve de ayuda para mejorar la digestión y sirve de diurético",
-      "curioso" : "poco ramificada de color verde al inicio y morado o purpura a la madurez Toronjil",
-      "codigo" : "Md9Nj"
-    },
-
-    {
-      "id": 24,
-      "nombre": "Toronjil",
-      "nCientifico": "Melissa officinalis",
-      "funcion": "propiedades estimulantes, estomacales, aromáticas, carminativas y antiespasmódicas, las hojas, flores y tallos de melisa son ampliamente usados en medicina popular para tratar estados depresivos y nerviosos, insomnio, dolor de cabeza, trastornos de la menopausia y afecciones cardíacas",
-      "curioso" : "Es conocido como una especie melífera y apícola ya que atrae a las abejas",
-      "codigo" : "NCsya"
-    },
-
-    {
-      "id": 25,
-      "nombre": "Lengua de suegra",
-      "nCientifico": "Dracaena Trifasciata",
-      "funcion": "limpiar del aire sustancias tóxicas como el benceno, el tolueno, el xileno o el tricloroetilenovenéreas",
-      "curioso" : "tiene el poder de proteger, atraer la buena suerte, el dinero y las energías positivas, sin embargo, si no la colocas en el sitio correcto, no podrás recibir su magia.",
-      "codigo" : "2kFfB"
-    },
-
-    {
-      "id": 26,
-      "nombre": "Malva",
-      "nCientifico": "Malva",
-      "funcion": "Se usa cuando hay tos irritativa, sequedad de garganta, bronquitis, lesiones bucales o afecciones del aparato digestivo",
-      "curioso" : "En la antigüedad se creía que una poción a base de su zumo evitaba indisposiciones durante todo el día.",
-      "codigo" : "QSxAf"
-    },
-
-    {
-      "id": 27,
-      "nombre": "Cedrón",
-      "nCientifico": "Aloysia citrodora",
-      "funcion": "En la industria alimentaria y en farmacia, así como en perfumería y cosmética, la esencia se emplea con frecuencia como corrector de sabor y olor.",
-      "curioso" : "Es consideratdo un carminativo, porque ayuda a expulsar los gases y también es antiespasmódico, porque evita la inflamación e hinchazón estomacales",
-      "codigo" : "1oF4z"
-    },
-
-    {
-      "id": 28,
-      "nombre": "Hierba de la golondrina",
-      "nCientifico": "Chelidonium majus",
-      "funcion": "Ayuda a regular el dolor del estómago",
-      "curioso" : "útil para las manchas de la córnea y los padecimientos de la piel.",
-      "codigo" : "BLik6"
-    },
-
-    {
-      "id": 29,
-      "nombre": "Canutillo",
-      "nCientifico": "Commelina diffusa",
-      "funcion": "Se emplea en la medicina popular como diurético, astringente y en afecciones pulmonares",
-      "curioso" : "Sirve de forraje al ganado",
-      "codigo" : "btiOB"
-    },
-
-    {
-      "id": 30,
-      "nombre": "Shiran",
-      "nCientifico": "Bidens Pilosa",
-      "funcion": "es colerético, antiulceroso, antifúngico, antibacteriano",
-      "curioso" : "Se la suele llamad \"amor seco\"",
-      "codigo" : "KEWuG"
-    },
-
-    {
-      "id": 31,
-      "nombre": "Aloe vera",
-      "nCientifico": "Aloe vera",
-      "funcion": "las personas utilizan el gel transparente de la sábila de forma tópica en cremas y ungüentos para tratar quemaduras, la psoriasis e incluso el acné",
-      "curioso" : "Es uno de los remedios herbales más antiguos",
-      "codigo" : "fpp5E"
-    },
-
-    {
-      "id": 32,
-      "nombre": "Clavel",
-      "nCientifico": "Dianthus caryophyllus",
-      "funcion": "tiene propiedades anti alergénicas, antiespasmódicas, entre otras",
-      "curioso" : "Se recomienda el de la infusión de la flor en caso de agotamiento de los nervios y el corazón.",
-      "codigo" : "F6rTh"
-    },
-
-    {
-      "id": 33,
-      "nombre": "Guayusa del cerro",
-      "nCientifico": "Ilex guayusa",
-      "funcion": "energizante y antioxidante para el organismo",
-      "curioso" : "puede ayudar en la salud cardiovascular, a regular el peso y la hipertensión, además tiene beneficios en la circulación sanguínea",
-      "codigo" : "SJJWP"
-    },
-
-    {
-      "id": 34,
-      "nombre": "Zambo",
-      "nCientifico": "Cucurbita ficifolia",
-      "funcion": "Tiene una gran cantidad de vitaminas y minerales.",
-      "curioso" : "planta rastrera o trepadora, monoica, la cual pertenece a la familia de plantas dicotiledóneas",
-      "codigo" : "ssODP"
-    },
-
-    {
-      "id": 35,
-      "nombre": "Hierba del infante",
-      "nCientifico": "Desmodium molliculum",
-      "funcion": "aliviar síntomas, incrementar la energía, relajarse o perder peso.",
-      "curioso" : "Depuración para promover la circulación y la piel hermosa",
-      "codigo" : "RE40d"
-    },
-
-    {
-      "id": 36,
-      "nombre": "Agujilla",
-      "nCientifico": "Erodium cicutarium",
-      "funcion": "Es astringente y hemostática",
-      "curioso" : "Se ha empleado en el tratamiento de hemorragias, especialmente las uterinas",
-      "codigo" : "kiHsC"
-    },
-
-    {
-      "id": 37,
-      "nombre": "Hierbabuena",
-      "nCientifico": "Mentha Spicata",
-      "funcion": "Trata los problemas de indigestión, gases intestinales y las inflamaciones del hígado",
-      "curioso" : "Actúa sobre la vesícula biliar ya que activa la producción de la bilis, además alivia los mareos y dolores.",
-      "codigo" : "2iHKy"
-    },
-
-    {
-      "id": 38,
-      "nombre": "Mático",
-      "nCientifico": "Piper aduncum",
-      "funcion": "Se usa de tratamiento de una serie de malestares del aparato digestivo: dolor de estómago, úlceras estomacales, diarrea, colitis, afecciones hepáticas y de la vesícula",
-      "curioso" : "Tiene propiedades cicatrizantes",
-      "codigo" : "3mwtZ"
-    },
-
-    {
-      "id": 39,
-      "nombre": "Cola de caballo",
-      "nCientifico": "Equisetum arvense",
-      "funcion": "diurético para auxiliar en el tratamiento de infecciones urinarias, ayudar a perder peso o combatir la presión alta",
-      "curioso" : "Puede ayudar a reducir la retención de líquidos, pero puede causar deficiencia de vitamina B1 cuando se usa a largo plazo.",
-      "codigo" : "NyKAx"
-    },
-
-    {
-      "id": 40,
-      "nombre": "Mortiño",
-      "nCientifico": "Vaccinium meridionale",
-      "funcion": "Sirve para eliminar la Diarrea y el colerín",
-      "curioso" : "tiene un alto contenido de fósforo, fibra, calcio y vitaminas B1 y C.",
-      "codigo" : "Bcfwg"
-    },
-
-    {
-      "id": 41,
-      "nombre": "Valeriana",
-      "nCientifico": "Valeriana officinalis",
-      "funcion": "Se utiliza como sedante nervioso, y se prepara como infusión.",
-      "curioso" : "La raíz de valeriana presenta actividad sedante e hipnótica.Son árboles pequeños, arbustos o trepadoras leñosas. Con hojas alternas u opuestas, enteras, pecioladas o raramente sésiles.",
-      "codigo" : "3wCPh"
-    },
-
-    {
-      "id": 42,
-      "nombre": "Ortiga",
-      "nCientifico": "Urtica",
-      "funcion": "Se utiliza como infusión pero solo se ocupan las hojas, sirven para los dolores reumáticos, artritis",
-      "curioso" : "Es conocida como la planta que pica",
-      "codigo" : "vV9Dl"
-    },
-
-    {
-      "id": 43,
-      "nombre": "Verbena",
-      "nCientifico": "Verbena",
-      "funcion": "Se usa en modo de infusión o té y externamente la decocción se utiliza para lavar y cicatrizar heridas.",
-      "curioso" : "Se la considera una planta sedante y relajante",
-      "codigo" : "1n72E"
-    },
-
-    {
-      "id": 44,
-      "nombre": "Calaguala",
-      "nCientifico": "Campyloneurum angustifolium",
-      "funcion": "Se le considera un depurativo, expectorante y sudorífico y se le prepara como té.",
-      "curioso" : "se usa comúnmente para heridas, erupciones cutáneas, infecciones, inflamación y muchas otras condiciones",
-      "codigo" : "HEa5C"
-    },
-
-    {
-      "id": 45,
-      "nombre": "Berro",
-      "nCientifico": "Nasturtium officinale",
-      "funcion": "Es ideal para combatir la anemia.",
-      "curioso" : "Son ricos en yodo, hierro, y vitaminas A, C y E",
-      "codigo" : "nWIbc"
-    },
-
-    {
-      "id": 46,
-      "nombre": "Llantén",
-      "nCientifico": "Plantago Major",
-      "funcion": "irritación, infección, diarrea de frío",
-      "curioso" : "Tiene acción antiséptica, expectorante, antibiótica, cicatrizante, antiinflamatoria, calmante, depurativa, saciante, antihemorrágica, emoliente y astringente.",
-      "codigo" : "TJyJB"
-    },
-
-    {
-      "id": 47,
-      "nombre": "Ajenjo",
-      "nCientifico": "Artemisia absinthium",
-      "funcion": "Sirve para curar el catarro",
-      "curioso" : "Alivia los dolores menstruales.",
-      "codigo" : "B6Q7P"
-    },
-
-    {
-      "id": 48,
-      "nombre": "Poleo",
-      "nCientifico": "Pulegium Vulgaris",
-      "funcion": "Combate el ardor del estómago, náuseas, insomnios",
-      "curioso" : "También es usado por las curanderas para la limpia del espanto en los niños, jóvenes y adultos.",
-      "codigo" : "XzCyz"
-    },
-
-    {
-      "id": 49,
-      "nombre": "Pensamiento",
-      "nCientifico": "Viola wittrockiana",
-      "funcion": "Sirve para los catarros",
-      "curioso" : "Se utiliza para aliviar el acné",
-      "codigo" : "MzdPn"
-    },
-
-    {
-      "id": 50,
-      "nombre": "Geranio",
-      "nCientifico": "Geranium Robertianum",
-      "funcion": "El zumo de esta planta, es muy útil cuando se tiene una herida o una hemorragia",
-      "curioso" : "al tomar el té preparado con esta planta cura las llagas de la garganta.",
-      "codigo" : "W68RQ"
-    },
-
-    {
-      "id": 51,
-      "nombre": "Hinojo",
-      "nCientifico": "Anethum foeniculum.",
-      "funcion": "se emplea cuando la persona tiene diarrea o vómitos",
-      "curioso" : "Al ser tomado aumenta la secreción de la leche de la madre que está dando de lactar",
-      "codigo" : "O5IYA"
-    },
-
-    {
-      "id": 52,
-      "nombre": "Llantén",
-      "nCientifico": "Plantago Major",
-      "funcion": "combate inflamaciones de la boca y garganta",
-      "curioso" : "las hojas cocidas puestas sobre una herida ayuda a la inmediata cicatrización.",
-      "codigo" : "xfKUh"
-    },
-
-    {
-      "id": 53,
-      "nombre": "Violeta",
-      "nCientifico": "Viola Adorata",
-      "funcion": "En infusión combaten la tos.",
-      "curioso" : "Cuando hay resfriados el té de violeta provoca sudor.",
-      "codigo" : "9vbaz"
-    },
-
-    {
-      "id": 54,
-      "nombre": "Gullán o Taxo",
-      "nCientifico": "Passiflora Tarminiana",
-      "funcion": "Lo más común es consumir en platos dulces como helado, rellenos para pastel, jaleas y diversas preparaciones de repostería y para los jugos en el desayuno. También es posible saborearlo al natural",
-      "curioso" : "Contiene mucha fibra y ayuda a regular los problemas estomacales.",
-      "codigo" : "8OSy4"
-    },
-
-    {
-      "id": 55,
-      "nombre": "Altamisa",
-      "nCientifico": "Ambrosia arborescens Mill",
-      "funcion": "Con la infusión de las hojas se lavan pies y axilas para combatir el mal olor, además se usan como forraje para los burros. Las hojas y ramas se usan en limpias y en baños para tratar el mal aire que lo realizan en Ecuador.",
-      "curioso" : "Es una especie común en los valles interandinos secos, márgenes degradados de ríos y quebradas y en terrenos baldíos",
-      "codigo" : "4Gbwz"
-    },
-
-    {
-      "id": 56,
-      "nombre": "Paja",
-      "nCientifico": "Calamagrostis intermedia",
-      "funcion": "sus cogollos preparados juntos con otras especies se usan para baños después del parto y para curar el espanto",
-      "curioso" : "Sus hojas mezcladas con lodo sirven para preparar adobes",
-      "codigo" : "7sgvS"
-    },
-
-    {
-      "id": 57,
-      "nombre": "Tomate de árbol",
-      "nCientifico": "Solanum betaceum",
-      "funcion": "Ayuda a mantener una visión saludable",
-      "curioso" : "Destacan la provitamina A, la B6, la vitamina C y la E",
-      "codigo" : "JJA5v"
-    },
-
-    {
-      "id": 58,
-      "nombre": "Uvilla",
-      "nCientifico": "Physalis Peruviana",
-      "funcion": "Regula el tránsito intestinal",
-      "curioso" : "Elimina la albúmina de los riñones.",
-      "codigo" : "2jQLn"
-    },
-
-    {
-      "id": 59,
-      "nombre": "Granadilla",
-      "nCientifico": "Passiflora ligularis",
-      "funcion": "Puede ayudar a prevenir el estreñimiento.",
-      "curioso" : "si la consumes con sus semillas le brinda a tu cuerpo un alto contenido de fibra, potasio, calcio, fósforo..",
-      "codigo" : "ETTNG"
-    },
-
-    {
-      "id": 60,
-      "nombre": "Higo",
-      "nCientifico": "Ficus Carica",
-      "funcion": "Tiene excelentes beneficios reducir el riesgo de padecer enfermedades cardiovasculares",
-      "curioso" : "Esta fruta ayuda a prevenir la diabetes",
-      "codigo" : "bYoUh"
-    },
-
-    {
-      "id": 61,
-      "nombre": "Durazno abridor",
-      "nCientifico": "Prunus persica",
-      "funcion": "Tiene vitamina A, B1, B2 y vitamina C.",
-      "curioso" : "Esta fruta tiene beneficios como la mejora del sistema inmune, es un antioxidante natural para la piel, los huesos y el tejido conectivo.",
-      "codigo" : "buWQY"
-    },
-
-    {
-      "id": 62,
-      "nombre": "Paja toquilla",
-      "nCientifico": "Carludovica palmata",
-      "funcion": "El tejido de la paja toquilla es utilizado para la elaboración de sombreros y múltiples artesanías como adornos, cestos, bolsos, carteras y demás, es una de las actividades de mayor tradición en Azuay y Cañar",
-      "curioso" : "es un material natural que permite que el aire circule libremente, manteniendo la cabeza fresca y seca.",
-      "codigo" : "sWE4d"
-    },
-
-    {
-      "id": 63,
-      "nombre": "Chirimoya",
-      "nCientifico": "Annona Cherimola",
-      "funcion": "Es una planta que produce una fruta tropical de pulpa refrescante y muy aromática, con sabor dulce ligeramente ácido que recuerda a una mezcla de piña y plátano, o al sabor de la pera.",
-      "curioso" : "Tiene efecto saciante y regulador del nivel de glucosa en sangre, ya que la fibra que posee, ejerce influencia intestinal.",
-      "codigo" : "HgBxb"
-    },
-
-    {
-      "id": 64,
-      "nombre": "Cedrón",
-      "nCientifico": "Aloysia citrodora Paláu.",
-      "funcion": "El cedrón es una de las plantas medicinales más populares en el país. La decocción o infusión de sus hojas y tallos se usa preferentemente para el tratamiento de afecciones gastrointestinales.",
-      "curioso" : "Se utiliza en la preparación de bebidas y dulces, así como en repostería para dar sabor a limón a galletas y postres.",
-      "codigo" : "NrMjx"
-    },
-
-    {
-      "id": 65,
-      "nombre": "Karamati",
-      "nCientifico": "Jungia Rugosa",
-      "funcion": "Tradicionalmente esta planta ha sido utilizada de manera empírica en la comunidad de Citacar perteneciente al Cantón Cañar como cicatrizante para heridas y ulceraciones en la piel",
-      "curioso" : "Dicha planta cuenta con una sustancia llamada taninos los cuales son compuestos fenólicos que poseen propiedades astringentes capaces de producir una acción cicatrizante y es esta la razón principal de su uso como cicatrizante natural.",
-      "codigo" : "vKgvY"
-    },
-
-    {
-      "id": 66,
-      "nombre": "Árbol de Papel",
-      "nCientifico": "Polylepis incana Kunth.",
-      "funcion": "A partir de estos árboles se obtiene la materia prima (es decir, madera) para la fabricación de papel..",
-      "curioso" : "Su madera se emplea para la construcción de viviendas y corrales para animales, elaboración de arados.",
-      "codigo" : "PiVV2"
-    }
-
-  ]
-}
+[
+  {
+    "id": 0,
+    "nombre": "Nogal",
+    "nCientifico": "Juglans neotropica",
+    "funcion": "Su fruta, el tocte, es alta en proteína, grasas, fósforo, calcio,potasio y fosfatos",
+    "curioso": "Es alelopática, como muchos nogales, y su presencia mata otras especies.",
+    "codigo": "XjPSF",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora0.png?alt=media&token=392293c3-4548-4021-8813-cb524c7e2522&_gl=1*10sihek*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjY0MDAuMTAuMC4w"
+  },
+  {
+    "id": 1,
+    "nombre": "Capulí",
+    "nCientifico": "Prunus Serotina",
+    "funcion": "Ante altos niveles de antioxidantes, ayuda a combatir los radicales libres, reduciendo el riesgo de tener enfermedades del corazón o algunos tipos de cáncer,así como al fortalecimiento de nuestro sistema inmunológico y al retraso del proceso de envejecimiento.",
+    "curioso": "contiene vitaminas A, B, C y minerales, elementos que ayudan a mantener la salud de nuestro organismo.",
+    "codigo": "jhwkA",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora1.png?alt=media&token=77603b57-b5cc-4c23-b879-693b98e6f7aa&_gl=1*oae77g*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjY1OTUuNjAuMC4w"
+  },
+  {
+    "id": 2,
+    "nombre": "Oreja de burro",
+    "nCientifico": "Stachys Byzantin",
+    "funcion": "En picaduras de insectos. Igualmente se usa como vendaje antibacteriano para tratar las heridas. Sus hojas se usan en el tratamiento para aliviar resfriados, gripes y las crisis de asma.",
+    "curioso": "Esta especie no sufre del ataque de los molestos pulgones, pero si es afectada por el moho o el polvo blanco.",
+    "codigo": "SJJEg",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora2.png?alt=media&token=3ac1b937-0e4e-4ff7-b121-bbd002dea8c2&_gl=1*p9iyfr*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjY2MzQuMjEuMC4w"
+  },
+  {
+    "id": 3,
+    "nombre": "Manzanilla",
+    "nCientifico": "Chamaemelum nobile",
+    "funcion": "Se emplean las flores y hojas para tratar un gran número de afecciones: trastornos digestivos (dolor de estómago, indigestión, dispepsia, cólicos, diarreas), afecciones renales y de la vejiga, dolores menstruales. ",
+    "curioso": "Tradicionalmente se usa en productos para el cuidado del cabello (como aclarante) y de la piel en perfumes y cosméticos.",
+    "codigo": "nxbfT",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora3.png?alt=media&token=4adec88a-868e-4ab6-89f2-55cc9f3b43ca&_gl=1*1ylgjhm*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjcxNTUuNTYuMC4w"
+  },
+  {
+    "id": 4,
+    "nombre": "Hiedra Trepadora",
+    "nCientifico": "Ficus Pumila",
+    "funcion": "Cubrir Paredes",
+    "curioso": "Tiene mucha facilidad para trepar a diferentes tipos de soporte, como paredes y troncos de árboles.",
+    "codigo": "MAilJ",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora4.png?alt=media&token=5a6a4dea-ce71-4920-974c-98102ebdb6d4&_gl=1*4ype8j*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjcxODQuMjcuMC4w"
+  },
+  {
+    "id": 5,
+    "nombre": "Árbol de Jade",
+    "nCientifico": "Crasulla ovata",
+    "funcion": "Es decoración no solo por su estética, sino por ser conocida como la planta del dinero, abundancia y la prosperidad en la cultura popular china y algunas prácticas de Feng Shui. ",
+    "curioso": "Es moderadamente tóxico para los perros.",
+    "codigo": "cFgzy",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora5.png?alt=media&token=e275d739-52c6-4a04-b055-a0c31a7f8800&_gl=1*1j7yvd6*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjcxOTkuMTIuMC4w"
+  },
+  {
+    "id": 6,
+    "nombre": "Crotón",
+    "nCientifico": "Codiaeum variegatum ",
+    "funcion": "Las hojas se usan como agente cicatrizante, posee propiedades antiinflamatorias, antisépticas y hemostáticas, así como antidiarreico.",
+    "curioso": "En el caso de personas que puedan presentar condiciones de sensibilidad preexistentes, el contacto directo con el tallo o la savia de las hojas del crotón (Codiaeum variegatum) puede generar afecciones de la piel, como dermatitis, y en caso del consumo de cualquiera de sus partes puede producir una intoxicación gastrointestinal de grado menor de acuerdo a estudios de especialistas",
+    "codigo": "26kA7",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora6.png?alt=media&token=7afc751c-4bd3-46a5-9cce-fda3d54ac98c&_gl=1*1lfdea3*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjcyMzUuNjAuMC4w"
+  },
+  {
+    "id": 7,
+    "nombre": "Flor de Nácar",
+    "nCientifico": "Begonia cucullata",
+    "funcion": "Decoramiento de hogares",
+    "curioso": "Son tóxicas para los humanos y los animales (No comestible)",
+    "codigo": "71bGT",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora7.png?alt=media&token=70b4bd71-a9b8-4f2b-8d9c-2d8064d59c8c&_gl=1*ijfxva*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjcyNjMuMzIuMC4w"
+  },
+  {
+    "id": 8,
+    "nombre": "Alegría guineana",
+    "nCientifico": "Impatiens hawkeri ",
+    "funcion": "Decoración en casas por su belleza de florecimiento",
+    "curioso": "La alegría guineana es una especie de muy fácil cultivo en el interior y exterior. A cambio, te alegrará con su cuantiosa floración desde el verano hasta el otoño. ",
+    "codigo": "VOm6h",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora8.png?alt=media&token=404911c0-a139-497e-ad39-feb0a9851166&_gl=1*kla52w*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjcyODUuMTAuMC4w"
+  },
+  {
+    "id": 9,
+    "nombre": "Ruda",
+    "nCientifico": "Ruta graveolens",
+    "funcion": ":se utilizan las ramas con sus hojas, sobre todo, para calmar los cólicos abdominales y eliminar parásitos intestinales; como estimulante del flujo menstrual en casos de reglas dolorosas, irregulares y débiles. ",
+    "curioso": "Es una hierba de toxicidad moderada a severa y letal si es ingerida en grandes cantidades, con la cual podría desarrollarse una intoxicación de múltiples órganos. ",
+    "codigo": "hGqfL",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora9.png?alt=media&token=f6c16f6c-7312-438e-8329-30ad9fcdb358&_gl=1*mcceeb*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjczMDIuNjAuMC4w"
+  },
+  {
+    "id": 10,
+    "nombre": "Cactus de navidad",
+    "nCientifico": "Schlumbergera truncata",
+    "funcion": "Por sus bellas flores, es muy indicado para decoración, sobre todo de interior.",
+    "curioso": "Recibe su nombre dado que florece en otoño e invierno, siendo el invierno la época que coincide con Navidad en el hemisferio norte del planeta.",
+    "codigo": "CfNTi",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora10.png?alt=media&token=ed79cff6-8005-4901-8eaa-e4c8e7bc432d&_gl=1*1ey6rh9*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjczMjIuNDAuMC4w"
+  },
+  {
+    "id": 11,
+    "nombre": "Aguacate",
+    "nCientifico": "Persea americana",
+    "funcion": "Mejora la digestión. Nutre la piel, las uñas y el cabello por su alto contenido en vitaminas C y E. Contribuye a nivelar la presión arterial por ser rico en Potasio. Reduce el riesgo de padecimientos en los ojos, como las cataratas.",
+    "curioso": "puede tener una altura grande como hasta 20 metros de altura, sin embargo cuando es cultivado comercialmente no se deja crecer más de 5 metros para facilitar todas las actividades agronómicas durante el cultivo. ",
+    "codigo": "SsvrX",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora11.png?alt=media&token=a182ae3f-99be-4e22-a82f-aef89dae20e8&_gl=1*ehcn36*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjczMzkuMjMuMC4w"
+  },
+  {
+    "id": 12,
+    "nombre": "Salvia",
+    "nCientifico": "Salvia Elegans",
+    "funcion": "decoración por la belleza de sus hojas.",
+    "curioso": "La planta se utiliza ampliamente en la medicina tradicional mexicana, especialmente para el tratamiento de la ansiedad, y también para la reducción de la presión arterial. ",
+    "codigo": "kEdKz",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora12.png?alt=media&token=3735f7c6-6946-4803-b132-66f0c10fde84&_gl=1*1cib6qd*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjczNTcuNS4wLjA."
+  },
+  {
+    "id": 13,
+    "nombre": "Romerillo",
+    "nCientifico": "Prumnopitys montana ",
+    "funcion": "Se utiliza tradicionalmente como emenagogo en forma de infusión y como expectorante en afecciones catarrales.",
+    "curioso": "Árbol que crece aproximadamente 35 metros de alto, en zonas de grandes altitudes es grueso y de poca altura con ramas extensa y anchas, con numerosas ramita",
+    "codigo": "JvMo5",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora13.png?alt=media&token=a9b47468-9576-4fde-8296-a49b5de52160&_gl=1*1ptygy8*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjczNzkuNjAuMC4w"
+  },
+  {
+    "id": 14,
+    "nombre": "Eucalipto",
+    "nCientifico": "Eucalyptus globulus",
+    "funcion": "Se utiliza tradicionalmente como emenagogo en forma de infusión y como expectorante en afecciones catarrales.",
+    "curioso": "Puede ser neurotóxico por acelerar el metabolismo hepático de algunos anestésicos, analgésicos y tranquilizantes. Su aceite esencial no puede ser aplicado directamente sobre la cara de niños pequeños o lactantes. ",
+    "codigo": "7dMQv",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora14.png?alt=media&token=cfafd07c-c0bf-4862-8be6-fdfae1a61786&_gl=1*1uoy9gm*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjczOTAuNDkuMC4w"
+  },
+  {
+    "id": 15,
+    "nombre": "Nigua",
+    "nCientifico": "tournefortia",
+    "funcion": "Planta medicinal utilizada como diurético y contra las enfermedades venéreas",
+    "curioso": "Son árboles pequeños, arbustos o trepadoras leñosas. Con hojas alternas u opuestas, enteras, pecioladas o raramente sésiles.",
+    "codigo": "2glum",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora15.png?alt=media&token=3c745734-6e65-4d07-ab65-b6c63a44d320&_gl=1*iewxhf*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc0MDcuMzIuMC4w"
+  },
+  {
+    "id": 16,
+    "nombre": "Enebro",
+    "nCientifico": "Juniperus communis",
+    "funcion": "Utilizadas como medicina en muchas culturas ya que, si se consumen, actúan como un fuerte desinfectante de las vías urinarias. Fueron utilizadas por los indios navajos como un remedio herbal para la diabetes.",
+    "curioso": "Los frutos también se utilizan para aromatizar la ginebra, bebida a la que le da su nombre, en cuya composición se encuentran los gálbulos de juniperus, entre otras plantas.",
+    "codigo": "QHDZi",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora16.png?alt=media&token=e7c4ac56-90d0-4f33-bc64-7f82febad3d4&_gl=1*1pl9krs*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc0MzIuNy4wLjA."
+  },
+  {
+    "id": 17,
+    "nombre": "Joyapa",
+    "nCientifico": "Macleania hirtiflora",
+    "funcion": "Decoramiento por la belleza de su florecimiento.",
+    "curioso": "arbusto erecto o extendido de 1,5 a 4 m de alto, tallos redondeados, lignificados, de corteza externa de color gris o marrón. Hojas simples, alternas, pecioladas; lámina de elíptica a oblonga de 2 a 3 cm de largo de 0, 8 a 1,2 cm de ancho, de textura coriácea, margen entero y ápice agudo, haz y envés con pubescencia de pelos blancos hirsutos.",
+    "codigo": "rl9pi",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora17.png?alt=media&token=c3ab10aa-8e18-482d-a9fc-8de8b3d3d37e&_gl=1*1atu4qt*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc0NDYuNjAuMC4w"
+  },
+  {
+    "id": 18,
+    "nombre": "Quindi Sugana",
+    "nCientifico": "Salvia corrugata Vahl",
+    "funcion": "Se utiliza para frenar los síntomas del resfriado común, como la tos y la garganta inflamada. Puede mejorar la función cognitiva s",
+    "curioso": "Tiene propiedades astringentes, antisépticas y antiinflamatorias por lo cual es muy eficaz para aliviar las molestias de garganta y calmar la tos, al tiempo que ayuda a fortalecer el sistema inmune ya que es rica en vitaminas A y C.",
+    "codigo": "mWo1u",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora18.png?alt=media&token=fc957035-3912-4f7d-93d3-496eafee3047&_gl=1*fml8cf*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc0NjAuNDYuMC4w"
+  },
+  {
+    "id": 19,
+    "nombre": "Yugyung hembra",
+    "nCientifico": "Axinaea merianiae",
+    "funcion": " ",
+    "curioso": "Hojas opuestas, de textura coriácea, de forma ovalada-lanceo lada, sin pubescencia, con 5 nervios principales muy remarcados en el envés y márgenes dentados.",
+    "codigo": "0hClI",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora19.png?alt=media&token=cb6e51ac-7445-49aa-ae39-a132ae9bf2c1&_gl=1*113i40t*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc0NzcuMjkuMC4w"
+  },
+  {
+    "id": 20,
+    "nombre": "Cérrag rosarillo",
+    "nCientifico": "Miconia aspergillosis",
+    "funcion": " ",
+    "curioso": "El fruto es comestible: una baya roja con muchas semillas",
+    "codigo": "ja9S8",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora20.png?alt=media&token=7ab710de-f632-44ba-a088-596526e6f925&_gl=1*1dljns4*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc0OTMuMTMuMC4w"
+  },
+  {
+    "id": 21,
+    "nombre": "Guagual arrayán",
+    "nCientifico": "Myrcianthes rhopaloides",
+    "funcion": "en medicina popular se utiliza la rama con hojas, en infusión, para el tratamiento del reumatismo, gota, tos y diarrea. Probablemente tiene propiedades antiinflamatorias.",
+    "curioso": "Es un aromatizante en los Andes de Ecuador.",
+    "codigo": "CtN10",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora21.png?alt=media&token=c6e057b5-2a6e-4ec3-9eac-e94841563862&_gl=1*1w4w0w7*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc1MTEuNjAuMC4w"
+  },
+  {
+    "id": 22,
+    "nombre": "Gañal Cucharill",
+    "nCientifico": "Oreocallis grandiflora",
+    "funcion": "La planta se utiliza para leña, muebles/carpintería; su \"madera marrón agradablemente moteado crema-blanco, rosado y pálido\" se utiliza para trabajos de incrustación y bordes de tableros de ajedrez.",
+    "curioso": "Estas plantas se utilizan para problemas en el riñón",
+    "codigo": "Itgut",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora22.png?alt=media&token=c153f278-0a62-442d-941d-eddf2ad0dc01&_gl=1*drxixq*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc1MTguNTMuMC4w"
+  },
+  {
+    "id": 23,
+    "nombre": "Ataco",
+    "nCientifico": "Amaranthus hybridus L.",
+    "funcion": "Sirve de ayuda para mejorar la digestión y sirve de diurético",
+    "curioso": "poco ramificada de color verde al inicio y morado o purpura a la madurez Toronjil",
+    "codigo": "Md9Nj",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora23.png?alt=media&token=e85cd3b9-e6ca-4eb4-896d-4ba09e710ccf&_gl=1*1iue00h*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc1NDEuMzAuMC4w"
+  },
+  {
+    "id": 24,
+    "nombre": "Toronjil",
+    "nCientifico": "Melissa officinalis",
+    "funcion": "propiedades estimulantes, estomacales, aromáticas, carminativas y antiespasmódicas, las hojas, flores y tallos de melisa son ampliamente usados en medicina popular para tratar estados depresivos y nerviosos, insomnio, dolor de cabeza, trastornos de la menopausia y afecciones cardíacas",
+    "curioso": "Es conocido como una especie melífera y apícola ya que atrae a las abejas",
+    "codigo": "NCsya",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora24.png?alt=media&token=6b1a6510-23d0-4b13-97bd-ded28077d6a7&_gl=1*s0lm5f*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc1NTguMTMuMC4w"
+  },
+  {
+    "id": 25,
+    "nombre": "Lengua de suegra",
+    "nCientifico": "Dracaena Trifasciata",
+    "funcion": "limpiar del aire sustancias tóxicas como el benceno, el tolueno, el xileno o el tricloroetilenovenéreas",
+    "curioso": "tiene el poder de proteger, atraer la buena suerte, el dinero y las energías positivas, sin embargo, si no la colocas en el sitio correcto, no podrás recibir su magia.",
+    "codigo": "2kFfB",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora25.png?alt=media&token=21edb26b-2f51-4ba9-97f0-7b5d597fc448&_gl=1*1ss9nwc*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc1NzMuNjAuMC4w"
+  },
+  {
+    "id": 26,
+    "nombre": "Malva",
+    "nCientifico": "Malva",
+    "funcion": "Se usa cuando hay tos irritativa, sequedad de garganta, bronquitis, lesiones bucales o afecciones del aparato digestivo",
+    "curioso": "En la antigüedad se creía que una poción a base de su zumo evitaba indisposiciones durante todo el día.",
+    "codigo": "QSxAf",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora26.png?alt=media&token=89dec727-48a0-49ed-ab0b-738897cec652&_gl=1*1izsrmi*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc1OTEuNDIuMC4w"
+  },
+  {
+    "id": 27,
+    "nombre": "Cedrón",
+    "nCientifico": "Aloysia citrodora",
+    "funcion": "En la industria alimentaria y en farmacia, así como en perfumería y cosmética, la esencia se emplea con frecuencia como corrector de sabor y olor.",
+    "curioso": "Es consideratdo un carminativo, porque ayuda a expulsar los gases y también es antiespasmódico, porque evita la inflamación e hinchazón estomacales",
+    "codigo": "1oF4z",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora27.png?alt=media&token=b523262f-ec36-4c4a-b7b7-f5382165008b&_gl=1*aaabn5*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc2MTguMTUuMC4w"
+  },
+  {
+    "id": 28,
+    "nombre": "Hierba de la golondrina",
+    "nCientifico": "Chelidonium majus",
+    "funcion": "Ayuda a regular el dolor del estómago",
+    "curioso": "útil para las manchas de la córnea y los padecimientos de la piel.",
+    "codigo": "BLik6",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora28.png?alt=media&token=5944ea2f-9a89-447f-b886-7b07b63adf3e&_gl=1*isis39*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc2NjkuNDAuMC4w"
+  },
+  {
+    "id": 29,
+    "nombre": "Canutillo",
+    "nCientifico": "Commelina diffusa",
+    "funcion": "Se emplea en la medicina popular como diurético, astringente y en afecciones pulmonares",
+    "curioso": "Sirve de forraje al ganado",
+    "codigo": "btiOB",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora29.png?alt=media&token=3758914c-2275-473f-a355-fa473c1c0d4e&_gl=1*1ixo5v5*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc2OTAuMTkuMC4w"
+  },
+  {
+    "id": 30,
+    "nombre": "Shiran",
+    "nCientifico": "Bidens Pilosa",
+    "funcion": "es colerético, antiulceroso, antifúngico, antibacteriano",
+    "curioso": "Se la suele llamad \"amor seco\"",
+    "codigo": "KEWuG",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora30.png?alt=media&token=200e3312-7a8c-431d-bb5c-c855ea37dcb1&_gl=1*1439whg*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc3MDcuMi4wLjA."
+  },
+  {
+    "id": 31,
+    "nombre": "Aloe vera",
+    "nCientifico": "Aloe vera",
+    "funcion": "las personas utilizan el gel transparente de la sábila de forma tópica en cremas y ungüentos para tratar quemaduras, la psoriasis e incluso el acné",
+    "curioso": "Es uno de los remedios herbales más antiguos",
+    "codigo": "fpp5E",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora31.png?alt=media&token=c8d8b9a5-12cc-4000-978e-d9a9b145bd13&_gl=1*el60tw*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc3MjMuNDYuMC4w"
+  },
+  {
+    "id": 32,
+    "nombre": "Clavel",
+    "nCientifico": "Dianthus caryophyllus",
+    "funcion": "tiene propiedades anti alergénicas, antiespasmódicas, entre otras",
+    "curioso": "Se recomienda el de la infusión de la flor en caso de agotamiento de los nervios y el corazón.",
+    "codigo": "F6rTh",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora32.png?alt=media&token=e4f8fe47-48d6-4fe4-b32d-2ac8fc4c3d35&_gl=1*1lkb4uc*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc3NDEuMjguMC4w"
+  },
+  {
+    "id": 33,
+    "nombre": "Guayusa del cerro",
+    "nCientifico": "Ilex guayusa",
+    "funcion": "energizante y antioxidante para el organismo",
+    "curioso": "puede ayudar en la salud cardiovascular, a regular el peso y la hipertensión, además tiene beneficios en la circulación sanguínea",
+    "codigo": "SJJWP",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora33.png?alt=media&token=e564a36d-2127-4ab6-8023-132552822958&_gl=1*166yqfk*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc3NTguMTEuMC4w"
+  },
+  {
+    "id": 34,
+    "nombre": "Zambo",
+    "nCientifico": "Cucurbita ficifolia",
+    "funcion": "Tiene una gran cantidad de vitaminas y minerales.",
+    "curioso": "planta rastrera o trepadora, monoica, la cual pertenece a la familia de plantas dicotiledóneas",
+    "codigo": "ssODP",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora34.png?alt=media&token=67913efc-4bce-42d1-b366-4a8953017440&_gl=1*1nspz3k*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc3NzYuNjAuMC4w"
+  },
+  {
+    "id": 35,
+    "nombre": "Hierba del infante",
+    "nCientifico": "Desmodium molliculum",
+    "funcion": "aliviar síntomas, incrementar la energía, relajarse o perder peso.",
+    "curioso": "Depuración para promover la circulación y la piel hermosa",
+    "codigo": "RE40d",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora35.png?alt=media&token=da410923-9cb0-4c7d-b175-df79b481d1e2&_gl=1*qat4km*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc3OTMuNDMuMC4w"
+  },
+  {
+    "id": 36,
+    "nombre": "Agujilla",
+    "nCientifico": "Erodium cicutarium",
+    "funcion": "Es astringente y hemostática",
+    "curioso": "Se ha empleado en el tratamiento de hemorragias, especialmente las uterinas",
+    "codigo": "kiHsC",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora36.png?alt=media&token=aeed0386-e793-4a0a-9453-9a0d6176c4c1&_gl=1*1ez423p*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc4MTEuMjUuMC4w"
+  },
+  {
+    "id": 37,
+    "nombre": "Hierbabuena",
+    "nCientifico": "Mentha Spicata",
+    "funcion": "Trata los problemas de indigestión, gases intestinales y las inflamaciones del hígado",
+    "curioso": "Actúa sobre la vesícula biliar ya que activa la producción de la bilis, además alivia los mareos y dolores.",
+    "codigo": "2iHKy",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora37.png?alt=media&token=239d46df-e62c-426f-b8d8-6623583007be&_gl=1*1a8b1i8*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc4MzEuNS4wLjA."
+  },
+  {
+    "id": 38,
+    "nombre": "Mático",
+    "nCientifico": "Piper aduncum",
+    "funcion": "Se usa de tratamiento de una serie de malestares del aparato digestivo: dolor de estómago, úlceras estomacales, diarrea, colitis, afecciones hepáticas y de la vesícula",
+    "curioso": "Tiene propiedades cicatrizantes",
+    "codigo": "3mwtZ",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora38.png?alt=media&token=8ba7793b-bce2-4104-a5c0-cbb0ba48aa3b&_gl=1*1ejf87z*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc5MDEuNjAuMC4w"
+  },
+  {
+    "id": 39,
+    "nombre": "Cola de caballo",
+    "nCientifico": "Equisetum arvense",
+    "funcion": "diurético para auxiliar en el tratamiento de infecciones urinarias, ayudar a perder peso o combatir la presión alta",
+    "curioso": "Puede ayudar a reducir la retención de líquidos, pero puede causar deficiencia de vitamina B1 cuando se usa a largo plazo.",
+    "codigo": "NyKAx",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora39.png?alt=media&token=c66012d1-8c28-4b87-8ed3-68563f727b98&_gl=1*121ygp2*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc5MzEuMzAuMC4w"
+  },
+  {
+    "id": 40,
+    "nombre": "Mortiño",
+    "nCientifico": "Vaccinium meridionale",
+    "funcion": "Sirve para eliminar la Diarrea y el colerín",
+    "curioso": "tiene un alto contenido de fósforo, fibra, calcio y vitaminas B1 y C.",
+    "codigo": "Bcfwg",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora40.png?alt=media&token=4307b105-4fdc-4ce3-84ab-664ae500aba1&_gl=1*p5ywpt*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc5NDcuMTQuMC4w"
+  },
+  {
+    "id": 41,
+    "nombre": "Valeriana",
+    "nCientifico": "Valeriana officinalis",
+    "funcion": "Se utiliza como sedante nervioso, y se prepara como infusión.",
+    "curioso": "La raíz de valeriana presenta actividad sedante e hipnótica.Son árboles pequeños, arbustos o trepadoras leñosas. Con hojas alternas u opuestas, enteras, pecioladas o raramente sésiles.",
+    "codigo": "3wCPh",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora41.png?alt=media&token=825c16a4-3e22-449f-a5de-0854853751d5&_gl=1*15ztd36*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc5NjQuNjAuMC4w"
+  },
+  {
+    "id": 42,
+    "nombre": "Ortiga",
+    "nCientifico": "Urtica",
+    "funcion": "Se utiliza como infusión pero solo se ocupan las hojas, sirven para los dolores reumáticos, artritis",
+    "curioso": "Es conocida como la planta que pica",
+    "codigo": "vV9Dl",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora42.png?alt=media&token=b99406a8-8386-4641-a4e7-7444529b189a&_gl=1*vxtrlf*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njc5ODcuMzcuMC4w"
+  },
+  {
+    "id": 43,
+    "nombre": "Verbena",
+    "nCientifico": "Verbena",
+    "funcion": "Se usa en modo de infusión o té y externamente la decocción se utiliza para lavar y cicatrizar heridas.",
+    "curioso": "Se la considera una planta sedante y relajante",
+    "codigo": "1n72E",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora43.png?alt=media&token=8efeffe9-5dcf-4e87-b55e-7cf2920959ef&_gl=1*t313hj*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjgwMDguMTYuMC4w"
+  },
+  {
+    "id": 44,
+    "nombre": "Calaguala",
+    "nCientifico": "Campyloneurum angustifolium",
+    "funcion": "Se le considera un depurativo, expectorante y sudorífico y se le prepara como té.",
+    "curioso": "se usa comúnmente para heridas, erupciones cutáneas, infecciones, inflamación y muchas otras condiciones",
+    "codigo": "HEa5C",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora44.png?alt=media&token=6fe5b3b1-102c-4ef2-8f8d-ee1801904954&_gl=1*ccphzq*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjgwMjcuNjAuMC4w"
+  },
+  {
+    "id": 45,
+    "nombre": "Berro",
+    "nCientifico": "Nasturtium officinale",
+    "funcion": "Es ideal para combatir la anemia.",
+    "curioso": "Son ricos en yodo, hierro, y vitaminas A, C y E",
+    "codigo": "nWIbc",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora45.png?alt=media&token=eed89ff1-3adc-4562-9868-a4c2d39dfde5&_gl=1*5iq80m*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjgwNDYuNDEuMC4w"
+  },
+  {
+    "id": 46,
+    "nombre": "Llantén",
+    "nCientifico": "Plantago Major",
+    "funcion": "irritación, infección, diarrea de frío",
+    "curioso": "Tiene acción antiséptica, expectorante, antibiótica, cicatrizante, antiinflamatoria, calmante, depurativa, saciante, antihemorrágica, emoliente y astringente.",
+    "codigo": "TJyJB",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora46.png?alt=media&token=0358f9d1-053a-4429-a568-09fdf9139f9f&_gl=1*189dhlv*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjgwNjEuMjYuMC4w"
+  },
+  {
+    "id": 47,
+    "nombre": "Ajenjo",
+    "nCientifico": "Artemisia absinthium",
+    "funcion": "Sirve para curar el catarro",
+    "curioso": "Alivia los dolores menstruales.",
+    "codigo": "B6Q7P",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora47.png?alt=media&token=2305fa1b-d6d8-43f9-91a1-57fae083aa18&_gl=1*rzy4li*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjgwNzcuMTAuMC4w"
+  },
+  {
+    "id": 48,
+    "nombre": "Poleo",
+    "nCientifico": "Pulegium Vulgaris",
+    "funcion": "Combate el ardor del estómago, náuseas, insomnios",
+    "curioso": "También es usado por las curanderas para la limpia del espanto en los niños, jóvenes y adultos.",
+    "codigo": "XzCyz",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora48.png?alt=media&token=0b049829-2729-4d8a-95b4-e1645161f498&_gl=1*1edqbx*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjgwOTIuNjAuMC4w"
+  },
+  {
+    "id": 49,
+    "nombre": "Pensamiento",
+    "nCientifico": "Viola wittrockiana",
+    "funcion": "Sirve para los catarros",
+    "curioso": "Se utiliza para aliviar el acné",
+    "codigo": "MzdPn",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora49.png?alt=media&token=03ed3c0e-6f98-4b77-8cb1-d765e536632a&_gl=1*1tqz6d6*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjgxMTMuMzkuMC4w"
+  },
+  {
+    "id": 50,
+    "nombre": "Geranio",
+    "nCientifico": "Geranium Robertianum",
+    "funcion": "El zumo de esta planta, es muy útil cuando se tiene una herida o una hemorragia",
+    "curioso": "al tomar el té preparado con esta planta cura las llagas de la garganta.",
+    "codigo": "W68RQ",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora50.png?alt=media&token=60b792d6-b1f0-4f16-8799-49cca51f098e&_gl=1*1umj3kf*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjgxMzIuMjAuMC4w"
+  },
+  {
+    "id": 51,
+    "nombre": "Hinojo",
+    "nCientifico": "Anethum foeniculum.",
+    "funcion": "se emplea cuando la persona tiene diarrea o vómitos",
+    "curioso": "Al ser tomado aumenta la secreción de la leche de la madre que está dando de lactar",
+    "codigo": "O5IYA",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora51.png?alt=media&token=48690154-5923-4f34-9759-947a06adfb61&_gl=1*16tvbiy*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjgxNTEuMS4wLjA."
+  },
+  {
+    "id": 52,
+    "nombre": "Llantén",
+    "nCientifico": "Plantago Major",
+    "funcion": "combate inflamaciones de la boca y garganta",
+    "curioso": "las hojas cocidas puestas sobre una herida ayuda a la inmediata cicatrización.",
+    "codigo": "xfKUh",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora52.png?alt=media&token=16ab02ce-d1e4-4fda-be37-e66a612d0037&_gl=1*9xnntj*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjgxNjcuNDYuMC4w"
+  },
+  {
+    "id": 53,
+    "nombre": "Violeta",
+    "nCientifico": "Viola Adorata",
+    "funcion": "En infusión combaten la tos.",
+    "curioso": "Cuando hay resfriados el té de violeta provoca sudor.",
+    "codigo": "9vbaz",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora53.png?alt=media&token=b2171139-22c8-47d1-b3b7-f111e6fda27a&_gl=1*10fcga*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjgxODguMjUuMC4w"
+  },
+  {
+    "id": 54,
+    "nombre": "Gullán o Taxo",
+    "nCientifico": "Passiflora Tarminiana",
+    "funcion": "Lo más común es consumir en platos dulces como helado, rellenos para pastel, jaleas y diversas preparaciones de repostería y para los jugos en el desayuno. También es posible saborearlo al natural",
+    "curioso": "Contiene mucha fibra y ayuda a regular los problemas estomacales.",
+    "codigo": "8OSy4",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora54.png?alt=media&token=cde6166a-0f02-40a2-92dc-b5d7b33b89dc&_gl=1*diogi9*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjgyMDUuOC4wLjA."
+  },
+  {
+    "id": 55,
+    "nombre": "Altamisa",
+    "nCientifico": "Ambrosia arborescens Mill",
+    "funcion": "Con la infusión de las hojas se lavan pies y axilas para combatir el mal olor, además se usan como forraje para los burros. Las hojas y ramas se usan en limpias y en baños para tratar el mal aire que lo realizan en Ecuador.",
+    "curioso": "Es una especie común en los valles interandinos secos, márgenes degradados de ríos y quebradas y en terrenos baldíos",
+    "codigo": "4Gbwz",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora55.png?alt=media&token=7a17d003-e004-46e1-b43c-c045cb6b9468&_gl=1*1isxyom*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjgyMjIuNjAuMC4w"
+  },
+  {
+    "id": 56,
+    "nombre": "Paja",
+    "nCientifico": "Calamagrostis intermedia",
+    "funcion": "sus cogollos preparados juntos con otras especies se usan para baños después del parto y para curar el espanto",
+    "curioso": "Sus hojas mezcladas con lodo sirven para preparar adobes",
+    "codigo": "7sgvS",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora56.png?alt=media&token=df98da90-1d46-4b7a-96b5-284a2b39973e&_gl=1*18nzhjd*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjgyNTEuMzEuMC4w"
+  },
+  {
+    "id": 57,
+    "nombre": "Tomate de árbol",
+    "nCientifico": "Solanum betaceum",
+    "funcion": "Ayuda a mantener una visión saludable",
+    "curioso": "Destacan la provitamina A, la B6, la vitamina C y la E",
+    "codigo": "JJA5v",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora57.png?alt=media&token=d597b762-b87e-453a-8756-850e87cc7131&_gl=1*1rcyctf*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjgyNzYuNi4wLjA."
+  },
+  {
+    "id": 58,
+    "nombre": "Uvilla",
+    "nCientifico": "Physalis Peruviana",
+    "funcion": "Regula el tránsito intestinal",
+    "curioso": "Elimina la albúmina de los riñones.",
+    "codigo": "2jQLn",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora58.png?alt=media&token=8e3386c9-f7ef-4142-8322-546884426618&_gl=1*6g4spm*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjgyOTQuNjAuMC4w"
+  },
+  {
+    "id": 59,
+    "nombre": "Granadilla",
+    "nCientifico": "Passiflora ligularis",
+    "funcion": "Puede ayudar a prevenir el estreñimiento.",
+    "curioso": "si la consumes con sus semillas le brinda a tu cuerpo un alto contenido de fibra, potasio, calcio, fósforo..",
+    "codigo": "ETTNG",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora59.png?alt=media&token=3ff569cd-d896-4608-b13c-6ac457ba5d91&_gl=1*zblnlm*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjgzMTMuNDEuMC4w"
+  },
+  {
+    "id": 60,
+    "nombre": "Higo",
+    "nCientifico": "Ficus Carica",
+    "funcion": "Tiene excelentes beneficios reducir el riesgo de padecer enfermedades cardiovasculares",
+    "curioso": "Esta fruta ayuda a prevenir la diabetes",
+    "codigo": "bYoUh",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora60.png?alt=media&token=1034bbb8-d371-4d01-8f3d-6321b5447adb&_gl=1*j71uc0*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjgzMzEuMjMuMC4w"
+  },
+  {
+    "id": 61,
+    "nombre": "Durazno abridor",
+    "nCientifico": "Prunus persica",
+    "funcion": "Tiene vitamina A, B1, B2 y vitamina C.",
+    "curioso": "Esta fruta tiene beneficios como la mejora del sistema inmune, es un antioxidante natural para la piel, los huesos y el tejido conectivo.",
+    "codigo": "buWQY",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora61.png?alt=media&token=7e65be67-4233-4f4b-917e-600f8b914d13&_gl=1*1iyis1p*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjgzNTAuNC4wLjA."
+  },
+  {
+    "id": 62,
+    "nombre": "Paja toquilla",
+    "nCientifico": "Carludovica palmata",
+    "funcion": "El tejido de la paja toquilla es utilizado para la elaboración de sombreros y múltiples artesanías como adornos, cestos, bolsos, carteras y demás, es una de las actividades de mayor tradición en Azuay y Cañar",
+    "curioso": "es un material natural que permite que el aire circule libremente, manteniendo la cabeza fresca y seca.",
+    "codigo": "sWE4d",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora62.png?alt=media&token=5c13563d-405f-4cee-8d90-d5d175ea356b&_gl=1*7i8ahz*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjgzNjIuNjAuMC4w"
+  },
+  {
+    "id": 63,
+    "nombre": "Chirimoya",
+    "nCientifico": "Annona Cherimola",
+    "funcion": "Es una planta que produce una fruta tropical de pulpa refrescante y muy aromática, con sabor dulce ligeramente ácido que recuerda a una mezcla de piña y plátano, o al sabor de la pera.",
+    "curioso": "Tiene efecto saciante y regulador del nivel de glucosa en sangre, ya que la fibra que posee, ejerce influencia intestinal.",
+    "codigo": "HgBxb",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora63.png?alt=media&token=1456090c-1843-4337-9565-c42a0485f617&_gl=1*1szxiux*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjgzNzcuNDUuMC4w"
+  },
+  {
+    "id": 64,
+    "nombre": "Cedrón",
+    "nCientifico": "Aloysia citrodora Paláu.",
+    "funcion": "El cedrón es una de las plantas medicinales más populares en el país. La decocción o infusión de sus hojas y tallos se usa preferentemente para el tratamiento de afecciones gastrointestinales.",
+    "curioso": "Se utiliza en la preparación de bebidas y dulces, así como en repostería para dar sabor a limón a galletas y postres.",
+    "codigo": "NrMjx",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora64.png?alt=media&token=434105f8-9704-420c-aff1-d97389262f9f&_gl=1*1g6j0kv*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5NjgzOTYuMjYuMC4w"
+  },
+  {
+    "id": 65,
+    "nombre": "Karamati",
+    "nCientifico": "Jungia Rugosa",
+    "funcion": "Tradicionalmente esta planta ha sido utilizada de manera empírica en la comunidad de Citacar perteneciente al Cantón Cañar como cicatrizante para heridas y ulceraciones en la piel",
+    "curioso": "Dicha planta cuenta con una sustancia llamada taninos los cuales son compuestos fenólicos que poseen propiedades astringentes capaces de producir una acción cicatrizante y es esta la razón principal de su uso como cicatrizante natural.",
+    "codigo": "vKgvY",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora65.png?alt=media&token=634ae19d-4617-45d9-a74b-6e60eba99078&_gl=1*17cvakz*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njg0MTMuOS4wLjA."
+  },
+  {
+    "id": 66,
+    "nombre": "Árbol de Papel",
+    "nCientifico": "Polylepis incana Kunth.",
+    "funcion": "A partir de estos árboles se obtiene la materia prima (es decir, madera) para la fabricación de papel..",
+    "curioso": "Su madera se emplea para la construcción de viviendas y corrales para animales, elaboración de arados.",
+    "codigo": "PiVV2",
+    "url": "https://firebasestorage.googleapis.com/v0/b/proyecto-slan.appspot.com/o/flora%2Fflora66.png?alt=media&token=9df05e9b-9b01-40e2-b287-657494a1a0a8&_gl=1*j3yx02*_ga*MTYyMjA3OTkxOC4xNjgzNjc0MjE4*_ga_CW55HF8NVT*MTY5NTk2MDM3Mi4xNS4xLjE2OTU5Njg0MzEuNjAuMC4w"
+  }
+]
