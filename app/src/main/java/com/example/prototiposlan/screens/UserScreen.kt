@@ -24,8 +24,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.prototiposlan.R
 import com.example.prototiposlan.ui.theme.Shapes
-import com.example.prototiposlan.ui.theme.darkblue
-import com.example.prototiposlan.ui.theme.darkred
+import com.example.prototiposlan.ui.theme.darkgreen
+import com.example.prototiposlan.ui.theme.darkorange
 import com.example.prototiposlan.ui.theme.graduateFont
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -68,7 +68,7 @@ fun GeneralTopBar(title: String, navController: NavController) {
             Row(horizontalArrangement = Arrangement.Center) {
                 Text(
                     title,
-                    color = darkblue,
+                    color = darkgreen,
                     fontSize = 25.sp,
                     fontFamily = graduateFont
                 )
@@ -95,7 +95,7 @@ fun UserContent(Steps: Int, nickName: String) {
         modifier = Modifier
             .fillMaxSize()
             .padding(35.dp)
-            .border(shape = Shapes.small, border = BorderStroke(2.dp, color = darkblue))
+            .border(shape = Shapes.small, border = BorderStroke(2.dp, color = darkgreen))
     ) {
         Image(
             painter = painterResource(id = R.drawable.foto),
@@ -103,7 +103,7 @@ fun UserContent(Steps: Int, nickName: String) {
             modifier = Modifier
                 .size(150.dp)
                 .clip(CircleShape)
-                .border(2.dp, color = darkblue)
+                .border(2.dp, color = darkgreen)
         )
         Spacer(modifier = Modifier.padding(25.dp))
 
@@ -111,21 +111,21 @@ fun UserContent(Steps: Int, nickName: String) {
 
         Spacer(modifier = Modifier.padding(16.dp))
 
-        GenericUserNumber(number = steps, fontSize = 44, color = darkred)
+        GenericUserNumber(number = steps, fontSize = 44, color = darkorange)
 
         RowWithIcon()
 
         Spacer(modifier = Modifier.padding(20.dp))
 
-        GenericUserNumber(number = calories.toInt(), fontSize = 44, color = darkred)
+        GenericUserNumber(number = calories.toInt(), fontSize = 44, color = darkorange)
 
-        GenericUserText(text = "cal quemadas", fontSize = 32, color = darkblue)
+        GenericUserText(text = "cal quemadas", fontSize = 32, color = darkgreen)
 
         Spacer(modifier = Modifier.padding(20.dp))
 
         Points()
 
-        GenericUserText(text = "Puntos", fontSize = 32, color = darkblue)
+        GenericUserText(text = "Puntos", fontSize = 32, color = darkgreen)
 
     }
 }
@@ -148,7 +148,7 @@ fun RowWithIcon() {
             contentDescription = "Runner",
             modifier = Modifier.size(36.dp)
         )
-        GenericUserText(text = "Pasos de hoy", fontSize = 32, color = darkblue)
+        GenericUserText(text = "Pasos de hoy", fontSize = 32, color = darkgreen)
     }
 }
 
@@ -183,5 +183,5 @@ fun Points(){
             listener.remove()
         }
     }
-    GenericUserNumber(number = userPoints, fontSize = 44, color = darkred)
+    GenericUserNumber(number = userPoints, fontSize = 44, color = darkorange)
 }

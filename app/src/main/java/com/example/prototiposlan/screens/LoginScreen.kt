@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.prototiposlan.viewModels.LoginViewModel
-import com.example.prototiposlan.ui.theme.darkblue
+import com.example.prototiposlan.ui.theme.darkgreen
 import com.example.prototiposlan.R
 import com.example.prototiposlan.ui.theme.graduateFont
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -135,7 +135,6 @@ fun LoginScreen(
             launcher.launch(googleClient.signInIntent)
         }
         Spacer(modifier = Modifier.padding(15.dp))
-
         CreateAccButton(navController)
     }
 }
@@ -151,7 +150,7 @@ fun LoginLogo(id: Int, width: Int, height: Int) {
 
 @Composable
 fun LoginTitle(text: String, font: Int) {
-    Text(text = text, color = darkblue, fontSize = font.sp, fontFamily = graduateFont)
+    Text(text = text, color = darkgreen, fontSize = font.sp, fontFamily = graduateFont)
 }
 
 @Composable
@@ -164,7 +163,7 @@ fun LoginButton(click: () -> Unit) {
             Toast.makeText(context, "Cargando...", Toast.LENGTH_LONG).show()
             click()
         },
-        colors = ButtonDefaults.buttonColors(backgroundColor = darkblue),
+        colors = ButtonDefaults.buttonColors(backgroundColor = darkgreen),
         shape = CircleShape
     ) {
         Text(
@@ -188,11 +187,11 @@ fun CreateAccButton(navController: NavController) {
     OutlinedButton(
         onClick = { navController.navigate("RegisterScreen") },
         shape = shapes.small,
-        border = BorderStroke(2.dp, darkblue)
+        border = BorderStroke(2.dp, darkgreen)
     ) {
         Text(
             text = "CREAR UNA CUENTA",
-            color = darkblue,
+            color = darkgreen,
             fontSize = 16.sp,
             fontFamily = graduateFont)
     }

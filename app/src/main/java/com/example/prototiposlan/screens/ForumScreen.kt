@@ -25,7 +25,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.prototiposlan.ui.theme.darkblue
+import com.example.prototiposlan.ui.theme.darkgreen
 
 @Composable
 fun ForumScreen(navController: NavController) {
@@ -55,12 +55,12 @@ fun ForumContent() {
                 value = text.value,
                 onValueChange = { text.value = it },
                 shape = CircleShape,
-                modifier = Modifier.width(300.dp).border(color = darkblue, width = 2.dp, shape = CircleShape)
+                modifier = Modifier.width(300.dp).border(color = darkgreen, width = 2.dp, shape = CircleShape)
             )
 
             Button(
                 onClick = { Toast.makeText(context, "Subiendo...", Toast.LENGTH_SHORT).show() },
-                colors = ButtonDefaults.buttonColors(backgroundColor = darkblue),
+                colors = ButtonDefaults.buttonColors(backgroundColor = darkgreen),
                 shape = RoundedCornerShape(3.dp)
             ) {
                 Icon(

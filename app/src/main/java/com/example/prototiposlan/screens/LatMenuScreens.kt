@@ -12,7 +12,7 @@ sealed class LatMenuScreens(val icon:Int,val title:String, val route:String) {
 
     object Mapa : LatMenuScreens(R.drawable.baseline_map_24, "MAPA", "MapScreen")
 
-    object Flora : LatMenuScreens(R.drawable.baseline_park_24, "Flora y fauna", "PlantsScreen")
+    object Flora : LatMenuScreens(R.drawable.baseline_park_24, "Flora", "PlantsScreen")
 
     object Album : LatMenuScreens(R.drawable.baseline_video_library_24, "Album", "AlbumScreen")
 }

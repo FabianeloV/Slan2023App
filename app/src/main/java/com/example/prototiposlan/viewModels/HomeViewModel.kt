@@ -137,7 +137,7 @@ class HomeViewModel : ViewModel() {
         Schedule.MT7
     )
 
-    val daysSchedule = listOf("Día 1", "Día 2", "Día 3", "Día 4", "Día 5")
+    val daysSchedule = listOf("21 oct", "22 oct", "23 oct", "24 oct", "25 oct")
     var selectedDay by mutableStateOf(daysSchedule.first())
 
     private val firstDayEvents = eventList.subList(0, 3)
@@ -148,11 +148,11 @@ class HomeViewModel : ViewModel() {
 
     fun getEventsList(): List<Schedule> {
         return when (selectedDay) {
-            "Día 1" -> firstDayEvents
-            "Día 2" -> secondDayEvents
-            "Día 3" -> thirdDayEvents
-            "Día 4" -> fourthDayEvents
-            "Día 5" -> fifthDayEvents
+            "21 oct" -> firstDayEvents
+            "22 oct" -> secondDayEvents
+            "23 oct" -> thirdDayEvents
+            "24 oct" -> fourthDayEvents
+            "25 oct" -> fifthDayEvents
             else -> {
                 firstDayEvents
             }
@@ -161,11 +161,11 @@ class HomeViewModel : ViewModel() {
 
     fun getDateText(): String {
         return when (selectedDay) {
-            "Día 1" -> "21 de octubre"
-            "Día 2" -> "22 de octubre"
-            "Día 3" -> "23 de octubre"
-            "Día 4" -> "24 de octubre"
-            "Día 5" -> "25 de octubre"
+            "21 oct" -> "21 de octubre"
+            "22 oct" -> "22 de octubre"
+            "23 oct" -> "23 de octubre"
+            "24 oct" -> "24 de octubre"
+            "25 oct" -> "25 de octubre"
             else -> {
                 "21 de octubre"
             }

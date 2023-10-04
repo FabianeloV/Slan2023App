@@ -22,8 +22,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.prototiposlan.ui.theme.darkblue
-import com.example.prototiposlan.ui.theme.darkred
+import com.example.prototiposlan.ui.theme.darkgreen
+import com.example.prototiposlan.ui.theme.darkorange
 import com.example.prototiposlan.ui.theme.graduateFont
 import com.example.prototiposlan.viewModels.HomeViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -73,7 +73,7 @@ fun TopBar(scaffoldState: ScaffoldState, scope: CoroutineScope, navController: N
         title = {
             Text(
                 "Cronograma",
-                color = darkblue,
+                color = darkgreen,
                 fontSize = 25.sp,
                 fontFamily = graduateFont,
                 modifier = Modifier
@@ -99,7 +99,7 @@ fun TopBar(scaffoldState: ScaffoldState, scope: CoroutineScope, navController: N
 fun DrawerMenu(menuItems: List<LatMenuScreens>, navController: NavController) {
     val linear = Brush.verticalGradient(
         0.82f to Color.White,
-        1.0f to darkblue
+        1.0f to darkgreen
     )
     Column(
         modifier = Modifier
@@ -111,7 +111,7 @@ fun DrawerMenu(menuItems: List<LatMenuScreens>, navController: NavController) {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(16.dp)
-                .background(color = darkred)
+                .background(color = darkorange)
                 .padding(top = 20.dp)
         )
         Spacer(modifier = Modifier.padding(top = 5.dp))
@@ -119,7 +119,7 @@ fun DrawerMenu(menuItems: List<LatMenuScreens>, navController: NavController) {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(8.dp)
-                .background(color = darkred)
+                .background(color = darkorange)
                 .padding(top = 20.dp)
         )
         Spacer(modifier = Modifier.padding(top = 10.dp))
@@ -154,7 +154,7 @@ fun DrawerItem(item: LatMenuScreens, navController: NavController) {
                 Spacer(modifier = Modifier.padding(horizontal = 8.dp))
                 Text(
                     text = item.title,
-                    color = darkblue,
+                    color = darkgreen,
                     fontSize = 22.sp,
                     fontFamily = graduateFont
                 )
@@ -226,7 +226,7 @@ fun EventColumn(event: Schedule) {
 fun DateText(text: String) {
     Text(
         text = text,
-        color = darkred,
+        color = darkorange,
         fontFamily = graduateFont,
         fontSize = 22.sp,
         modifier = Modifier.padding(15.dp)

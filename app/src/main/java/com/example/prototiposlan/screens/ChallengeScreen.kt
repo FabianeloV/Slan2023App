@@ -31,42 +31,41 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.prototiposlan.R
-import com.example.prototiposlan.Textos
 import com.example.prototiposlan.ui.theme.Shapes
-import com.example.prototiposlan.ui.theme.darkblue
-import com.example.prototiposlan.ui.theme.darkred
+import com.example.prototiposlan.ui.theme.darkgreen
+import com.example.prototiposlan.ui.theme.darkorange
 import com.example.prototiposlan.ui.theme.gold
 import com.example.prototiposlan.ui.theme.graduateFont
+import com.example.prototiposlan.viewModels.DaysViewModel
 
 @Composable
 fun ChallengeScreen(
-    navController: NavController
+    navController: NavController,
+    daysViewModel: DaysViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
 ) {
     Scaffold(
         topBar = { GeneralTopBar(title = "Reto del día", navController = navController) },
-        content = ({ ChallengeBody() })
+        content = ({ ChallengeBody(daysViewModel) })
     )
 }
 
-@Preview
 @Composable
-fun ChallengeBody() {
+fun ChallengeBody(daysViewModel: DaysViewModel) {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxSize()
     ) {
         Text(
-            text = "Miércoles",
+            text = daysViewModel.getTranslatedDay(),
             fontSize = 36.sp,
             fontFamily = graduateFont,
             modifier = Modifier.padding(top = 30.dp),
-            color = darkblue
+            color = darkgreen
         )
         Column(
             verticalArrangement = Arrangement.Center,
@@ -74,43 +73,49 @@ fun ChallengeBody() {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(35.dp)
-                .border(shape = Shapes.small, border = BorderStroke(2.dp, color = darkblue))
+                .border(shape = Shapes.small, border = BorderStroke(2.dp, color = darkgreen))
         ) {
-            ChallengeBox()       }
+            ChallengeBox(daysViewModel)
+        }
     }
 }
 
 @Composable
-fun ChallengeBox() {
-    val challenges = Textos()
+fun ChallengeBox(daysViewModel: DaysViewModel) {
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
-        Challenge(challenges.mondayChallenge1, R.drawable.baseline_fitness_center_24)
+        Challenge(daysViewModel.getChallenge()[0], R.drawable.baseline_fitness_center_24)
 
         Box(
             modifier = Modifier
                 .height(2.dp)
                 .width(200.dp)
-                .background(color = darkblue)
+                .background(color = darkgreen)
                 .padding(top = 20.dp)
         )
 
-        InvertedChallenge(challenge = challenges.mondayChallenge2, icon = R.drawable.baseline_monitor_heart_24)
+        InvertedChallenge(
+            challenge = daysViewModel.getChallenge()[1],
+            icon = R.drawable.baseline_monitor_heart_24
+        )
 
         Box(
             modifier = Modifier
                 .height(2.dp)
                 .width(200.dp)
-                .background(color = darkblue)
+                .background(color = darkgreen)
                 .padding(top = 20.dp)
         )
 
-        Challenge(challenge = challenges.mondayChallenge3, icon = R.drawable.baseline_directions_run_24)
+        Challenge(
+            challenge = daysViewModel.getChallenge()[2],
+            icon = R.drawable.baseline_directions_run_24
+        )
 
         Box(
             modifier = Modifier
                 .height(2.dp)
                 .width(250.dp)
-                .background(color = darkred)
+                .background(color = darkorange)
                 .padding(top = 40.dp)
         )
 
@@ -170,10 +175,10 @@ fun InvertedChallenge(challenge: String, icon: Int) {
 
 @Composable
 fun PointsButton() {
-    val colorBut by remember { mutableStateOf(gold) }
+    val colorButt by remember { mutableStateOf(gold) }
     OutlinedButton(
-        onClick = {  },
-        colors = ButtonDefaults.buttonColors(backgroundColor = colorBut),
+        onClick = { },
+        colors = ButtonDefaults.buttonColors(backgroundColor = colorButt),
         shape = CircleShape,
         modifier = Modifier.padding(top = 30.dp)
     ) {

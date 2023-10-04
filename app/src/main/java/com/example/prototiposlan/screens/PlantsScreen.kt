@@ -1,7 +1,5 @@
 package com.example.prototiposlan.screens
 
-import android.content.Context
-import android.util.Log
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -25,7 +23,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -36,34 +33,16 @@ import coil.compose.AsyncImage
 import com.example.prototiposlan.R
 import com.example.prototiposlan.ui.theme.graduateFont
 import com.example.prototiposlan.viewModels.Plants
-import com.google.common.reflect.TypeToken
-import com.google.gson.Gson
-import java.io.IOException
+import com.example.prototiposlan.viewModels.PlantsViewmodel
 
 @Composable
-fun PlantsScreen(navController: NavController) {
+fun PlantsScreen(navController: NavController, plantsViewmodel: PlantsViewmodel = androidx.lifecycle.viewmodel.compose.viewModel()) {
     val context = LocalContext.current
     Scaffold(
-        topBar = { GeneralTopBar(title = "Flora y fauna", navController = navController) },
-        content = ({ PlantsContent(getPlantList(context)) })
+        topBar = { GeneralTopBar(title = "Flora", navController = navController) },
+        content = ({ PlantsContent(plantsViewmodel.getPlantList(context)) })
     )
 }
-
-fun getPlantList(context: Context): List<Plants> {
-
-    lateinit var jsonString: String
-    try {
-        jsonString = context.assets.open("Plantas.json")
-            .bufferedReader()
-            .use { it.readText() }
-    } catch (ioException: IOException) {
-        Log.d("PLANTS JSON", ioException.toString())
-    }
-
-    val listCountryType = object : TypeToken<List<Plants>>() {}.type
-    return Gson().fromJson(jsonString, listCountryType)
-}
-
 @Composable
 fun PlantsContent(plantList: List<Plants>) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {

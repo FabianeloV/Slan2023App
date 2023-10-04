@@ -56,7 +56,6 @@ fun GoogleMapScreen(coord: MapviewModel) {
             points = coord.route2,
             color = Color.Yellow
         )
-
         Marker(
             state = MarkerState(position = coord.route3Marker),
             title = "Ruta Paraiso",

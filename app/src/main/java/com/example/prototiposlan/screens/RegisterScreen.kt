@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.prototiposlan.R
 import com.example.prototiposlan.viewModels.LoginViewModel
-import com.example.prototiposlan.ui.theme.darkred
+import com.example.prototiposlan.ui.theme.darkorange
 import com.example.prototiposlan.ui.theme.graduateFont
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -162,7 +162,7 @@ fun RegisterScreen(
 fun RegisterTitle() {
     Text(
         text = "Crear una cuenta",
-        color = darkred,
+        color = darkorange,
         fontSize = 32.sp,
         fontFamily = graduateFont
     )
@@ -179,7 +179,7 @@ fun CreateButton(
             Toast.makeText(context, "Cargando...", Toast.LENGTH_SHORT).show()
             function()
         },
-        colors = ButtonDefaults.buttonColors(backgroundColor = darkred),
+        colors = ButtonDefaults.buttonColors(backgroundColor = darkorange),
         shape = MaterialTheme.shapes.small
     ) {
         Text(
