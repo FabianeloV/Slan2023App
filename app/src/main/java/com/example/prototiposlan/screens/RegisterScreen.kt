@@ -1,9 +1,6 @@
 package com.example.prototiposlan.screens
 
-import android.util.Log
 import android.widget.Toast
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -11,6 +8,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.DateRange
 import androidx.compose.material.icons.outlined.Email
 import androidx.compose.material.icons.outlined.Face
 import androidx.compose.material.icons.outlined.Lock
@@ -34,10 +32,6 @@ import com.example.prototiposlan.R
 import com.example.prototiposlan.viewModels.LoginViewModel
 import com.example.prototiposlan.ui.theme.darkorange
 import com.example.prototiposlan.ui.theme.graduateFont
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
-import com.google.firebase.auth.GoogleAuthProvider
 
 @Composable
 fun RegisterScreen(
@@ -49,23 +43,8 @@ fun RegisterScreen(
     val password = rememberSaveable { mutableStateOf("") }
     val repeatedPassword = rememberSaveable { mutableStateOf("") }
     val nickName = rememberSaveable { mutableStateOf("") }
+    val age = rememberSaveable { mutableStateOf("") }
     val context = LocalContext.current
-
-    //Google client
-    val token = "638724186254-5ip7kj91ljfqlua9u663fk7djtlh0a9i.apps.googleusercontent.com"
-    val launcher =
-        rememberLauncherForActivityResult(contract = ActivityResultContracts.StartActivityForResult()) {
-            val task = GoogleSignIn.getSignedInAccountFromIntent(it.data)
-            try {
-                val account = task.getResult(ApiException::class.java)
-                val credential = GoogleAuthProvider.getCredential(account.idToken, null)
-                viewModel.singInGoogle(credential,
-                    { navController.navigate(route = "HomeScreen") },
-                    { Toast.makeText(context, "Error de ingreso", Toast.LENGTH_SHORT).show() })
-            } catch (ex: Exception) {
-                Log.d("Logueo google", "Error de logueo con google: ${ex.message}")
-            }
-        }
 
     Column(
         modifier = Modifier
@@ -127,18 +106,13 @@ fun RegisterScreen(
 
         Spacer(modifier = Modifier.padding(15.dp))
 
-        GoogleRegisterLogo {
-            Toast.makeText(context, "Cargando...", Toast.LENGTH_SHORT).show()
-
-            val opciones = GoogleSignInOptions.Builder(
-                GoogleSignInOptions.DEFAULT_SIGN_IN
-            )
-                .requestIdToken(token)
-                .requestEmail()
-                .build()
-            val googleClient = GoogleSignIn.getClient(context, opciones)
-            launcher.launch(googleClient.signInIntent)
-        }
+        OutlinedTextField(
+            leadingIcon = { Icon(imageVector = Icons.Outlined.DateRange, contentDescription = null)},
+            value = age.value,
+            onValueChange = {age.value = it},
+            label = { Text("Edad")},
+            shape = CircleShape
+        )
 
         Spacer(modifier = Modifier.padding(15.dp))
 

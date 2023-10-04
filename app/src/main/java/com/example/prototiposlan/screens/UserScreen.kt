@@ -123,7 +123,7 @@ fun UserContent(Steps: Int, nickName: String) {
 
         Spacer(modifier = Modifier.padding(20.dp))
 
-        Points()
+        GenericUserNumber(number = points(), fontSize = 44, color = darkorange)
 
         GenericUserText(text = "Puntos", fontSize = 32, color = darkgreen)
 
@@ -153,7 +153,7 @@ fun RowWithIcon() {
 }
 
 @Composable
-fun Points(){
+fun points():Int{
     var userPoints by remember { mutableStateOf(6) }
 
     val auth: FirebaseAuth = Firebase.auth
@@ -183,5 +183,6 @@ fun Points(){
             listener.remove()
         }
     }
-    GenericUserNumber(number = userPoints, fontSize = 44, color = darkorange)
+    return userPoints
 }
+
