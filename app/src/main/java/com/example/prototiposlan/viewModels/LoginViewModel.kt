@@ -22,7 +22,7 @@ class LoginViewModel : ViewModel() {
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             navigate()
-                            addUserField(auth.currentUser?.displayName.toString(), auth.currentUser?.photoUrl.toString())
+                            addUserField(auth.currentUser?.displayName.toString(), auth.currentUser?.photoUrl.toString(), "0")
                         }
                     }
                     .addOnFailureListener { errorAlert() }
@@ -70,6 +70,7 @@ class LoginViewModel : ViewModel() {
         password: String,
         repeatedPassword: String,
         nickName: String,
+        avatar:String,
         age: String,
         navigate: () -> Unit,
         passwordAlert: () -> Unit,
@@ -85,7 +86,7 @@ class LoginViewModel : ViewModel() {
                         auth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
-                                    addUserField(nickName, age)
+                                    addUserField(nickName,avatar,age)
                                     navigate()
                                 }
                                 if (!task.isSuccessful) {
@@ -108,7 +109,7 @@ class LoginViewModel : ViewModel() {
         }
     }
 
-    private fun addUserField(nickName: String,avatar:String) {
+    private fun addUserField(nickName: String,avatar:String, age: String) {
         val userId = auth.currentUser?.uid
 
         val userField = UserFields(
@@ -116,7 +117,7 @@ class LoginViewModel : ViewModel() {
             nickname = nickName,
             avatar = avatar,
             points = 0,
-            age = ""
+            age = age
         ).userMap()
 
         FirebaseFirestore.getInstance().collection("users")

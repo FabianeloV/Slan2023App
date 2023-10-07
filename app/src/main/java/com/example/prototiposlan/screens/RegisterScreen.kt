@@ -122,6 +122,8 @@ fun RegisterScreen(
                 password = password.value,
                 repeatedPassword = repeatedPassword.value,
                 nickName = nickName.value,
+                avatar = "",
+                age = age.value,
                 { navController.navigate(route = "HomeScreen")},
                 { Toast.makeText(context, "Ingrese una contraseña de 6 o más caracteres", Toast.LENGTH_SHORT).show() },
                 { Toast.makeText(context, "Ingrese un correo válido", Toast.LENGTH_SHORT).show() },
