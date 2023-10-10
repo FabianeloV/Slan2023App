@@ -16,11 +16,13 @@ data class Plants(
     @SerializedName("funcion") @Expose var funct: String? = null,
     @SerializedName("curioso") @Expose var data: String? = null,
     @SerializedName("codigo") @Expose var code: String? = null,
-    @SerializedName("url") @Expose var url: String? = null
+    @SerializedName("url") @Expose var url: String? = null,
+    @SerializedName("state") @Expose var state: Boolean? = null
+
 )
 
 class PlantsViewmodel:ViewModel() {
-    fun getPlantList(context: Context): List<Plants> {
+    fun getPlantList(context: Context): MutableList<Plants> {
 
         lateinit var jsonString: String
         try {
@@ -31,7 +33,9 @@ class PlantsViewmodel:ViewModel() {
             Log.d("PLANTS JSON", ioException.toString())
         }
 
-        val listCountryType = object : TypeToken<List<Plants>>() {}.type
-        return Gson().fromJson(jsonString, listCountryType)
+        val listPlantType = object : TypeToken<List<Plants>>() {}.type
+
+        return Gson().fromJson(jsonString, listPlantType)
     }
+
 }

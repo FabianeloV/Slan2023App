@@ -107,3 +107,11 @@ fun PlantCard(plants: Plants) {
         }
     }
 }
+
+@Composable
+fun changePlantState(int: Int){
+    val viewmodel = PlantsViewmodel()
+    val context = LocalContext.current
+
+    viewmodel.getPlantList(context)[int].state = true
+}

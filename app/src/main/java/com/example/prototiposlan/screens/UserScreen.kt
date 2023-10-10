@@ -4,6 +4,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ArrowBack
@@ -15,6 +16,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -77,10 +79,10 @@ fun UserContent(Steps: Int) {
     ) {
         AsyncImage(
             model = getAvatarUrl(),
-            placeholder = painterResource(id = R.drawable.baseline_question_mark_24),
-            error = painterResource(id = R.drawable.baseline_question_mark_24),
+            placeholder = painterResource(id = R.drawable.usericon),
+            error = painterResource(id = R.drawable.usericon),
             contentDescription = "user avatar",
-            modifier = Modifier.size(105.dp)
+            modifier = Modifier.clip(CircleShape).size(width = 150.dp, height = 150.dp)
         )
 
         Spacer(modifier = Modifier.padding(25.dp))
@@ -132,7 +134,7 @@ fun RowWithIcon() {
 
 @Composable
 fun points():Int{
-    var userPoints by remember { mutableStateOf(6) }
+    var userPoints by remember { mutableStateOf(0) }
 
     val auth: FirebaseAuth = Firebase.auth
     val userId = auth.currentUser?.uid
