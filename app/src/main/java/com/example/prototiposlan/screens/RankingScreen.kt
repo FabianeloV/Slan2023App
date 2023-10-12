@@ -14,8 +14,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.SetOptions
-import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 @Composable
@@ -29,20 +27,20 @@ fun RankingScreen(navController: NavController) {
 @Composable
 fun boton() {
     Column(Modifier.fillMaxSize()) {
-        Button(onClick = { testeo() }) {
+        Button(onClick = { sumTenPoints() }) {
             Text(text = "Prueba")
         }
     }
 }
 
-fun testeo() {
+fun sumTenPoints() {
     val auth: FirebaseAuth = Firebase.auth
     val userId = auth.currentUser?.uid
 
     val db = FirebaseFirestore.getInstance()
     val docRef = db.collection("users").document(userId.toString())
 
-    docRef.update("points", FieldValue.increment(50)).addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
+    docRef.update("points", FieldValue.increment(10)).addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
         .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
 
 }

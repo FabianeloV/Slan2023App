@@ -32,7 +32,6 @@ import com.example.prototiposlan.screens.UserScreen
 import com.example.prototiposlan.viewModels.DaysViewModel
 
 class MainActivity : ComponentActivity(), SensorEventListener {
-
     private var sensorManager:SensorManager?=null
     private var running = false
     private var steps = 0f

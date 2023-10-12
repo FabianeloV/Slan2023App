@@ -1,6 +1,7 @@
 package com.example.prototiposlan.viewModels
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.google.common.reflect.TypeToken
@@ -17,8 +18,6 @@ data class Plants(
     @SerializedName("curioso") @Expose var data: String? = null,
     @SerializedName("codigo") @Expose var code: String? = null,
     @SerializedName("url") @Expose var url: String? = null,
-    @SerializedName("state") @Expose var state: Boolean? = null
-
 )
 
 class PlantsViewmodel:ViewModel() {
