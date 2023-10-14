@@ -22,7 +22,11 @@ class LoginViewModel : ViewModel() {
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             navigate()
-                            addUserField(auth.currentUser?.displayName.toString(), auth.currentUser?.photoUrl.toString(), "0")
+                            addUserField(
+                                auth.currentUser?.displayName.toString(),
+                                auth.currentUser?.photoUrl.toString(),
+                                "0"
+                            )
                         }
                     }
                     .addOnFailureListener { errorAlert() }
@@ -70,7 +74,7 @@ class LoginViewModel : ViewModel() {
         password: String,
         repeatedPassword: String,
         nickName: String,
-        avatar:String,
+        avatar: String,
         age: String,
         navigate: () -> Unit,
         passwordAlert: () -> Unit,
@@ -86,7 +90,7 @@ class LoginViewModel : ViewModel() {
                         auth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
-                                    addUserField(nickName,avatar,age)
+                                    addUserField(nickName, avatar, age)
                                     navigate()
                                 }
                                 if (!task.isSuccessful) {
@@ -109,7 +113,7 @@ class LoginViewModel : ViewModel() {
         }
     }
 
-    private fun addUserField(nickName: String,avatar:String, age: String) {
+    private fun addUserField(nickName: String, avatar: String, age: String) {
         val userId = auth.currentUser?.uid
 
         val userField = UserFields(
@@ -125,6 +129,83 @@ class LoginViewModel : ViewModel() {
             .set(userField)
             .addOnSuccessListener { Log.d("userField", "creado $it") }
             .addOnFailureListener { Log.d("userField", "error $it") }
+
+        val plantsStates = PlantsStates(
+            states = listOf(false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+            )
+        ).plantsMap()
+
+        FirebaseFirestore.getInstance().collection("plantstates")
+            .document(userId.toString())
+            .set(plantsStates)
+            .addOnSuccessListener { Log.d("plantsStates", "creado $it") }
+            .addOnFailureListener { Log.d("plantsStates", "error $it") }
 
     }
 }

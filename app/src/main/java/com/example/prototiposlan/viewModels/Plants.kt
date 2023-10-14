@@ -11,7 +11,7 @@ import com.google.gson.annotations.SerializedName
 import java.io.IOException
 
 data class Plants(
-    @SerializedName("id") @Expose var id: Int? = null,
+    @SerializedName("id") @Expose var id: Int = 0,
     @SerializedName("nombre") @Expose var name: String? = null,
     @SerializedName("nCientifico") @Expose var cientific: String? = null,
     @SerializedName("funcion") @Expose var funct: String? = null,
@@ -36,5 +36,4 @@ class PlantsViewmodel:ViewModel() {
 
         return Gson().fromJson(jsonString, listPlantType)
     }
-
 }

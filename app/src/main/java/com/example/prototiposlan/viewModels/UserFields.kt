@@ -17,3 +17,13 @@ data class UserFields(
         )
     }
 }
+
+data class PlantsStates(
+    val states: List<Boolean>
+){
+    fun plantsMap():MutableMap<String,Any>{
+        return mutableMapOf(
+            "encountered" to this.states,
+        )
+    }
+}

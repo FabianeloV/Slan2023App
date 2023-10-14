@@ -41,6 +41,7 @@ class MainActivity : ComponentActivity(), SensorEventListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             Main(daysViewModel.stepCounter.value)
         }
@@ -85,8 +86,9 @@ class MainActivity : ComponentActivity(), SensorEventListener {
             android.Manifest.permission.ACTIVITY_RECOGNITION
         ) != PackageManager.PERMISSION_GRANTED
     }
-
 }
+
+
 @Composable
 fun Main(steps:Int){
     val navController = rememberNavController()

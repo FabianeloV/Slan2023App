@@ -20,12 +20,14 @@ import com.google.firebase.ktx.Firebase
 fun RankingScreen(navController: NavController) {
     Scaffold(
         topBar = { GeneralTopBar(title = "Ranking", navController = navController) },
-        content = ({ boton() })
+        content = ({ Boton() })
     )
+
+
 }
 
 @Composable
-fun boton() {
+fun Boton() {
     Column(Modifier.fillMaxSize()) {
         Button(onClick = { sumTenPoints() }) {
             Text(text = "Prueba")
@@ -44,3 +46,5 @@ fun sumTenPoints() {
         .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
 
 }
+
+
