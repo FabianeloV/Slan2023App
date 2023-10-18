@@ -4,6 +4,7 @@ import android.content.ContentValues.TAG
 import android.util.Log
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -24,6 +25,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ArrowForward
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -35,8 +37,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
+import com.example.prototiposlan.DataStore
 import com.example.prototiposlan.R
 import com.example.prototiposlan.ui.theme.darkgreen
 import com.example.prototiposlan.ui.theme.graduateFont
@@ -45,8 +49,11 @@ import com.example.prototiposlan.viewModels.PlantsViewmodel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.getField
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @Composable
 fun PlantsScreen(
@@ -57,10 +64,14 @@ fun PlantsScreen(
 
     val loading = remember { mutableStateOf(true) }
 
-    val list = getPlantStates()
+    val plantslist = remember { plantsViewmodel.getPlantList(context) }
+
+    val dataStore = DataStore(context)
+
+    val scope = rememberCoroutineScope()
 
     LaunchedEffect(key1 = true) {
-        delay(6000)
+        delay(1000)
         loading.value = false
     }
 
@@ -70,7 +81,7 @@ fun PlantsScreen(
             if (loading.value) {
                 CircularProgress()
             } else {
-                PlantsContent(plantsViewmodel.getPlantList(context), list)
+                PlantsContent(plantslist, dataStore, scope) { plantsViewmodel.sumTwentyPoints() }
             }
         })
     )
@@ -90,39 +101,25 @@ fun CircularProgress() {
     }
 }
 
-
 @Composable
-fun getPlantStates(): List<Boolean> {
-    val auth: FirebaseAuth = Firebase.auth
-    val userId = auth.currentUser?.uid
-    val db = FirebaseFirestore.getInstance()
-    val docRef = db.collection("plantstates").document(userId.toString())
-
-    var plantsStates = remember { listOf<Boolean>() }
-
-    docRef.get().addOnSuccessListener { document ->
-        val test = document.data?.get("encountered") as List<Boolean>
-
-        plantsStates = test
-        Log.d(TAG, "document ${plantsStates}")
-    }
-        .addOnFailureListener { exception ->
-            Log.d(TAG, "get failed with ", exception)
-        }
-
-    return plantsStates
-}
-
-@Composable
-fun PlantsContent(plantList: MutableList<Plants>, list: List<Boolean>) {
+fun PlantsContent(
+    plantList: MutableList<Plants>,
+    dataStore: DataStore,
+    scope: CoroutineScope,
+    click: () -> Unit
+) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
-        item { plantList.forEach { plant -> PlantCard(plant, list) } }
+        item { plantList.forEach { plant -> PlantCard(plant, dataStore, scope){click()} } }
     }
 }
 
 @Composable
-fun PlantCard(plants: Plants, List: List<Boolean>) {
+fun PlantCard(plants: Plants, dataStore: DataStore, scope: CoroutineScope, click: () -> Unit) {
     val code = rememberSaveable { mutableStateOf("") }
+
+    val plantState = booleanPreferencesKey(plants.id.toString())
+
+    val savedPlantState = dataStore.getPlantState(plantState).collectAsState(initial = false)
 
     Card(elevation = 6.dp, modifier = Modifier.padding(top = 5.dp)) {
         Column(
@@ -148,32 +145,50 @@ fun PlantCard(plants: Plants, List: List<Boolean>) {
                         color = Color.DarkGray
                     )
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        OutlinedTextField(
-                            value = code.value,
-                            onValueChange = { code.value = it },
-                            label = { Text(text = "Ingresar código") },
-                            modifier = Modifier.size(height = 60.dp, width = 150.dp),
-                            shape = CircleShape
-                        )
-                        if (code.value == plants.code) {
-                            IconButton(
-                                onClick = { },
+
+                        if (savedPlantState.value!!) {
+                            Box(
                                 modifier = Modifier
-                                    .padding(start = 6.dp)
-                                    .border(
-                                        width = 1.dp,
-                                        color = Color.Green,
-                                        shape = CircleShape
-                                    )
+                                    .padding(top = 20.dp)
+                                    .border(width = 2.dp, color = darkgreen, shape = CircleShape)
                             ) {
-                                Icon(
-                                    imageVector = Icons.Outlined.ArrowForward,
-                                    contentDescription = null
+                                Text(
+                                    text = "Encontrada",
+                                    fontFamily = graduateFont,
+                                    fontSize = 24.sp,
+                                    color = darkgreen,
+                                    modifier = Modifier.padding(10.dp)
                                 )
                             }
-                        }
-                        if (List[plants.id]) {
-                            Text(text = "hola")
+
+                        } else {
+                            OutlinedTextField(
+                                value = code.value,
+                                onValueChange = { code.value = it },
+                                label = { Text(text = "Ingresar código") },
+                                modifier = Modifier.size(height = 60.dp, width = 150.dp),
+                                shape = CircleShape
+                            )
+                            if (code.value == plants.code) {
+                                IconButton(
+                                    onClick = {
+                                        scope.launch { dataStore.savePlantState(plantState) }
+                                        click()
+                                    },
+                                    modifier = Modifier
+                                        .padding(start = 6.dp)
+                                        .border(
+                                            width = 1.dp,
+                                            color = Color.Green,
+                                            shape = CircleShape
+                                        )
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Outlined.ArrowForward,
+                                        contentDescription = null
+                                    )
+                                }
+                            }
                         }
                     }
                 }

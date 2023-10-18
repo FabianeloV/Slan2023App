@@ -1,5 +1,7 @@
 package com.example.prototiposlan.screens
 
+import android.content.ContentValues
+import android.util.Log
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -24,16 +26,21 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Done
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.navigation.NavController
+import com.example.prototiposlan.DataStore
 import com.example.prototiposlan.R
 import com.example.prototiposlan.ui.theme.Shapes
 import com.example.prototiposlan.ui.theme.darkgreen
@@ -41,6 +48,12 @@ import com.example.prototiposlan.ui.theme.darkorange
 import com.example.prototiposlan.ui.theme.gold
 import com.example.prototiposlan.ui.theme.graduateFont
 import com.example.prototiposlan.viewModels.DaysViewModel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.launch
 
 @Composable
 fun ChallengeScreen(
@@ -52,6 +65,7 @@ fun ChallengeScreen(
         content = ({ ChallengeBody(daysViewModel) })
     )
 }
+
 
 @Composable
 fun ChallengeBody(daysViewModel: DaysViewModel) {
@@ -82,6 +96,15 @@ fun ChallengeBody(daysViewModel: DaysViewModel) {
 
 @Composable
 fun ChallengeBox(daysViewModel: DaysViewModel) {
+
+    val scope = rememberCoroutineScope()
+    val context = LocalContext.current
+    val dataStore = DataStore(context)
+
+    val challengeState = booleanPreferencesKey(daysViewModel.getTranslatedDay())
+    val savedChallengeState =
+        dataStore.getPlantState(challengeState).collectAsState(initial = false)
+
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Challenge(daysViewModel.getChallenge()[0], R.drawable.baseline_fitness_center_24)
 
@@ -119,7 +142,13 @@ fun ChallengeBox(daysViewModel: DaysViewModel) {
                 .padding(top = 40.dp)
         )
 
-        PointsButton()
+        PointsButton(
+            {
+                scope.launch { dataStore.savePlantState(challengeState) }
+                daysViewModel.sumTwentyPoints()
+            },
+            savedChallengeState.value!!
+        )
     }
 }
 
@@ -174,13 +203,15 @@ fun InvertedChallenge(challenge: String, icon: Int) {
 }
 
 @Composable
-fun PointsButton() {
+fun PointsButton(click: () -> Unit, enabled: Boolean) {
     val colorButt by remember { mutableStateOf(gold) }
+
     OutlinedButton(
-        onClick = { },
+        onClick = { click() },
         colors = ButtonDefaults.buttonColors(backgroundColor = colorButt),
         shape = CircleShape,
-        modifier = Modifier.padding(top = 30.dp)
+        modifier = Modifier.padding(top = 30.dp),
+        enabled = !enabled
     ) {
         Text(
             text = "COMPLETADO",
