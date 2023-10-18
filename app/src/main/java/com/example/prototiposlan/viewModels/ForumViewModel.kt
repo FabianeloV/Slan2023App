@@ -2,13 +2,15 @@ package com.example.prototiposlan.viewModels
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 
 class ForumViewModel: ViewModel() {
-    fun addForumChat(nickName: String, text: String) {
+    fun addForumChat(nickName: String, text: String, timestamp: Timestamp?) {
         val userField = ForumFields(
             nickname = nickName,
-            text = text
+            text = text,
+            time = timestamp
         ).forumMap()
 
         FirebaseFirestore.getInstance().collection("forum")
