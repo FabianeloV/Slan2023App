@@ -1,7 +1,5 @@
 package com.example.prototiposlan.screens
 
-import android.content.ContentValues.TAG
-import android.util.Log
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -46,11 +44,6 @@ import com.example.prototiposlan.ui.theme.darkgreen
 import com.example.prototiposlan.ui.theme.graduateFont
 import com.example.prototiposlan.viewModels.Plants
 import com.example.prototiposlan.viewModels.PlantsViewmodel
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.getField
-import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

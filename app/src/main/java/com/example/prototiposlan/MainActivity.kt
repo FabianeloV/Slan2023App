@@ -30,7 +30,9 @@ import com.example.prototiposlan.screens.RegisterScreen
 import com.example.prototiposlan.screens.Splash
 import com.example.prototiposlan.screens.UserScreen
 import com.example.prototiposlan.viewModels.DaysViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity(), SensorEventListener {
     private var sensorManager:SensorManager?=null
     private var running = false

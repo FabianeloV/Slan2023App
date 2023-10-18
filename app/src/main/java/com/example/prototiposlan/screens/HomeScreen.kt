@@ -11,6 +11,7 @@ import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.outlined.DateRange
+import androidx.compose.material.icons.outlined.Face
 import androidx.compose.material.icons.outlined.LocationOn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -49,10 +50,10 @@ fun HomeScreen(
             )
         }),
         bottomBar = {
-            BottomNavigation(backgroundColor = Color.White, elevation = 8.dp) {
+            BottomNavigation(backgroundColor = Color.White, elevation = 4.dp) {
                 homeViewModel.daysSchedule.forEach { day ->
                     BottomNavigationItem(
-                        label = { Text(text = day, fontFamily = graduateFont) },
+                        label = { Text(text = day) },
                         icon = {},
                         selected = day == homeViewModel.selectedDay,
                         onClick = {
@@ -189,12 +190,20 @@ fun EventColumn(event: Schedule) {
                 .padding(15.dp)
                 .fillMaxWidth()
         ) {
-            Text(text = event.event, modifier = Modifier.padding(bottom = 8.dp))
+            Text(text = event.event, modifier = Modifier.padding(bottom = 4.dp))
+
+            Text(text = event.code, modifier = Modifier.padding(bottom = 4.dp), color = darkorange)
 
             Row(Modifier.fillMaxWidth()) {
                 Icon(Icons.Outlined.LocationOn, contentDescription = event.event)
                 Spacer(modifier = Modifier.padding(horizontal = 5.dp))
                 Text(text = event.ubication, color = Color.Gray)
+            }
+
+            Row(Modifier.fillMaxWidth()) {
+                Icon(Icons.Outlined.Face, contentDescription = event.event)
+                Spacer(modifier = Modifier.padding(horizontal = 5.dp))
+                Text(text = event.speaker, color = Color.Gray)
             }
 
             Row(Modifier.fillMaxWidth()) {

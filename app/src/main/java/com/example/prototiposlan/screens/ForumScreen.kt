@@ -2,6 +2,7 @@ package com.example.prototiposlan.screens
 
 import android.content.ContentValues.TAG
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -31,6 +32,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.prototiposlan.ui.theme.darkgreen
@@ -73,6 +75,7 @@ fun ForumScreen(
 @Composable
 fun ForumUpload(forumViewModel: ForumViewModel, nickname: String) {
     val text = rememberSaveable { mutableStateOf("") }
+    val context = LocalContext.current
     BottomAppBar(
         modifier = Modifier.fillMaxWidth(),
         backgroundColor = Color.White,
@@ -97,6 +100,7 @@ fun ForumUpload(forumViewModel: ForumViewModel, nickname: String) {
                 onClick = {
                     forumViewModel.addForumChat(nickname, text.value, Timestamp(Date()))
                     text.value = ""
+                    Toast.makeText(context, "Subiendo...", Toast.LENGTH_SHORT).show()
                 },
                 colors = ButtonDefaults.buttonColors(backgroundColor = darkgreen),
                 shape = RoundedCornerShape(3.dp)
@@ -151,8 +155,6 @@ fun ForumChatCard(chatCard: ForumFields) {
         }
     }
 }
-
-
 @Composable
 fun getForumChats(): List<ForumFields> {
     val db = FirebaseFirestore.getInstance()

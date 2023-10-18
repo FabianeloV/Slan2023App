@@ -22,6 +22,7 @@ class HomeViewModel : ViewModel() {
         Schedule.T2,
         Schedule.T3,
         Schedule.T1,
+        Schedule.Taller1,
         Schedule.T5,
         Schedule.T6,
         Schedule.T4,
@@ -36,6 +37,7 @@ class HomeViewModel : ViewModel() {
         Schedule.S7,
         Schedule.CM1,
         Schedule.CM2,
+        Schedule.SP1,
         Schedule.MT1,
         Schedule.S8,
         Schedule.S9,
@@ -44,6 +46,7 @@ class HomeViewModel : ViewModel() {
         Schedule.S12,
         Schedule.S23,
         Schedule.S13,
+        Schedule.C16,
         Schedule.CM3,
         Schedule.PCO1,
         Schedule.PCO2,
@@ -53,6 +56,7 @@ class HomeViewModel : ViewModel() {
         Schedule.PCO6,
         Schedule.PCO7,
         Schedule.PCO8,
+        Schedule.SP2,
         Schedule.MT2,
         Schedule.S14,
         Schedule.S15,
@@ -73,6 +77,7 @@ class HomeViewModel : ViewModel() {
         Schedule.S26,
         Schedule.CM5,
         Schedule.CM6,
+        Schedule.SP3,
         Schedule.MT3,
         Schedule.S28,
         Schedule.S29,
@@ -80,6 +85,7 @@ class HomeViewModel : ViewModel() {
         Schedule.S65,
         Schedule.S31,
         Schedule.S32,
+        Schedule.S56,
         Schedule.CM7,
         Schedule.CM8,
         Schedule.PCO9,
@@ -90,6 +96,7 @@ class HomeViewModel : ViewModel() {
         Schedule.PCO14,
         Schedule.PCO15,
         Schedule.PCO16,
+        Schedule.SP4,
         Schedule.MT4,
         Schedule.S33,
         Schedule.S70,
@@ -109,6 +116,7 @@ class HomeViewModel : ViewModel() {
         Schedule.S45,
         Schedule.CM10,
         Schedule.CM11,
+        Schedule.SP5,
         Schedule.MTC10,
         Schedule.S46,
         Schedule.S47,
@@ -126,25 +134,47 @@ class HomeViewModel : ViewModel() {
         Schedule.PCO22,
         Schedule.PCO23,
         Schedule.PCO24,
+        Schedule.SP6,
         Schedule.MT6,
         Schedule.S53,
         Schedule.S59,
         Schedule.S55,
-        Schedule.S56,
         Schedule.S57,
         Schedule.S58,
         Schedule.S54,
-        Schedule.MT7
+        Schedule.Asamblea,
+        Schedule.MT7,
+        Schedule.S60,
+        Schedule.S61,
+        Schedule.S42,
+        Schedule.S5,
+        Schedule.S63,
+        Schedule.S67,
+        Schedule.S62,
+        Schedule.CM4,
+        Schedule.CM15,
+        Schedule.MTC1,
+        Schedule.MTC2,
+        Schedule.MTC3,
+        Schedule.MTC4,
+        Schedule.MTC5,
+        Schedule.MTC6,
+        Schedule.MTC7,
+        Schedule.MTC8,
+        Schedule.MTC9,
+        Schedule.CLAUSURA,
+        Schedule.CLAUSURA
     )
 
-    val daysSchedule = listOf("21 oct", "22 oct", "23 oct", "24 oct", "25 oct")
+    val daysSchedule = listOf("21 oct", "22 oct", "23 oct", "24 oct", "25 oct", "26 oct")
     var selectedDay by mutableStateOf(daysSchedule.first())
 
     private val firstDayEvents = eventList.subList(0, 3)
-    private val secondDayEvents = eventList.subList(3, 7)
-    private val thirdDayEvents = eventList.subList(7, 43)
-    private val fourthDayEvents = eventList.subList(43, 80)
-    private val fifthDayEvents = eventList.subList(80, 115)
+    private val secondDayEvents = eventList.subList(3, 8)
+    private val thirdDayEvents = eventList.subList(8, 47)
+    private val fourthDayEvents = eventList.subList(47, 87)
+    private val fifthDayEvents = eventList.subList(87, 124)
+    private val sixthDayEvents = eventList.subList(124, 144)
 
     fun getEventsList(): List<Schedule> {
         return when (selectedDay) {
@@ -153,6 +183,7 @@ class HomeViewModel : ViewModel() {
             "23 oct" -> thirdDayEvents
             "24 oct" -> fourthDayEvents
             "25 oct" -> fifthDayEvents
+            "26 oct" -> sixthDayEvents
             else -> {
                 firstDayEvents
             }
@@ -166,6 +197,7 @@ class HomeViewModel : ViewModel() {
             "23 oct" -> "23 de octubre"
             "24 oct" -> "24 de octubre"
             "25 oct" -> "25 de octubre"
+            "26 oct" -> "26 de octubre"
             else -> {
                 "21 de octubre"
             }

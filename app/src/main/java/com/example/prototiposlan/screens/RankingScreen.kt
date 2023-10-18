@@ -116,12 +116,12 @@ fun UserCard(rank: RankingFields) {
                 modifier = Modifier.size(80.dp).clip(CircleShape).border(1.dp, color = darkgreen, shape = CircleShape)
             )
 
-            Text(text = rank.nickname, fontFamily = graduateFont, fontSize = 16.sp)
+            Text(text = rank.nickname, fontFamily = graduateFont, fontSize = 24.sp)
 
             Text(
                 text = "${rank.points} pts",
                 fontFamily = graduateFont,
-                fontSize = 16.sp,
+                fontSize = 24.sp,
                 color = darkorange
             )
         }
