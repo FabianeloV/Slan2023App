@@ -82,7 +82,7 @@ fun UserContent(Steps: Int) {
             placeholder = painterResource(id = R.drawable.usericon),
             error = painterResource(id = R.drawable.usericon),
             contentDescription = "user avatar",
-            modifier = Modifier.clip(CircleShape).size(width = 150.dp, height = 150.dp)
+            modifier = Modifier.clip(CircleShape).size(width = 150.dp, height = 150.dp).border(1.dp, color = darkgreen, shape = CircleShape)
         )
 
         Spacer(modifier = Modifier.padding(25.dp))
@@ -205,7 +205,7 @@ fun getNickname():String{
     docRef.get().addOnSuccessListener { documentSnapshot ->
         if (documentSnapshot.exists()) {
 
-            val fieldValue = documentSnapshot.getString("nickname")
+            val fieldValue = documentSnapshot.getString("nickname")?.split(" ")?.get(0)
             if (fieldValue != null) {
                 userNickname.value = fieldValue.toString()
             } else {

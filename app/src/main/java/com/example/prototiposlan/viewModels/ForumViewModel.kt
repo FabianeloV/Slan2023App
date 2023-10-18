@@ -18,6 +18,5 @@ class ForumViewModel: ViewModel() {
             .set(userField)
             .addOnSuccessListener { Log.d("userField", "creado $it") }
             .addOnFailureListener { Log.d("userField", "error $it") }
-
     }
 }
