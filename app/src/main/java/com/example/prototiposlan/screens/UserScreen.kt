@@ -7,7 +7,9 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.outlined.ArrowBack
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
@@ -35,14 +37,17 @@ import com.google.firebase.ktx.Firebase
 
 @Composable
 fun UserScreen(navController: NavController, steps: Int) {
+
+
+
     Scaffold(
-        topBar = { GeneralTopBar(title = "USUARIO", navController = navController) },
+        topBar = { GeneralTopBar(title = "USUARIO", navController = navController, {}) },
         content = ({ UserContent(steps) })
     )
 }
 
 @Composable
-fun GeneralTopBar(title: String, navController: NavController) {
+fun GeneralTopBar(title: String, navController: NavController, action: ()->Unit) {
     TopAppBar(
         title = {
             Row(horizontalArrangement = Arrangement.Center) {
@@ -59,9 +64,20 @@ fun GeneralTopBar(title: String, navController: NavController) {
                 Icon(Icons.Outlined.ArrowBack, contentDescription = "Volver")
             }
         },
+        actions = {
+            IconButton(onClick = {  }) {
+                Icon(Icons.Outlined.Info, contentDescription = null)
+            }
+        }
+        ,
         backgroundColor = Color.Transparent,
         elevation = 1.dp,
     )
+}
+
+@Composable
+fun DialogInfo(){
+
 }
 
 @Composable
