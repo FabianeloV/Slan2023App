@@ -128,7 +128,7 @@ fun RowWithIcon() {
             contentDescription = "Runner",
             modifier = Modifier.size(36.dp)
         )
-        GenericUserText(text = "Pasos de hoy", fontSize = 32, color = darkgreen)
+        GenericUserText(text = "Pasos totales", fontSize = 32, color = darkgreen)
     }
 }
 

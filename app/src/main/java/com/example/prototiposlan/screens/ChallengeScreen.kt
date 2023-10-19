@@ -204,11 +204,9 @@ fun InvertedChallenge(challenge: String, icon: Int) {
 
 @Composable
 fun PointsButton(click: () -> Unit, enabled: Boolean) {
-    val colorButt by remember { mutableStateOf(gold) }
-
     OutlinedButton(
         onClick = { click() },
-        colors = ButtonDefaults.buttonColors(backgroundColor = colorButt),
+        colors = ButtonDefaults.buttonColors(backgroundColor = gold),
         shape = CircleShape,
         modifier = Modifier.padding(top = 30.dp),
         enabled = !enabled

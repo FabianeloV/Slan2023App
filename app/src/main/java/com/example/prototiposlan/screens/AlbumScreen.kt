@@ -5,19 +5,33 @@ import android.net.Uri
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts.GetContent
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.Icon
+import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Done
+import androidx.compose.material.icons.outlined.KeyboardArrowUp
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -25,7 +39,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.example.prototiposlan.R
+import com.example.prototiposlan.ui.theme.Shapes
 import com.example.prototiposlan.ui.theme.darkgreen
+import com.example.prototiposlan.ui.theme.gold
 import com.example.prototiposlan.ui.theme.graduateFont
 import com.example.prototiposlan.viewModels.AlbumViewModel
 import com.example.prototiposlan.viewModels.Response
@@ -43,41 +59,54 @@ fun AlbumScreen(navController: NavController, viewModel: AlbumViewModel = hiltVi
     }
 
     Scaffold(
-        topBar = { GeneralTopBar(title = "Album fotográfico", navController = navController) },
+        topBar = { GeneralTopBar(title = "Album", navController = navController) },
         content = ({ AlbumContent { galleryLauncher.launch(ALL) } })
     )
-    AddImageToFirestore(addImage = {downloadUrl -> viewModel.addImageUrl(downloadUrl) })
+    AddImageToFirestore(addImage = { downloadUrl -> viewModel.addImageUrl(downloadUrl) })
 }
 
 @Composable
 fun AlbumContent(open: () -> Unit) {
     Column(
-        modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.SpaceAround,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(20.dp)
+            .border(shape = Shapes.small, border = BorderStroke(2.dp, color = darkgreen))
     ) {
-        Text(
-            text = "TEST",
-            color = darkgreen,
-            fontSize = 18.sp,
-            fontFamily = graduateFont,
-            modifier = Modifier.padding(4.dp)
-        )
-
         AsyncImage(
             model = getAlbumUrl(),
-            placeholder = painterResource(id = R.drawable.baseline_question_mark_24),
-            error = painterResource(id = R.drawable.baseline_question_mark_24),
+            placeholder = painterResource(id = R.drawable.baseline_panorama_24),
+            error = painterResource(id = R.drawable.baseline_panorama_24),
             contentDescription = "Album collage",
+            modifier = Modifier
+                .clip(Shapes.small)
+                .size(width = 300.dp, height = 500.dp)
+                .border(1.dp, color = darkgreen, shape = Shapes.small)
         )
+
         OpenGalleryButton { open() }
     }
 }
 
 @Composable
 fun OpenGalleryButton(open: () -> Unit) {
-    Button(onClick = { open() }) {
-        Text(text = "Abrir Galeria")
+    OutlinedButton(
+        onClick = { open() },
+        colors = ButtonDefaults.buttonColors(backgroundColor = gold),
+        shape = CircleShape
+    ) {
+        Text(
+            text = "SUBIR FOTO",
+            color = Color.White,
+            fontSize = 20.sp,
+            fontFamily = graduateFont
+        )
+
+        Spacer(modifier = Modifier.padding(5.dp))
+
+        Icon(imageVector = Icons.Outlined.KeyboardArrowUp, contentDescription = null)
     }
 }
 
@@ -97,7 +126,7 @@ fun AddImageToFirestore(
 }
 
 @Composable
-fun getAlbumUrl():String{
+fun getAlbumUrl(): String {
     val avatarUrl = remember { mutableStateOf("") }
 
     val auth: FirebaseAuth = Firebase.auth
@@ -106,7 +135,7 @@ fun getAlbumUrl():String{
     val db = FirebaseFirestore.getInstance()
     val docRef = db.collection("albumImages").document(userId.toString())
 
-    docRef.addSnapshotListener{snapshot, e ->
+    docRef.addSnapshotListener { snapshot, e ->
         if (e != null) {
             Log.w(TAG, "Listen failed.", e)
             return@addSnapshotListener

@@ -64,20 +64,18 @@ fun PlantsScreen(
     val scope = rememberCoroutineScope()
 
     LaunchedEffect(key1 = true) {
-        delay(1000)
+        delay(4000)
         loading.value = false
     }
 
     Scaffold(
         topBar = { GeneralTopBar(title = "Flora", navController = navController) },
-        content = ({
-            if (loading.value) {
-                CircularProgress()
-            } else {
-                PlantsContent(plantslist, dataStore, scope) { plantsViewmodel.sumTwentyPoints() }
-            }
-        })
+        content = ({ PlantsContent(plantslist, dataStore, scope) { plantsViewmodel.sumTwentyPoints() } })
     )
+
+    if (loading.value) {
+        CircularProgress()
+    }
 }
 
 @Composable
