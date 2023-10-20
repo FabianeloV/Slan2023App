@@ -73,7 +73,7 @@ fun ForumScreen(
         bottomBar = ({ ForumUpload(forumViewModel, getNickname()) })
     )
     if (dialogState.value) {
-        DialogInfo(close = { dialogState.value = false }, title = "Usuario", text = "")
+        DialogInfo(close = { dialogState.value = false }, title = "Información del foro", text = "El foro es el espacio por el cual los usuarios pueden compartir sus experiencias durante el congreso, el foro es público y todos los usuarios pueden verlo. Se muestran los últimos 20 mensajes subidos")
     }
 }
 
@@ -125,7 +125,7 @@ fun ForumUpload(forumViewModel: ForumViewModel, nickname: String) {
 fun ForumChatContent(chatList: List<ForumFields>) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         item {
-            chatList.subList(0, 10).forEach { chat -> ForumChatCard(chatCard = chat) }
+            chatList.subList(0, 20).forEach { chat -> ForumChatCard(chatCard = chat) }
         }
     }
 }
@@ -151,7 +151,6 @@ fun ForumChatCard(chatCard: ForumFields) {
                     )
                     Text(
                         text = chatCard.text,
-                        fontFamily = graduateFont,
                         color = Color.DarkGray,
                         modifier = Modifier.padding(top = 2.dp)
                     )
@@ -177,7 +176,6 @@ fun getForumChats(): List<ForumFields> {
                 )
                 chatList.add(chat)
             }
-            Log.d(TAG, "$chatList")
         }
         .addOnFailureListener { exception ->
             Log.d(TAG, "Error getting documents: ", exception)

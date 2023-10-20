@@ -49,7 +49,7 @@ fun UserScreen(navController: NavController, steps: Int) {
         content = ({ UserContent(steps) })
     )
     if (dialogState.value) {
-        DialogInfo(close = { dialogState.value = false }, title = "Usuario", text = "")
+        DialogInfo(close = { dialogState.value = false }, title = "Información del Usuario", text = "Los usuarios tienen acceso a los pasos totales que han realizado, las calorías quemadas en base al número de pasos, y a su puntaje total obtenido durante el congreso. Estos puntos se obtienen relizando los retos diarios y encontrando los códigos que se encuentran en las plantas alrededor de la universidad de Cuenca")
     }
 }
 

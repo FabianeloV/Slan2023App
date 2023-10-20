@@ -67,8 +67,7 @@ fun AlbumScreen(navController: NavController, viewModel: AlbumViewModel = hiltVi
     AddImageToFirestore(addImage = { downloadUrl -> viewModel.addImageUrl(downloadUrl) })
 
     if (dialogState.value) {
-        DialogInfo(close = { dialogState.value = false }, title = "Usuario", text = "")
-
+        DialogInfo(close = { dialogState.value = false }, title = "Información del Álbum", text = "Los usuarios pueden subir UNA foto de su preferencia para evidenciar su experiencia durante el congreso. Los organizadores del SLAN 2023 realizarán un concurso entre las mejores fotografías para posteriormente premiar a los ganadores. EL USO DE ESTAS FOTOGRAFÍAS RADICA EXCLUSIVAMENTE DE FORMA INTERNA, NINGUNA DE LAS FOTOGRAFÍAS OBTENIDAS SERÁ PUBLICADA EN NINGÚN MEDIO PÚBLICO O SOCIAL")
     }
 }
 

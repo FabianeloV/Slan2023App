@@ -76,7 +76,7 @@ fun PlantsScreen(
     )
 
     if (dialogState.value) {
-        DialogInfo(close = { dialogState.value = false }, title = "Usuario", text = "")
+        DialogInfo(close = { dialogState.value = false }, title = "Información de la Flora", text = "La universidad de Cuenca posee una alta variedad de flora en sus instalaciones. Algunas de estas poseen tarjetas con su nombre y un código que pueden ingresar para ganar puntos.")
 
     }
 

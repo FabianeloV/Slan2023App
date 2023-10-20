@@ -67,7 +67,7 @@ fun ChallengeScreen(
         content = ({ ChallengeBody(daysViewModel) })
     )
     if (dialogState.value) {
-        DialogInfo(close = { dialogState.value = false }, title = "Usuario", text = "")
+        DialogInfo(close = { dialogState.value = false }, title = "Información del Reto Diario", text = "Cada día se presentará un nuevo reto que los usuarios pueden cumplir para obtener puntos. El cumplimiento de los retos radica en concienca propia de los participantes")
 
     }
 }

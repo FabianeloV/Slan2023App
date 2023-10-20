@@ -27,7 +27,7 @@ fun MapScreen(
         content = ({ GoogleMapScreen(viewModel) })
     )
     if (dialogState.value) {
-        DialogInfo(close = { dialogState.value = false }, title = "Usuario", text = "")
+        DialogInfo(close = { dialogState.value = false }, title = "Información de las rutas", text = "Los organizadores del SLAN 2023 plantearon varias rutas que los participantes del congreso pueden probar para conocer la ciudad y realizar actividad física.")
 
     }
 }

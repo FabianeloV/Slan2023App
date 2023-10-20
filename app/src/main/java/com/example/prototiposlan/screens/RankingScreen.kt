@@ -66,7 +66,7 @@ fun RankingScreen(navController: NavController) {
         })
     )
     if (dialogState.value) {
-        DialogInfo(close = { dialogState.value = false }, title = "Usuario", text = "")
+        DialogInfo(close = { dialogState.value = false }, title = "Información del Ranking", text = "A través de los retos diarios y encontrando las plantas, los usuarios pueden obtener puntos. Al final del congreso, los organizadores del SLAN 2023 van a premiar a los puntajes más altos.")
 
     }
 }
