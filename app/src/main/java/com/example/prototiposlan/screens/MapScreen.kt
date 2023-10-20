@@ -72,5 +72,15 @@ fun GoogleMapScreen(coord: MapviewModel) {
             points = coord.route3,
             color = Color.Green
         )
+        Marker(
+            state = MarkerState(position = coord.route4.last()),
+            title = "Ruta UDA",
+            snippet = "6.1 km -" + " 45 min -" + " 13.234 pasos",
+            icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)
+        )
+        Polyline(
+            points = coord.route4,
+            color = Color.Cyan
+        )
     }
 }

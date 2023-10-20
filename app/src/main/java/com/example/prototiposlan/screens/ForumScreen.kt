@@ -1,15 +1,19 @@
 package com.example.prototiposlan.screens
 
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
@@ -33,8 +37,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.prototiposlan.R
 import com.example.prototiposlan.ui.theme.darkgreen
 import com.example.prototiposlan.ui.theme.graduateFont
 import com.example.prototiposlan.viewModels.ForumFields
@@ -62,7 +68,12 @@ fun ForumScreen(
     val dialogState = remember { mutableStateOf(false) }
 
     Scaffold(
-        topBar = { GeneralTopBar(title = "MURO", navController = navController){dialogState.value = true } },
+        topBar = {
+            GeneralTopBar(
+                title = "MURO",
+                navController = navController
+            ) { dialogState.value = true }
+        },
         content = ({
             if (loading.value) {
                 CircularProgress()
@@ -73,7 +84,11 @@ fun ForumScreen(
         bottomBar = ({ ForumUpload(forumViewModel, getNickname()) })
     )
     if (dialogState.value) {
-        DialogInfo(close = { dialogState.value = false }, title = "Información del foro", text = "El foro es el espacio por el cual los usuarios pueden compartir sus experiencias durante el congreso, el foro es público y todos los usuarios pueden verlo. Se muestran los últimos 20 mensajes subidos")
+        DialogInfo(
+            close = { dialogState.value = false },
+            title = "Información del foro",
+            text = "El foro es el espacio por el cual los usuarios pueden compartir sus experiencias durante el congreso, el foro es público y todos los usuarios pueden verlo. Los usuarios pueden reportar los mensajes inapropiados. Se muestran los últimos 20 mensajes subidos"
+        )
     }
 }
 
@@ -123,15 +138,16 @@ fun ForumUpload(forumViewModel: ForumViewModel, nickname: String) {
 
 @Composable
 fun ForumChatContent(chatList: List<ForumFields>) {
+    val context = LocalContext.current
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         item {
-            chatList.subList(0, 20).forEach { chat -> ForumChatCard(chatCard = chat) }
+            chatList.subList(0, 20).forEach { chat -> ForumChatCard(chatCard = chat, context) }
         }
     }
 }
 
 @Composable
-fun ForumChatCard(chatCard: ForumFields) {
+fun ForumChatCard(chatCard: ForumFields, context: Context) {
     Card(elevation = 6.dp, modifier = Modifier.padding(top = 15.dp), shape = CircleShape) {
         Column(
             verticalArrangement = Arrangement.SpaceAround,
@@ -145,10 +161,22 @@ fun ForumChatCard(chatCard: ForumFields) {
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Column(verticalArrangement = Arrangement.SpaceEvenly) {
-                    Text(
-                        text = chatCard.nickname,
-                        fontFamily = graduateFont
-                    )
+                    Row {
+                        Text(
+                            text = chatCard.nickname,
+                            fontFamily = graduateFont
+                        )
+                        Icon(
+                            painter = painterResource(id = R.drawable.baseline_report_24),
+                            contentDescription = null,
+                            modifier = Modifier.padding(start = 20.dp).size(14.dp).clickable {
+                                Toast.makeText(
+                                    context, "Mensaje reportado", Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        )
+                    }
+
                     Text(
                         text = chatCard.text,
                         color = Color.DarkGray,
@@ -159,6 +187,7 @@ fun ForumChatCard(chatCard: ForumFields) {
         }
     }
 }
+
 @Composable
 fun getForumChats(): List<ForumFields> {
     val db = FirebaseFirestore.getInstance()

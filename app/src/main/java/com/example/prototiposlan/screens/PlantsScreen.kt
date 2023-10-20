@@ -64,25 +64,38 @@ fun PlantsScreen(
     val scope = rememberCoroutineScope()
 
     LaunchedEffect(key1 = true) {
-        delay(4000)
+        delay(900)
         loading.value = false
     }
 
     val dialogState = remember { mutableStateOf(false) }
 
     Scaffold(
-        topBar = { GeneralTopBar(title = "Flora", navController = navController){dialogState.value = true } },
-        content = ({ PlantsContent(plantslist, dataStore, scope) { plantsViewmodel.sumTwentyPoints() } })
+        topBar = {
+            GeneralTopBar(
+                title = "Flora",
+                navController = navController
+            ) { dialogState.value = true }
+        },
+        content = ({
+            if (loading.value) {
+                CircularProgress()
+            } else {
+                PlantsContent(plantslist, dataStore, scope) { plantsViewmodel.sumTwentyPoints() }
+            }
+        })
     )
 
     if (dialogState.value) {
-        DialogInfo(close = { dialogState.value = false }, title = "Información de la Flora", text = "La universidad de Cuenca posee una alta variedad de flora en sus instalaciones. Algunas de estas poseen tarjetas con su nombre y un código que pueden ingresar para ganar puntos.")
+        DialogInfo(
+            close = { dialogState.value = false },
+            title = "Información de la Flora",
+            text = "La universidad de Cuenca posee una alta variedad de flora en sus instalaciones. Algunas de estas poseen tarjetas con su nombre y un código que pueden ingresar para ganar puntos."
+        )
 
     }
 
-    if (loading.value) {
-        CircularProgress()
-    }
+
 }
 
 @Composable
@@ -107,7 +120,7 @@ fun PlantsContent(
     click: () -> Unit
 ) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
-        item { plantList.forEach { plant -> PlantCard(plant, dataStore, scope){click()} } }
+        item { plantList.forEach { plant -> PlantCard(plant, dataStore, scope) { click() } } }
     }
 }
 

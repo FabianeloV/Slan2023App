@@ -6,7 +6,7 @@ sealed class LatMenuScreens(val icon:Int,val title:String, val route:String) {
 
     object Ranking : LatMenuScreens(R.drawable.ic_baseline_arrow_forward_ios_24, "RANKING", "RankingScreen")
 
-    object Reto : LatMenuScreens(R.drawable.baseline_directions_run_24, "RETO DEL DIA", "ChallengeScreen")
+    object Reto : LatMenuScreens(R.drawable.baseline_directions_run_24, "RETO DEL día", "ChallengeScreen")
 
     object Muro : LatMenuScreens(R.drawable.baseline_forum_24, "MURO", "ForumScreen")
 
@@ -14,6 +14,6 @@ sealed class LatMenuScreens(val icon:Int,val title:String, val route:String) {
 
     object Flora : LatMenuScreens(R.drawable.baseline_park_24, "Flora", "PlantsScreen")
 
-    object Album : LatMenuScreens(R.drawable.baseline_video_library_24, "Album", "AlbumScreen")
+    object Album : LatMenuScreens(R.drawable.baseline_video_library_24, "Álbum", "AlbumScreen")
 }
 
