@@ -1,7 +1,5 @@
 package com.example.prototiposlan.screens
 
-import android.content.ContentValues
-import android.util.Log
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -27,7 +25,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Done
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -48,11 +45,6 @@ import com.example.prototiposlan.ui.theme.darkorange
 import com.example.prototiposlan.ui.theme.gold
 import com.example.prototiposlan.ui.theme.graduateFont
 import com.example.prototiposlan.viewModels.DaysViewModel
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.FieldValue
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.launch
 
 @Composable

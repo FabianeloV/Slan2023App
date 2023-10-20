@@ -133,7 +133,7 @@ fun DrawerMenu(menuItems: List<LatMenuScreens>, navController: NavController) {
         )
         Spacer(modifier = Modifier.padding(top = 10.dp))
 
-        menuItems.subList(0, 3).forEach() { item ->
+        menuItems.subList(0, 3).forEach { item ->
             DrawerItem(item = item, navController)
         }
 
@@ -149,7 +149,7 @@ fun DrawerMenu(menuItems: List<LatMenuScreens>, navController: NavController) {
 
         Spacer(modifier = Modifier.padding(top = 5.dp))
 
-        menuItems.subList(3, 6).forEach() { item ->
+        menuItems.subList(3, 6).forEach { item ->
             DrawerItem(item = item, navController)
         }
 

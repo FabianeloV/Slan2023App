@@ -8,8 +8,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.prototiposlan.R
 
-val monogram = FontFamily(Font(R.font.monogram_holder))
-
 val graduateFont = FontFamily(Font(R.font.graduate_regular))
 
 // Set of Material typography styles to start with
