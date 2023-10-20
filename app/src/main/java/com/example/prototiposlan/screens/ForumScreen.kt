@@ -59,8 +59,10 @@ fun ForumScreen(
         loading.value = false
     }
 
+    val dialogState = remember { mutableStateOf(false) }
+
     Scaffold(
-        topBar = { GeneralTopBar(title = "MURO", navController = navController) },
+        topBar = { GeneralTopBar(title = "MURO", navController = navController){dialogState.value = true } },
         content = ({
             if (loading.value) {
                 CircularProgress()
@@ -70,6 +72,9 @@ fun ForumScreen(
         }),
         bottomBar = ({ ForumUpload(forumViewModel, getNickname()) })
     )
+    if (dialogState.value) {
+        DialogInfo(close = { dialogState.value = false }, title = "Usuario", text = "")
+    }
 }
 
 @Composable

@@ -58,11 +58,18 @@ fun AlbumScreen(navController: NavController, viewModel: AlbumViewModel = hiltVi
         imageUri?.let { viewModel.uploadImageToStorage(imageUri) }
     }
 
+    val dialogState = remember { mutableStateOf(false) }
+
     Scaffold(
-        topBar = { GeneralTopBar(title = "Album", navController = navController) },
+        topBar = { GeneralTopBar(title = "Album", navController = navController){dialogState.value = true } },
         content = ({ AlbumContent { galleryLauncher.launch(ALL) } })
     )
     AddImageToFirestore(addImage = { downloadUrl -> viewModel.addImageUrl(downloadUrl) })
+
+    if (dialogState.value) {
+        DialogInfo(close = { dialogState.value = false }, title = "Usuario", text = "")
+
+    }
 }
 
 @Composable

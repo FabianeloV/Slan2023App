@@ -20,10 +20,16 @@ fun MapScreen(
     navController: NavController,
     viewModel: MapviewModel = androidx.lifecycle.viewmodel.compose.viewModel()
 ) {
+    val dialogState = remember { mutableStateOf(false) }
+
     Scaffold(
-        topBar = { GeneralTopBar(title = "RUTAS", navController = navController) },
+        topBar = { GeneralTopBar(title = "RUTAS", navController = navController){dialogState.value = true } },
         content = ({ GoogleMapScreen(viewModel) })
     )
+    if (dialogState.value) {
+        DialogInfo(close = { dialogState.value = false }, title = "Usuario", text = "")
+
+    }
 }
 
 @Composable

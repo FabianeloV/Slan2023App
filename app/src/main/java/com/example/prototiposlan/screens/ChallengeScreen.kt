@@ -60,10 +60,16 @@ fun ChallengeScreen(
     navController: NavController,
     daysViewModel: DaysViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
 ) {
+    val dialogState = remember { mutableStateOf(false) }
+
     Scaffold(
-        topBar = { GeneralTopBar(title = "Reto del día", navController = navController) },
+        topBar = { GeneralTopBar(title = "Reto del día", navController = navController) {dialogState.value = true } },
         content = ({ ChallengeBody(daysViewModel) })
     )
+    if (dialogState.value) {
+        DialogInfo(close = { dialogState.value = false }, title = "Usuario", text = "")
+
+    }
 }
 
 

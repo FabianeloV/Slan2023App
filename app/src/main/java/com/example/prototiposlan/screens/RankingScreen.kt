@@ -53,8 +53,10 @@ fun RankingScreen(navController: NavController) {
         loading.value = false
     }
 
+    val dialogState = remember { mutableStateOf(false) }
+
     Scaffold(
-        topBar = { GeneralTopBar(title = "Ranking", navController = navController) },
+        topBar = { GeneralTopBar(title = "Ranking", navController = navController){dialogState.value = true } },
         content = ({
             if (loading.value) {
                 CircularProgress()
@@ -63,6 +65,10 @@ fun RankingScreen(navController: NavController) {
             }
         })
     )
+    if (dialogState.value) {
+        DialogInfo(close = { dialogState.value = false }, title = "Usuario", text = "")
+
+    }
 }
 
 @Composable

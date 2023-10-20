@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.outlined.ArrowBack
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.runtime.Composable
@@ -38,16 +37,24 @@ import com.google.firebase.ktx.Firebase
 @Composable
 fun UserScreen(navController: NavController, steps: Int) {
 
-
+    val dialogState = remember { mutableStateOf(false) }
 
     Scaffold(
-        topBar = { GeneralTopBar(title = "USUARIO", navController = navController, {}) },
+        topBar = {
+            GeneralTopBar(
+                title = "USUARIO",
+                navController = navController
+            ) { dialogState.value = true }
+        },
         content = ({ UserContent(steps) })
     )
+    if (dialogState.value) {
+        DialogInfo(close = { dialogState.value = false }, title = "Usuario", text = "")
+    }
 }
 
 @Composable
-fun GeneralTopBar(title: String, navController: NavController, action: ()->Unit) {
+fun GeneralTopBar(title: String, navController: NavController, action: () -> Unit) {
     TopAppBar(
         title = {
             Row(horizontalArrangement = Arrangement.Center) {
@@ -65,19 +72,24 @@ fun GeneralTopBar(title: String, navController: NavController, action: ()->Unit)
             }
         },
         actions = {
-            IconButton(onClick = {  }) {
+            IconButton(onClick = { action() }) {
                 Icon(Icons.Outlined.Info, contentDescription = null)
             }
-        }
-        ,
+        },
         backgroundColor = Color.Transparent,
         elevation = 1.dp,
     )
 }
 
 @Composable
-fun DialogInfo(){
-
+fun DialogInfo(close: () -> Unit, title: String, text: String) {
+    AlertDialog(
+        onDismissRequest = { close() },
+        title = { Text(text = title) },
+        text = { Text(text = text) },
+        confirmButton = { },
+        shape = Shapes.small
+    )
 }
 
 @Composable
@@ -98,7 +110,10 @@ fun UserContent(Steps: Int) {
             placeholder = painterResource(id = R.drawable.usericon),
             error = painterResource(id = R.drawable.usericon),
             contentDescription = "user avatar",
-            modifier = Modifier.clip(CircleShape).size(width = 150.dp, height = 150.dp).border(1.dp, color = darkgreen, shape = CircleShape)
+            modifier = Modifier
+                .clip(CircleShape)
+                .size(width = 150.dp, height = 150.dp)
+                .border(1.dp, color = darkgreen, shape = CircleShape)
         )
 
         Spacer(modifier = Modifier.padding(25.dp))
@@ -149,7 +164,7 @@ fun RowWithIcon() {
 }
 
 @Composable
-fun points():Int{
+fun points(): Int {
     var userPoints by remember { mutableStateOf(0) }
 
     val auth: FirebaseAuth = Firebase.auth
@@ -182,7 +197,7 @@ fun points():Int{
 }
 
 @Composable
-fun getAvatarUrl():String{
+fun getAvatarUrl(): String {
     val avatarUrl = remember { mutableStateOf("") }
 
     val auth: FirebaseAuth = Firebase.auth
@@ -210,7 +225,7 @@ fun getAvatarUrl():String{
 }
 
 @Composable
-fun getNickname():String{
+fun getNickname(): String {
     val userNickname = remember { mutableStateOf("") }
 
     val auth: FirebaseAuth = Firebase.auth

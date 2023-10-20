@@ -42,7 +42,6 @@ fun SplashImage() {
         Image(
             painter = painterResource(id = R.drawable.slanlogo),
             contentDescription = "Escudo",
-            modifier = Modifier.size(width = 350.dp, height = 350.dp)
         )
     }
 }

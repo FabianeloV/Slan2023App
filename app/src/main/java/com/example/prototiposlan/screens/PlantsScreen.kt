@@ -68,10 +68,17 @@ fun PlantsScreen(
         loading.value = false
     }
 
+    val dialogState = remember { mutableStateOf(false) }
+
     Scaffold(
-        topBar = { GeneralTopBar(title = "Flora", navController = navController) },
+        topBar = { GeneralTopBar(title = "Flora", navController = navController){dialogState.value = true } },
         content = ({ PlantsContent(plantslist, dataStore, scope) { plantsViewmodel.sumTwentyPoints() } })
     )
+
+    if (dialogState.value) {
+        DialogInfo(close = { dialogState.value = false }, title = "Usuario", text = "")
+
+    }
 
     if (loading.value) {
         CircularProgress()

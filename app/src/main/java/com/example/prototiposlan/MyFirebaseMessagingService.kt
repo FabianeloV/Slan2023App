@@ -1,6 +1,7 @@
 package com.example.prototiposlan
 
+import android.annotation.SuppressLint
 import com.google.firebase.messaging.FirebaseMessagingService
 
-class MyFirebaseMessagingService:FirebaseMessagingService() {
-}
+@SuppressLint("MissingFirebaseInstanceTokenRefresh")
+class MyFirebaseMessagingService:FirebaseMessagingService()

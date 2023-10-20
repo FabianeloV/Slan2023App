@@ -2,6 +2,7 @@ package com.example.prototiposlan.screens
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -23,6 +24,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.prototiposlan.R
 import com.example.prototiposlan.ui.theme.darkgreen
 import com.example.prototiposlan.ui.theme.darkorange
 import com.example.prototiposlan.ui.theme.graduateFont
@@ -108,6 +110,11 @@ fun DrawerMenu(menuItems: List<LatMenuScreens>, navController: NavController) {
             .background(brush = linear)
     ) {
         Spacer(modifier = Modifier.padding(top = 25.dp))
+
+        Image(painter = painterResource(id = R.drawable.slandrawer), contentDescription = null)
+
+        Spacer(modifier = Modifier.padding(top = 25.dp))
+
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -125,9 +132,45 @@ fun DrawerMenu(menuItems: List<LatMenuScreens>, navController: NavController) {
         )
         Spacer(modifier = Modifier.padding(top = 10.dp))
 
-        menuItems.forEach { item ->
+        menuItems.subList(0, 3).forEach() { item ->
             DrawerItem(item = item, navController)
         }
+
+        Spacer(modifier = Modifier.padding(top = 5.dp))
+
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(4.dp)
+                .background(color = darkorange)
+                .padding(top = 20.dp)
+        )
+
+        Spacer(modifier = Modifier.padding(top = 5.dp))
+
+        menuItems.subList(3, 6).forEach() { item ->
+            DrawerItem(item = item, navController)
+        }
+
+        Spacer(modifier = Modifier.padding(top = 5.dp))
+
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(8.dp)
+                .background(color = darkorange)
+                .padding(top = 20.dp)
+        )
+
+        Spacer(modifier = Modifier.padding(top = 5.dp))
+
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(16.dp)
+                .background(color = darkorange)
+                .padding(top = 20.dp)
+        )
     }
 }
 
@@ -150,7 +193,8 @@ fun DrawerItem(item: LatMenuScreens, navController: NavController) {
                 Icon(
                     painter = painterResource(id = item.icon),
                     contentDescription = item.title,
-                    modifier = Modifier.size(28.dp)
+                    modifier = Modifier.size(28.dp),
+                    tint = darkorange
                 )
                 Spacer(modifier = Modifier.padding(horizontal = 8.dp))
                 Text(
